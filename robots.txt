@@ -1,0 +1,65 @@
+# T&T Financial Insurance Hub - Robots.txt
+# Website: https://kelsean868.github.io/T-T-Financial-Insurance-Hub/
+# Contact: Kyron Marchan - Licensed Insurance Agent
+
+# Allow all web crawlers to access the site
+User-agent: *
+Allow: /
+
+# Specifically allow important financial calculator pages
+Allow: /index.html
+Allow: /take-home-pay-calculator.html
+Allow: /nis-senior-citizen-pension-calculator.html
+Allow: /corporate-annuity-calculator.html
+Allow: /tax-return-calculator.html
+Allow: /public-servants-pension-calculator.html
+
+# Block any potential admin or temporary files (if they exist)
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Block common unwanted file types that might be accidentally uploaded
+Disallow: /*.log$
+Disallow: /*.tmp$
+Disallow: /*.bak$
+
+# Allow CSS and JavaScript files for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+
+# Allow images for proper display
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Block AI training crawlers (optional - protects intellectual property)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Common crawl archiving (allow for historical preservation)
+User-agent: ia_archiver
+Allow: /
+
+# Sitemap location for search engines
+Sitemap: https://kelsean868.github.io/T-T-Financial-Insurance-Hub/sitemap.xml
+
+# Crawl delay to be respectful of server resources
+Crawl-delay: 1
