@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en-TT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- SEO and Meta Tags -->
+    <title>Trinidad & Tobago Tax Return Calculator (2019-2024) | Free T&T BIR Refund Estimator</title>
+    <meta name="description" content="The most accurate and detailed tax return calculator for Trinidad & Tobago. Calculate your 2019-2024 tax refund or liability based on historical BIR rules. Includes all deductions (Annuity, First-Time Home Owner, Tertiary Education), tax credits, and a dynamic savings planner to maximize your tax refund.">
+    <meta name="keywords" content="Trinidad and Tobago tax return calculator, T&T tax refund, Business Levy, tax credits, annuity savings, file taxes Trinidad, BIR calculator, TD4 form, tax deductions T&T, chargeable income, PAYE, tax planning T&T, Kyron Marchan, T&T income tax calculator, tax refund estimator T&T, annuity tax savings Trinidad, first-time home owner allowance T&T, tertiary education tax deduction Trinidad">
+    <meta name="author" content="Kyron Marchan">
+    <link rel="canonical" href="https://kelsean868.github.io/paye-annuity-calculator-tt/tax-return.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/tax-return.html">
+    <meta property="og:title" content="Trinidad & Tobago Tax Return Calculator (2019-2024) | Free T&T BIR Refund Estimator">
+    <meta property="og:description" content="Calculate your T&T tax refund or liability for 2019-2024 with our detailed BIR-compliant calculator. Maximize your deductions and plan your savings.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png">
+    <meta property="og:site_name" content="T&T Tax Return & Savings Calculator">
+    <meta property="og:locale" content="en_TT">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/tax-return.html">
+    <meta property="twitter:title" content="Trinidad & Tobago Tax Return Calculator (2019-2024) | Free T&T BIR Refund Estimator">
+    <meta property="twitter:description" content="Calculate your T&T tax refund or liability for 2019-2024 with our detailed BIR-compliant calculator. Maximize your deductions and plan your savings.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png">
+
+    <!-- Scripts and Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "T&T Tax Return Calculator",
+      "description": "A free financial calculator to estimate income tax liability or refund for Trinidad and Tobago for the years 2019-2024, based on historical BIR rules. It accounts for personal allowance, various deductions, and tax credits.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TTD"
+      },
+      "provider": {
+        "@type": "Person",
+        "name": "Kyron Marchan"
+      },
+      "keywords": "Trinidad and Tobago tax return calculator, T&T tax refund, Business Levy, tax credits, annuity savings, file taxes Trinidad, BIR calculator, TD4 form, tax deductions T&T, chargeable income, PAYE, tax planning T&T",
+      "url": "https://kelsean868.github.io/paye-annuity-calculator-tt/tax-return.html"
+    }
+    </script>
+
+
+    <!-- Reusing the stylesheet from the provided examples -->
+    <style>
+        :root {
+            --bg-main: #f4f6f9; --bg-bento-box: #ffffff; --bg-secondary: #f8f9fa; --bg-accent: #eef2f7; --text-primary: #1d2d35; --text-secondary: #4a5568; --text-muted: #718096; --border-color: #dce1e7; --primary-accent: #005f73; --primary-accent-darker: #003d4d; --secondary-accent: #ae8625; --secondary-accent-darker: #8c6c1d; --success-color: #2a9d8f; --warning-color: #fca5a5; --refund-color: #2a9d8f; --payable-color: #ef4444; --shadow-soft: 0 3px 6px rgba(0,0,0,0.04); --shadow-medium: 0 5px 15px rgba(0,0,0,0.06); --shadow-strong: 0 8px 25px rgba(0,0,0,0.08); --font-body: 'Montserrat', sans-serif; --font-heading: 'Source Serif Pro', serif;
+        }
+        .dark-mode {
+            --bg-main: #1f2937; --bg-bento-box: #2b3c4d; --bg-secondary: #374151; --bg-accent: #4B5563; --text-primary: #f0f4f8; --text-secondary: #d1d5db; --text-muted: #9ca3af; --border-color: #4b5f71; --primary-accent: #25a1af; --primary-accent-darker: #1e838f; --secondary-accent: #daa520; --secondary-accent-darker: #b8860b; --success-color: #38c172; --warning-color: #b91c1c; --refund-color: #38c172; --payable-color: #f87171;
+        }
+        body { font-family: var(--font-body); background-color: var(--bg-main); color: var(--text-primary); transition: background-color 0.3s ease, color 0.3s ease; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        .page-title { font-family: var(--font-heading); color: var(--primary-accent); font-weight: 700; }
+        .page-subtitle { font-family: var(--font-body); font-weight: 600; color: var(--text-secondary); }
+        .bento-section-title { font-family: var(--font-heading); font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; }
+        .bento-step-indicator { display: inline-flex; align-items: center; justify-content: center; background-color: var(--secondary-accent); color: var(--bg-bento-box); border-radius: 50%; width: 34px; height: 34px; font-family: var(--font-body); font-weight: 700; font-size: 1rem; margin-right: 12px; box-shadow: var(--shadow-soft); }
+        .dark-mode .bento-step-indicator { color: var(--text-primary); }
+        .bento-box { background-color: var(--bg-bento-box); border-radius: 0.75rem; padding: 1.75rem; box-shadow: var(--shadow-medium); transition: all 0.3s ease; border: 1px solid var(--border-color); }
+        input[type="number"], select, textarea { border: 1px solid var(--border-color); padding: 0.85rem 1.15rem; border-radius: 0.375rem; transition: all 0.2s ease; font-size: 16px; background-color: var(--bg-secondary); color: var(--text-primary); font-weight: 500; }
+        input[type="number"]:focus, select:focus, textarea:focus { border-color: var(--primary-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-accent) 25%, transparent); outline: none; background-color: var(--bg-bento-box); }
+        .button-base { font-weight: 600; padding: 0.85rem 1.25rem; border-radius: 0.375rem; transition: all 0.2s ease; box-shadow: var(--shadow-soft); text-transform: uppercase; letter-spacing: 0.025em; font-family: var(--font-body); touch-action: manipulation; }
+        .button-base:hover:not(:disabled) { transform: translateY(-2px); box-shadow: var(--shadow-medium); }
+        .button-base:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: var(--shadow-soft); }
+        .main-calc-button { background-color: var(--primary-accent); color: white; }
+        .main-calc-button:hover:not(:disabled) { background-color: var(--primary-accent-darker); }
+        .secondary-action-button { background-color: var(--secondary-accent); color: white; }
+        .dark-mode .secondary-action-button { color: var(--text-primary); }
+        .secondary-action-button:hover:not(:disabled) { background-color: var(--secondary-accent-darker); }
+        .info-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background-color: var(--primary-accent); color: var(--bg-bento-box); border-radius: 50%; font-size: 11px; font-weight: 600; cursor: pointer; margin-left: 6px; transition: all 0.2s ease; }
+        .info-icon:hover { transform: scale(1.15); }
+        .tooltip { position: relative; display: inline-block; }
+        .tooltip .tooltiptext { visibility: hidden; width: 260px; background-color: var(--text-primary); color: var(--bg-bento-box); text-align: center; border-radius: 0.375rem; padding: 10px; position: absolute; z-index: 20; bottom: 135%; left: 50%; margin-left: -130px; opacity: 0; transition: opacity 0.3s ease; box-shadow: var(--shadow-medium); font-size: 0.8rem; font-weight: 500; }
+        .tooltip .tooltiptext::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border-width: 6px; border-style: solid; border-color: var(--text-primary) transparent transparent transparent; }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+        .progress-bar-container { background-color: var(--bg-accent); border-radius: 999px; height: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+        .progress-bar { height: 100%; background-color: var(--success-color); transition: width 0.5s ease-in-out; border-radius: 999px; }
+        .progress-bar.exceeded { background-color: var(--warning-color); }
+        .final-result-card { border-radius: 0.75rem; padding: 2rem; text-align: center; transition: all 0.5s ease-in-out; color: white; }
+        .final-result-card.refund { background: linear-gradient(135deg, var(--success-color), color-mix(in srgb, var(--success-color) 70%, #000)); }
+        .final-result-card.payable { background: linear-gradient(135deg, var(--payable-color), color-mix(in srgb, var(--payable-color) 70%, #000)); }
+        .theme-switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-accent); }
+        input:checked + .slider:before { transform: translateX(20px); }
+        .breakdown-line, .breakdown-line-deduct, .breakdown-total-line, .breakdown-line-add { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); }
+        .breakdown-line-deduct span:first-child, .breakdown-line-add span:first-child { padding-left: 1.5rem; position: relative; }
+        .breakdown-line-deduct span:first-child::before { content: '-'; position: absolute; left: 0.5rem; color: var(--payable-color); }
+        .breakdown-line-add span:first-child::before { content: '+'; position: absolute; left: 0.5rem; color: var(--success-color); }
+        .breakdown-total-line { border-top: 2px solid var(--text-primary); border-bottom: none; margin-top: 0.5rem; padding-top: 0.75rem; }
+        .dark-mode .breakdown-total-line { border-top-color: var(--text-primary); }
+        .breakdown-total-line.final-balance { border-top-width: 2px; border-bottom: 3px double var(--text-primary); padding-bottom: 0.75rem; font-size: 1.1rem; }
+        .dark-mode .breakdown-total-line.final-balance { border-bottom-color: var(--text-primary); }
+        .radio-group label {
+            background-color: var(--bg-accent);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .radio-group input:checked + label {
+            background-color: var(--primary-accent);
+            color: white;
+            border-color: var(--primary-accent-darker);
+        }
+        .collapsible-trigger { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .collapsible-trigger svg { transition: transform 0.3s ease; }
+        .collapsible-trigger.open svg { transform: rotate(180deg); }
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        #scrollNudge {
+            animation: bounce 2s infinite;
+        }
+        @keyframes glow-nudge {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 0 5px color-mix(in srgb, var(--primary-accent) 0%, transparent);
+            }
+            50% {
+                transform: translateY(-2px);
+                box-shadow: 0 0 10px color-mix(in srgb, var(--primary-accent) 50%, transparent);
+            }
+        }
+        .glow-nudge-animation {
+            animation: glow-nudge 2.5s infinite;
+        }
+    </style>
+</head>
+\1
+    <!-- Navigation back to hub -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="./index.html" class="flex items-center px-4 py-2 bg-[var(--primary-accent)] text-white rounded-lg shadow-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            Back to Hub
+        </a>
+    </div>
+    
+    <a href="https://wa.me/18683278273?text=Hello%20Kyron,%20I'd%20like%20to%20discuss%20my%20financial%20plan%20after%20using%20the%20tax%20calculator." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" fill="white"><path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.044-.53-.044-.33 0-.545.015-.765.015h-.214c-.015 0-.33.044-.66.33-.372.33-.945.99-1.146 1.963-.128.58-.27 1.16-.27 1.842 0 1.288.36 2.403.945 3.488.58 1.085 2.512 3.34 4.814 4.314 2.05 1.04 3.51 1.25 4.314 1.25.143 0 .832-.214 1.146-.66.27-.372.99-.945.99-1.962s-.27-.817-.545-1.146c-.27-.33-.545-.33-.817-.33h-.53z M16 4.437c6.39 0 11.562 5.17 11.562 11.563 0 6.39-5.17 11.562-11.563 11.562-2.062 0-3.99-.545-5.63-1.518l-5.973 1.518 1.518-5.972c-1.04-1.63-1.63-3.6-1.63-5.59 0-6.39 5.17-11.563 11.563-11.563z M16 .002C7.163.002 0 7.165 0 16.002c0 3.016.817 5.86 2.336 8.2l-2.336 9.172 9.172-2.336c2.34 1.518 5.186 2.336 8.13 2.336 8.84 0 16-7.164 16-16S24.842.002 16 .002z"></path></svg>
+    </a>
+    
+    <div id="scrollNudge" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+      <div class="w-10 h-10 bg-[var(--primary-accent)] rounded-full flex items-center justify-center shadow-lg opacity-50">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+      </div>
+    </div>
+    
+    <div class="w-full max-w-5xl mx-auto my-8 space-y-8">
+        <header class="text-center relative">
+            <h1 class="page-title text-4xl sm:text-5xl md:text-6xl mb-3">T&T Tax Return Calculator</h1>
+            <h2 id="page-subtitle-h2" class="page-subtitle text-xl sm:text-2xl">Estimate Your Refund or Balance Payable for 2024</h2>
+            <p class="text-[var(--text-secondary)] mt-5 text-md md:text-lg max-w-3xl mx-auto">
+                File with confidence. Use our calculator to get a detailed estimate of your tax situation and explore how saving in an annuity can increase your refund.
+            </p>
+            <div class="absolute top-0 right-0">
+                <label class="theme-switch" for="themeToggleCheckbox" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="themeToggleCheckbox" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <!-- Main Calculator Form -->
+        <div id="calculatorForm" class="space-y-8">
+            <section class="bento-box">
+                 <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-6 gap-4">
+                    <h2 class="bento-section-title text-xl md:text-2xl mb-0 flex-shrink-0"><span class="bento-step-indicator">1</span>Your Annual Income & Expenses</h2>
+                    <div class="flex items-end gap-4">
+                        <div>
+                            <label for="taxYear" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Select Tax Year</label>
+                            <select id="taxYear" class="w-full">
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                        <button id="resetBtn" class="button-base main-calc-button text-sm py-2 px-4 h-fit">Reset</button>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">What are your income sources?</label>
+                    <div class="flex flex-wrap gap-4 radio-group">
+                        <input type="radio" id="userTypeEmployed" name="userType" value="employed" class="hidden" checked>
+                        <label for="userTypeEmployed">Employed Only</label>
+                        
+                        <input type="radio" id="userTypeSelfEmployed" name="userType" value="self-employed" class="hidden">
+                        <label for="userTypeSelfEmployed">
+                            Self-Employed Only
+                            <span class="tooltip inline-block align-middle"><span class="info-icon">?</span><span class="tooltiptext">For privately owned corporations, partnerships, or sole proprietorships.</span></span>
+                        </label>
+                        
+                        <input type="radio" id="userTypeBoth" name="userType" value="both" class="hidden">
+                        <label for="userTypeBoth">Both</label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div id="emolumentIncomeContainer">
+                        <label for="totalIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Total Emolument Income (Annual)
+                            <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Enter your total gross income for the year from employment (salary, wages, bonuses) before any deductions.</span></span>
+                        </label>
+                        <input type="number" id="totalIncome" placeholder="e.g., 200000" class="w-full">
+                    </div>
+                     <div id="businessIncomeContainer" class="hidden">
+                        <label for="businessIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Self-Employment / Business Income
+                            <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Enter gross income from any self-employment or business activity. This is used to calculate Business Levy if it exceeds $360,000.</span></span>
+                        </label>
+                        <input type="number" id="businessIncome" placeholder="e.g., 50000" class="w-full">
+                    </div>
+                     <div>
+                        <label for="cancelledAnnuities" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Cancelled Annuities/Pensions
+                            <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">If you cancelled a registered annuity or pension plan, the amount received is considered taxable income.</span></span>
+                        </label>
+                        <input type="number" id="cancelledAnnuities" placeholder="e.g., 5000" class="w-full">
+                    </div>
+                    <div>
+                        <label for="travellingExpenses" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Work-Related Travelling Expenses
+                            <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">If you use your personal vehicle for work, enter your total annual travelling costs (e.g., gas, maintenance). 2/3 of this amount is deductible.</span></span>
+                        </label>
+                        <input type="number" id="travellingExpenses" placeholder="e.g., 6000" class="w-full">
+                    </div>
+                    <div id="payePaidContainer">
+                        <label for="payePaid" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Total PAYE Paid for the Year
+                            <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Find this on your TD4 slip(s). It's the total amount of tax your employer(s) already deducted and paid on your behalf.</span></span>
+                        </label>
+                        <input type="number" id="payePaid" placeholder="e.g., 24000" class="w-full">
+                    </div>
+                </div>
+
+                <div class="mt-6 border-t border-[var(--border-color)] pt-6">
+                     <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">Do you have income from foreign sources?</label>
+                    <div class="flex flex-wrap gap-4 radio-group">
+                        <input type="radio" id="foreignIncomeNo" name="foreignIncome" value="no" class="hidden" checked>
+                        <label for="foreignIncomeNo">No</label>
+                        
+                        <input type="radio" id="foreignIncomeYes" name="foreignIncome" value="yes" class="hidden">
+                        <label for="foreignIncomeYes">Yes</label>
+                    </div>
+                </div>
+                <div id="foreignIncomeContainer" class="hidden mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div>
+                        <label for="foreignSourceIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Foreign Source Income (Annual)
+                            <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Enter the total gross income earned from sources outside of T&T.</span></span>
+                        </label>
+                        <input type="number" id="foreignSourceIncome" placeholder="e.g., 20000" class="w-full">
+                    </div>
+                </div>
+            </section>
+
+            <section class="bento-box">
+                <h2 class="bento-section-title text-xl md:text-2xl"><span class="bento-step-indicator">2</span>Your Tax Deductions</h2>
+                <div class="space-y-6">
+                    <!-- Standard Deductions (NIS & Annuity) -->
+                    <div class="deduction-item space-y-2">
+                        <label class="block text-sm font-medium text-[var(--text-secondary)]">
+                            NIS & Registered Savings
+                            <span class="tooltip"><span class="info-icon">?</span><span id="nis-annuity-tooltip" class="tooltiptext">Your NIS (70%), personal annuity, and your own contributions to a company pension are combined. The total deduction is capped at $60,000.</span></span>
+                        </label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <input type="number" id="nisContribution" placeholder="Annual NIS Paid" class="w-full">
+                            <input type="number" id="personalAnnuity" placeholder="Annual Personal Annuity" class="w-full">
+                            <input type="number" id="companyPension" placeholder="Your Annual Pension Contrib." class="w-full">
+                        </div>
+                        <div class="progress-bar-container mt-2">
+                            <div id="nisAnnuityProgressBar" class="progress-bar"></div>
+                        </div>
+                        <p id="nisAnnuityProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                    </div>
+                    
+                    <!-- Other Deductions Trigger -->
+                    <button id="otherDeductionsTrigger" data-target="#otherDeductionsContent" class="collapsible-trigger button-base secondary-action-button w-full flex justify-between items-center text-left normal-case font-semibold">
+                         <span>Have other deductions? (Click to expand)</span>
+                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <!-- Other Deductions Content -->
+                    <div id="otherDeductionsContent" class="hidden grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 pt-4">
+                         <div class="deduction-item space-y-2">
+                            <label for="widowsAndOrphansFund" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Widows' and Orphans' Fund
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Contributions to this specific government fund are deductible and grouped with your other pension savings.</span></span>
+                            </label>
+                            <input type="number" id="widowsAndOrphansFund" placeholder="Annual Amount Paid" class="w-full">
+                        </div>
+                        <div class="deduction-item space-y-2">
+                            <label for="tertiaryEducation" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Tertiary Education Expenses
+                                <span class="tooltip"><span class="info-icon">?</span><span id="tertiary-tooltip" class="tooltiptext">For yourself or your child at an approved institution. Capped at $72,000.</span></span>
+                            </label>
+                            <input type="number" id="tertiaryEducation" placeholder="Annual Amount" class="w-full">
+                            <div class="progress-bar-container"><div id="tertiaryProgressBar" class="progress-bar"></div></div>
+                            <p id="tertiaryProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+
+                        <div class="deduction-item space-y-2">
+                            <label for="firstTimeHomeOwner" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                First-Time Home Owner Allowance
+                                <span class="tooltip"><span class="info-icon">?</span><span id="homeowner-tooltip" class="tooltiptext">Mortgage interest paid for the first five years of acquiring the property. The deduction is capped at $30,000 annually.</span></span>
+                            </label>
+                            <input type="number" id="firstTimeHomeOwner" placeholder="Annual Amount" class="w-full">
+                            <div class="progress-bar-container"><div id="homeOwnerProgressBar" class="progress-bar"></div></div>
+                            <p id="homeOwnerProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+                        
+                        <div class="deduction-item space-y-2">
+                            <label for="covenantedDonations" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Covenanted Donations to Charity
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Deeds of Covenant to approved charities. Capped at 15% of your total income.</span></span>
+                            </label>
+                            <input type="number" id="covenantedDonations" placeholder="Annual Amount" class="w-full">
+                            <div class="progress-bar-container"><div id="donationsProgressBar" class="progress-bar"></div></div>
+                            <p id="donationsProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+                        
+                        <div class="deduction-item space-y-2">
+                             <label for="guestHouseExpenditure" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Approved Guest House Expenditure
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Capital expenditure for converting a building into an approved guest house.</span></span>
+                            </label>
+                             <input type="number" id="guestHouseExpenditure" placeholder="Annual Amount" class="w-full">
+                        </div>
+
+                        <div class="deduction-item space-y-2">
+                             <label for="domesticWorkerNis" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                NIS for Domestic Workers
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Enter the total annual NIS contributions you paid on behalf of domestic workers you employ.</span></span>
+                            </label>
+                             <input type="number" id="domesticWorkerNis" placeholder="Annual Amount" class="w-full">
+                        </div>
+
+                        <div class="deduction-item space-y-2">
+                            <label for="alimonyPayments" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Alimony / Maintenance Payments
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Enter the total amount paid for the year under a court order.</span></span>
+                            </label>
+                             <input type="number" id="alimonyPayments" placeholder="Annual Amount" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bento-box">
+                 <button id="taxCreditsTrigger" data-target="#taxCreditsContent" class="collapsible-trigger button-base secondary-action-button w-full flex justify-between items-center text-left normal-case font-semibold">
+                    <span>Have tax credits? (Click to expand)</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="taxCreditsContent" class="hidden pt-6">
+                    <p class="text-sm text-[var(--text-muted)] mt-2 mb-6">Tax credits directly reduce your final tax bill. Enter the cost or investment amount.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div class="credit-item space-y-2">
+                            <label for="cngKit" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                CNG Kit & Cylinder
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">The credit is 25% of the cost of the kit and cylinder, up to a maximum credit of $10,000.</span></span>
+                            </label>
+                            <input type="number" id="cngKit" placeholder="Cost of Kit & Cylinder" class="w-full">
+                            <div class="progress-bar-container"><div id="cngProgressBar" class="progress-bar"></div></div>
+                            <p id="cngProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+                        <div class="credit-item space-y-2">
+                            <label for="solarHeater" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Solar Water Heater
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">The credit is 25% of the cost of the solar water heating equipment, up to a maximum credit of $10,000.</span></span>
+                            </label>
+                            <input type="number" id="solarHeater" placeholder="Cost of Equipment" class="w-full">
+                            <div class="progress-bar-container"><div id="solarHeaterProgressBar" class="progress-bar"></div></div>
+                            <p id="solarHeaterProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+                         <div class="credit-item space-y-2">
+                            <label for="savingsBonds" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                National Tax-Free Savings Bonds
+                                 <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">The credit is 25% of the face value of bonds purchased, up to a maximum credit of $5,000.</span></span>
+                            </label>
+                            <input type="number" id="savingsBonds" placeholder="Face Value of Bonds Purchased" class="w-full">
+                            <div class="progress-bar-container"><div id="savingsBondsProgressBar" class="progress-bar"></div></div>
+                            <p id="savingsBondsProgressLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+                        <div class="credit-item space-y-2">
+                            <label for="ventureCapital" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Venture Capital Investment
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">The credit is 25% of the actual amount invested in an approved Venture Capital Company. No maximum credit is specified on the TD1.</span></span>
+                            </label>
+                            <input type="number" id="ventureCapital" placeholder="Amount Invested" class="w-full">
+                            <p id="ventureCapitalLabel" class="text-xs text-right text-[var(--text-muted)] mt-1"></p>
+                        </div>
+                        <div id="doubleTaxReliefContainer" class="credit-item space-y-2 hidden">
+                             <label for="doubleTaxRelief" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Double Tax / Unrelieved Foreign Tax
+                                <span class="tooltip"><span class="info-icon">?</span><span class="tooltiptext">Enter the approved credit amount for taxes paid in another country on income that is also taxed in T&T.</span></span>
+                            </label>
+                            <input type="number" id="doubleTaxRelief" placeholder="Approved Credit Amount" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Calculation Button -->
+        <div class="text-center" id="calculateBtnContainer">
+            <button id="calculateBtn" class="w-full md:w-1/2 main-calc-button button-base text-lg">Calculate My Tax Return</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="hidden space-y-8">
+            <section id="finalResultCardContainer" class="final-result-card">
+                <p id="resultLabel" class="text-2xl font-bold opacity-80"></p>
+                <p id="resultAmount" class="text-5xl md:text-7xl font-extrabold my-2"></p>
+                <p id="resultDescription" class="font-semibold"></p>
+                <div id="dynamic-action-container" class="mt-4">
+                    <button id="dynamic-action-btn" class="button-base secondary-action-button text-sm glow-nudge-animation"></button>
+                </div>
+            </section>
+
+            <div class="bento-box">
+                <div id="breakdownTrigger" data-target="#initialBreakdownContent" class="collapsible-trigger">
+                    <h2 class="bento-section-title text-xl md:text-2xl mb-0">Initial Calculation Breakdown</h2>
+                    <svg class="w-6 h-6 text-[var(--primary-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="initialBreakdownContent" class="hidden mt-4">
+                    <!-- Initial breakdown will be populated here by JS -->
+                </div>
+            </div>
+            
+            <div id="taxSavingsOpportunitySection" class="bento-box space-y-4 bg-[var(--bg-accent)]">
+                 <h2 class="bento-section-title text-xl md:text-2xl">Tax Savings Opportunity</h2>
+                 <p class="text-sm text-[var(--text-secondary)] -mt-4">See how contributing 15% of your gross emolument income to a personal annuity could increase your refund.</p>
+                 <div id="potentialRefundCard" class="final-result-card refund">
+                    <p id="potentialResultLabel" class="text-2xl font-bold opacity-80"></p>
+                    <p id="potentialResultAmount" class="text-5xl font-extrabold my-2"></p>
+                    <p id="potentialResultDescription" class="font-semibold"></p>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mt-4">
+                     <a id="opportunityQuoteBtn" href="#" target="_blank" class="flex-1 w-full md:w-auto secondary-action-button button-base text-center inline-block no-underline">find out more about this plan</a>
+                     <button id="newBreakdownTrigger" data-target="#newBreakdownContent" class="collapsible-trigger flex-1 w-full md:w-auto button-base main-calc-button">
+                        <span class="mx-auto">View New Calculation</span>
+                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+                 <div id="newBreakdownContent" class="hidden mt-4">
+                    <!-- New breakdown will be populated here by JS -->
+                 </div>
+                 <div class="text-center mt-4">
+                    <button id="scrollToCustomPlanBtn" class="button-base secondary-action-button glow-nudge-animation text-sm">Or, Click to enter your own amount</button>
+                 </div>
+            </div>
+            
+            <div id="customAnnuitySection" class="bento-box space-y-4">
+                 <h2 class="bento-section-title text-xl md:text-2xl">Try Your Own Savings Plan</h2>
+                 <p class="text-sm text-[var(--text-muted)] -mt-4 mb-4">Enter a custom annuity amount to see how it affects your refund.</p>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                    <div class="md:col-span-1">
+                        <select id="customAnnuityFrequency" class="w-full">
+                            <option value="monthly">Monthly</option>
+                            <option value="annual">Annual</option>
+                        </select>
+                    </div>
+                     <div class="md:col-span-2">
+                        <input type="number" id="customAnnuityAmount" placeholder="Enter custom amount">
+                     </div>
+                 </div>
+                 <div id="customResultCard" class="p-4 rounded-lg bg-[var(--bg-accent)] text-center mt-4">
+                     <p class="font-semibold text-sm text-[var(--text-secondary)]">Your New Estimated Refund:</p>
+                     <p id="customResultAmount" class="text-2xl font-bold text-[var(--success-color)]"></p>
+                 </div>
+                 <a id="customQuoteBtn" href="#" target="_blank" class="mt-4 w-full md:w-auto main-calc-button button-base text-center inline-block no-underline glow-nudge-animation">Get a Free Quote For This Plan</a>
+            </div>
+        </div>
+        
+        <section id="main-cta" class="bento-box" style="background: linear-gradient(135deg, var(--primary-accent) 0%, var(--primary-accent-darker) 100%); color: white;">
+             <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                <img src="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/contact%20photo.jpeg" class="w-24 h-24 rounded-full mb-4 md:mb-0 md:mr-6 flex-shrink-0 object-cover" alt="Kyron Marchan" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/3d4d58?text=KM';">
+                <div class="container mx-auto px-4 py-6">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Ready to Maximize Your Refund?</h2>
+                    <p class="text-sm md:text-base mb-4 max-w-xl">
+                        Your results show how powerful registered savings can be. In a free, no-obligation chat, I can help you build a personalized annuity plan to reduce your taxes and secure your retirement.
+                    </p>
+                    <p class="text-xs italic mb-5 max-w-xl">
+                        Kyron Marchan: Licensed Insurance Agent (Tatil Life & TATIL) with 13 years in retirement planning.
+                    </p>
+                    <div class="space-y-3 md:space-y-0 md:flex md:items-center md:space-x-4">
+                        <a href="mailto:kyron.marchan@tatil.co.tt?subject=Tax Return Calculator Inquiry" class="w-full md:w-auto button-base secondary-action-button py-2.5 px-6 text-base inline-block no-underline">
+                            Email For Advice
+                        </a>
+                        <a href="https://wa.me/18683278273?text=Hello%20Kyron,%20I'd%20like%20to%20discuss%20my%20financial%20plan." target="_blank" class="w-full md:w-auto button-base bg-green-500 hover:bg-green-600 py-2.5 px-6 text-base inline-block" style="background-color: #25D366; border-color: #25D366;">
+                            Chat on WhatsApp
+                        </a>
+                         <div class="mt-4 md:mt-0 md:ml-4 text-xs">
+                            <p>Or Call Kyron Now:</p>
+                            <p class="text-lg font-bold"><a href="tel:+18683278273" class="hover:text-[var(--secondary-accent)] transition-colors">+1 (868) 327-8273</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bento-box">
+             <div id="legalTrigger" data-target="#legalContent" class="collapsible-trigger">
+                 <h2 class="bento-section-title text-xl md:text-2xl mb-0">Legal & Privacy</h2>
+                 <svg class="w-6 h-6 text-[var(--primary-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div id="legalContent" class="hidden mt-4 text-sm text-[var(--text-muted)] space-y-4">
+                 <p><strong>Disclaimer:</strong> This calculator is provided for informational and illustrative purposes only. The results are estimates based on the data you provide and our interpretation of current Trinidad and Tobago tax laws, which are subject to change. They are not intended to be, and should not be construed as, financial, tax, or legal advice.</p>
+                 <p><strong>Privacy Policy:</strong> Your privacy is paramount. All calculations are performed directly in your browser. No data you enter is ever stored, saved, or sent to any server. This tool is completely anonymous and private. Refreshing the page will clear all information.</p>
+                 <p>&copy; <span id="currentYear"></span> T&T Tax Return Calculator. Created by Kyron Marchan.</p>
+             </div>
+        </section>
+        
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- TAX YEAR CONSTANTS ---
+        const TAX_RULES = {
+            '2024': { PERSONAL_ALLOWANCE: 90000, NIS_ANNUITY_LIMIT: 60000, TERTIARY_EDUCATION_LIMIT: 72000, FIRST_TIME_HOME_OWNER_LIMIT: 30000 },
+            '2023': { PERSONAL_ALLOWANCE: 90000, NIS_ANNUITY_LIMIT: 60000, TERTIARY_EDUCATION_LIMIT: 72000, FIRST_TIME_HOME_OWNER_LIMIT: 30000 },
+            '2022': { PERSONAL_ALLOWANCE: 84000, NIS_ANNUITY_LIMIT: 60000, TERTIARY_EDUCATION_LIMIT: 72000, FIRST_TIME_HOME_OWNER_LIMIT: 30000 },
+            '2021': { PERSONAL_ALLOWANCE: 72000, NIS_ANNUITY_LIMIT: 50000, TERTIARY_EDUCATION_LIMIT: 72000, FIRST_TIME_HOME_OWNER_LIMIT: 25000 },
+            '2020': { PERSONAL_ALLOWANCE: 72000, NIS_ANNUITY_LIMIT: 50000, TERTIARY_EDUCATION_LIMIT: 72000, FIRST_TIME_HOME_OWNER_LIMIT: 25000 },
+            '2019': { PERSONAL_ALLOWANCE: 72000, NIS_ANNUITY_LIMIT: 50000, TERTIARY_EDUCATION_LIMIT: 72000, FIRST_TIME_HOME_OWNER_LIMIT: 25000 }
+        };
+
+        const COMMON_CONSTANTS = {
+            DONATIONS_RATE_LIMIT: 0.15,
+            BUSINESS_LEVY_THRESHOLD: 360000,
+            BUSINESS_LEVY_RATE: 0.006,
+            TAX_BRACKET_1_LIMIT: 1000000,
+            TAX_RATE_1: 0.25,
+            TAX_RATE_2: 0.30,
+            VENTURE_CAPITAL_RATE: 0.25,
+            CNG_CREDIT_RATE: 0.25,
+            CNG_CREDIT_LIMIT: 10000,
+            SOLAR_HEATER_CREDIT_RATE: 0.25,
+            SOLAR_HEATER_CREDIT_LIMIT: 10000,
+            SAVINGS_BONDS_CREDIT_RATE: 0.25,
+            SAVINGS_BONDS_CREDIT_LIMIT: 5000,
+            TRAVELLING_EXPENSE_RATE: 2/3,
+        };
+
+        // --- DOM ELEMENTS ---
+        const themeToggle = document.getElementById('themeToggleCheckbox');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resultsSection = document.getElementById('resultsSection');
+        const userTypeRadios = document.querySelectorAll('input[name="userType"]');
+        const foreignIncomeRadios = document.querySelectorAll('input[name="foreignIncome"]');
+        const scrollNudgeEl = document.getElementById('scrollNudge');
+        const mainCta = document.getElementById('main-cta');
+        const dynamicActionBtn = document.getElementById('dynamic-action-btn');
+        const taxSavingsOpportunitySection = document.getElementById('taxSavingsOpportunitySection');
+        const scrollToCustomPlanBtn = document.getElementById('scrollToCustomPlanBtn');
+        const customAnnuitySection = document.getElementById('customAnnuitySection');
+        const taxYearSelect = document.getElementById('taxYear');
+        const resetBtn = document.getElementById('resetBtn');
+        const calculatorForm = document.getElementById('calculatorForm');
+        
+        // --- FORM INPUTS (as a structured object) ---
+        const inputs = {
+            emolumentIncome: document.getElementById('totalIncome'),
+            businessIncome: document.getElementById('businessIncome'),
+            foreignIncome: document.getElementById('foreignSourceIncome'),
+            payePaid: document.getElementById('payePaid'),
+            cancelledAnnuities: document.getElementById('cancelledAnnuities'),
+            travellingExpenses: document.getElementById('travellingExpenses'),
+            nis: document.getElementById('nisContribution'),
+            personalAnnuity: document.getElementById('personalAnnuity'),
+            companyPension: document.getElementById('companyPension'),
+            widowsOrphans: document.getElementById('widowsAndOrphansFund'),
+            tertiary: document.getElementById('tertiaryEducation'),
+            homeOwner: document.getElementById('firstTimeHomeOwner'),
+            donations: document.getElementById('covenantedDonations'),
+            guestHouse: document.getElementById('guestHouseExpenditure'),
+            alimony: document.getElementById('alimonyPayments'),
+            domesticNis: document.getElementById('domesticWorkerNis'),
+            ventureCapital: document.getElementById('ventureCapital'),
+            cngKit: document.getElementById('cngKit'),
+            solarHeater: document.getElementById('solarHeater'),
+            savingsBonds: document.getElementById('savingsBonds'),
+            doubleTax: document.getElementById('doubleTaxRelief'),
+            customAnnuity: document.getElementById('customAnnuityAmount'),
+            customAnnuityFreq: document.getElementById('customAnnuityFrequency'),
+        };
+        
+        // --- STATE & HELPERS ---
+        let isCalculated = false;
+        let scrollTimeout;
+        const getNumericValue = (element) => parseFloat(element.value) || 0;
+        const formatCurrency = (value) => {
+            if (isNaN(value)) return "TTD 0";
+            const roundedValue = Math.round(value);
+            const options = { minimumFractionDigits: 0, maximumFractionDigits: 0 };
+            return `TTD ${roundedValue.toLocaleString('en-TT', options)}`;
+        };
+        
+        const getConstantsForYear = (year) => {
+            return { ...COMMON_CONSTANTS, ...TAX_RULES[year] };
+        };
+
+        // --- THEME SWITCHER ---
+        const initializeTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+                themeToggle.checked = true;
+            } else {
+                document.documentElement.classList.remove('dark-mode');
+                themeToggle.checked = false;
+            }
+        };
+
+        const toggleTheme = () => {
+            document.documentElement.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
+        };
+
+        themeToggle.addEventListener('change', toggleTheme);
+
+        // --- UI VISUALS ---
+        const updateProgressBar = (inputId, progressBarId, progressLabelId, limit) => {
+            const inputEl = document.getElementById(inputId);
+            const progressBarEl = document.getElementById(progressBarId);
+            const progressLabelEl = document.getElementById(progressLabelId);
+            if (!inputEl || !progressBarEl || !progressLabelEl) return;
+            const value = getNumericValue(inputEl);
+            const percentage = limit > 0 ? Math.min((value / limit) * 100, 100) : 0;
+            progressBarEl.style.width = `${percentage}%`;
+            progressBarEl.classList.toggle('exceeded', value > limit);
+            progressLabelEl.textContent = `${formatCurrency(value)} / ${formatCurrency(limit)}`;
+        };
+        
+        const updateCreditProgressBar = (inputId, progressBarId, progressLabelId, rate, limit) => {
+             const inputEl = document.getElementById(inputId);
+             const progressBarEl = document.getElementById(progressBarId);
+             const progressLabelEl = document.getElementById(progressLabelId);
+             if (!inputEl || !progressBarEl || !progressLabelEl) return;
+             const cost = getNumericValue(inputEl);
+             const credit = Math.min(cost * rate, limit);
+             const percentage = limit > 0 ? (credit / limit) * 100 : 0;
+             progressBarEl.style.width = `${percentage}%`;
+             progressLabelEl.textContent = `Credit: ${formatCurrency(credit)} / ${formatCurrency(limit)}`;
+        };
+
+        const updateCombinedProgressBar = (inputs, progressBarId, progressLabelId, limit) => {
+            const progressBarEl = document.getElementById(progressBarId);
+            const progressLabelEl = document.getElementById(progressLabelId);
+            if (!progressBarEl || !progressLabelEl) return;
+            
+            const deductibleNis = getNumericValue(inputs.nis) * 0.7;
+            const personalAnnuity = getNumericValue(inputs.annuity);
+            const companyPension = getNumericValue(inputs.pension);
+            const widowsOrphans = getNumericValue(inputs.widows);
+            const totalValue = deductibleNis + personalAnnuity + companyPension + widowsOrphans;
+
+            const percentage = limit > 0 ? Math.min((totalValue / limit) * 100, 100) : 0;
+            progressBarEl.style.width = `${percentage}%`;
+            progressBarEl.classList.toggle('exceeded', totalValue > limit);
+            progressLabelEl.textContent = `${formatCurrency(totalValue)} / ${formatCurrency(limit)}`;
+        };
+        
+        const updateAllVisuals = () => {
+            const selectedYear = taxYearSelect.value;
+            const yearlyConstants = getConstantsForYear(selectedYear);
+            document.getElementById('page-subtitle-h2').textContent = `Estimate Your Refund or Balance Payable for ${selectedYear}`;
+
+            const totalIncome = getNumericValue(inputs.emolumentIncome) + getNumericValue(inputs.businessIncome) + getNumericValue(inputs.foreignIncome);
+            const donationsLimit = totalIncome * yearlyConstants.DONATIONS_RATE_LIMIT;
+
+            document.getElementById('nis-annuity-tooltip').textContent = `Your NIS (70%), personal annuity, and your own contributions to a company pension are combined. The total deduction is capped at ${formatCurrency(yearlyConstants.NIS_ANNUITY_LIMIT,0)}.`;
+            document.getElementById('tertiary-tooltip').textContent = `For yourself or your child at an approved institution. Capped at ${formatCurrency(yearlyConstants.TERTIARY_EDUCATION_LIMIT,0)}.`;
+            document.getElementById('homeowner-tooltip').textContent = `Mortgage interest paid for the first five years of acquiring the property. The deduction is capped at ${formatCurrency(yearlyConstants.FIRST_TIME_HOME_OWNER_LIMIT,0)} annually.`;
+
+            updateCombinedProgressBar(
+                { nis: inputs.nis, annuity: inputs.personalAnnuity, pension: inputs.companyPension, widows: inputs.widowsOrphans },
+                'nisAnnuityProgressBar', 'nisAnnuityProgressLabel', yearlyConstants.NIS_ANNUITY_LIMIT
+            );
+            updateProgressBar('tertiaryEducation', 'tertiaryProgressBar', 'tertiaryProgressLabel', yearlyConstants.TERTIARY_EDUCATION_LIMIT);
+            updateProgressBar('firstTimeHomeOwner', 'homeOwnerProgressBar', 'homeOwnerProgressLabel', yearlyConstants.FIRST_TIME_HOME_OWNER_LIMIT);
+            updateProgressBar('covenantedDonations', 'donationsProgressBar', 'donationsProgressLabel', donationsLimit);
+            updateCreditProgressBar('cngKit', 'cngProgressBar', 'cngProgressLabel', yearlyConstants.CNG_CREDIT_RATE, yearlyConstants.CNG_CREDIT_LIMIT);
+            updateCreditProgressBar('solarHeater', 'solarHeaterProgressBar', 'solarHeaterProgressLabel', yearlyConstants.SOLAR_HEATER_CREDIT_RATE, yearlyConstants.SOLAR_HEATER_CREDIT_LIMIT);
+            updateCreditProgressBar('savingsBonds', 'savingsBondsProgressBar', 'savingsBondsProgressLabel', yearlyConstants.SAVINGS_BONDS_CREDIT_RATE, yearlyConstants.SAVINGS_BONDS_CREDIT_LIMIT);
+            const vcCredit = getNumericValue(inputs.ventureCapital) * yearlyConstants.VENTURE_CAPITAL_RATE;
+            document.getElementById('ventureCapitalLabel').textContent = `Calculated Credit: ${formatCurrency(vcCredit)}`;
+        };
+
+        // --- CALCULATION ENGINE ---
+        const performCalculation = (inputData, year) => {
+            const CONSTANTS = getConstantsForYear(year);
+            // Step 1: Net Employment Income & Business Levy
+            const totalEmolumentIncome = inputData.emolumentIncome;
+            const businessIncome = inputData.businessIncome;
+            const foreignIncome = inputData.foreignIncome;
+            const cancelledAnnuities = inputData.cancelledAnnuities;
+            const travellingDed = inputData.travellingExpenses * CONSTANTS.TRAVELLING_EXPENSE_RATE;
+            const netEmploymentIncome = totalEmolumentIncome - travellingDed;
+            const totalIncome = netEmploymentIncome + cancelledAnnuities + businessIncome + foreignIncome;
+            
+            const businessLevy = businessIncome > CONSTANTS.BUSINESS_LEVY_THRESHOLD ? businessIncome * CONSTANTS.BUSINESS_LEVY_RATE : 0;
+
+            // Step 2: Total Net Income
+            const homeOwnerDed = Math.min(inputData.homeOwner, CONSTANTS.FIRST_TIME_HOME_OWNER_LIMIT);
+            const tertiaryDed = Math.min(inputData.tertiary, CONSTANTS.TERTIARY_EDUCATION_LIMIT);
+            const donationsDed = Math.min(inputData.donations, totalIncome * CONSTANTS.DONATIONS_RATE_LIMIT);
+            const guestHouseDed = inputData.guestHouse;
+            const netIncome = totalIncome - homeOwnerDed - tertiaryDed - donationsDed - guestHouseDed;
+
+            // Step 3: Assessable Income
+            const assessableIncome = netIncome - CONSTANTS.PERSONAL_ALLOWANCE;
+
+            // Step 4: Chargeable Income
+            const personalAnnuityDed = inputData.personalAnnuity;
+            const companyPensionDed = inputData.companyPension;
+            const widowsDed = inputData.widowsOrphans;
+            const nisDed = inputData.nis * 0.70;
+            const combinedNisAnnuity = Math.min(nisDed + personalAnnuityDed + companyPensionDed + widowsDed, CONSTANTS.NIS_ANNUITY_LIMIT);
+            const alimonyDed = inputData.alimony;
+            const domesticNisDed = inputData.domesticNis;
+            
+            const chargeableIncome = Math.max(0, assessableIncome - combinedNisAnnuity - alimonyDed - domesticNisDed);
+            
+            // Step 5: Tax Liability
+            let initialTaxLiability = 0;
+            if (chargeableIncome > CONSTANTS.TAX_BRACKET_1_LIMIT) {
+                initialTaxLiability = (CONSTANTS.TAX_BRACKET_1_LIMIT * CONSTANTS.TAX_RATE_1) + ((chargeableIncome - CONSTANTS.TAX_BRACKET_1_LIMIT) * CONSTANTS.TAX_RATE_2);
+            } else {
+                initialTaxLiability = chargeableIncome * CONSTANTS.TAX_RATE_1;
+            }
+            
+            // Step 6: Tax Credits
+            const ventureCapitalCredit = inputData.ventureCapital * CONSTANTS.VENTURE_CAPITAL_RATE;
+            const cngCredit = Math.min(inputData.cngKit * CONSTANTS.CNG_CREDIT_RATE, CONSTANTS.CNG_CREDIT_LIMIT);
+            const solarHeaterCredit = Math.min(inputData.solarHeater * CONSTANTS.SOLAR_HEATER_CREDIT_RATE, CONSTANTS.SOLAR_HEATER_CREDIT_LIMIT);
+            const savingsBondsCredit = Math.min(inputData.savingsBonds * CONSTANTS.SAVINGS_BONDS_CREDIT_RATE, CONSTANTS.SAVINGS_BONDS_CREDIT_LIMIT);
+            const doubleTaxRelief = inputData.doubleTax;
+            const totalCredits = ventureCapitalCredit + cngCredit + solarHeaterCredit + savingsBondsCredit + doubleTaxRelief;
+            
+            // Step 7: Final Tax & Balance
+            const finalTaxLiability = Math.max(0, initialTaxLiability - totalCredits);
+            const totalLiability = finalTaxLiability + businessLevy;
+            const payePaid = inputData.payePaid;
+            const finalBalance = payePaid - totalLiability;
+
+            return {
+                totalEmolumentIncome, cancelledAnnuities, travellingDed, netEmploymentIncome, totalIncome, homeOwnerDed, tertiaryDed, donationsDed, guestHouseDed, netIncome, assessableIncome, personalAnnuityDed, companyPensionDed, widowsDed, nisDed, domesticNisDed, alimonyDed, chargeableIncome, initialTaxLiability, totalCredits, finalTaxLiability, businessLevy, totalLiability, payePaid, finalBalance, CONSTANTS
+            };
+        };
+        
+        const populateBreakdown = (container, results) => {
+            const isRefund = results.finalBalance >= 0;
+            const breakdownHTML = `
+                <div class="space-y-2 text-sm">
+                    <div class="breakdown-line"><span>Total Emolument Income</span><span class="font-semibold">${formatCurrency(results.totalEmolumentIncome)}</span></div>
+                    <div class="breakdown-line-add"><span>Add: Cancelled Annuities/Pensions</span><span class="font-semibold">${formatCurrency(results.cancelledAnnuities)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Travelling Expenses (2/3)</span><span class="font-semibold">${formatCurrency(results.travellingDed)}</span></div>
+                    <div class="breakdown-total-line"><span>Net Employment Income</span><span class="font-bold">${formatCurrency(results.netEmploymentIncome)}</span></div>
+                    <div class="breakdown-line mt-4"><span>Total Income (incl. Foreign/Business)</span><span class="font-semibold">${formatCurrency(results.totalIncome)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: First Time Home Owner</span><span class="font-semibold">${formatCurrency(results.homeOwnerDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Tertiary Education</span><span class="font-semibold">${formatCurrency(results.tertiaryDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Covenanted Donations</span><span class="font-semibold">${formatCurrency(results.donationsDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Approved Guest House Exp.</span><span class="font-semibold">${formatCurrency(results.guestHouseDed)}</span></div>
+                    <div class="breakdown-total-line"><span>Total Net Income</span><span class="font-bold">${formatCurrency(results.netIncome)}</span></div>
+                    <div class="breakdown-line-deduct mt-4"><span>Less: Personal Allowance</span><span class="font-semibold">${formatCurrency(results.CONSTANTS.PERSONAL_ALLOWANCE)}</span></div>
+                    <div class="breakdown-total-line"><span>Assessable Income</span><span class="font-bold">${formatCurrency(results.assessableIncome)}</span></div>
+                    <div class="breakdown-line-deduct mt-4"><span>Less: Personal Annuity</span><span class="font-semibold">${formatCurrency(results.personalAnnuityDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Company Pension</span><span class="font-semibold">${formatCurrency(results.companyPensionDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Widows' & Orphans' Fund</span><span class="font-semibold">${formatCurrency(results.widowsDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: NIS Contributions (70%)</span><span class="font-semibold">${formatCurrency(results.nisDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: NIS for Domestic Workers</span><span class="font-semibold">${formatCurrency(results.domesticNisDed)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Alimony/Maintenance</span><span class="font-semibold">${formatCurrency(results.alimonyDed)}</span></div>
+                    <div class="breakdown-total-line"><span>Chargeable Income</span><span class="font-bold text-[var(--primary-accent)] text-base">${formatCurrency(results.chargeableIncome)}</span></div>
+                    <div class="breakdown-line mt-4"><span>Tax on Chargeable Income</span><span class="font-semibold">${formatCurrency(results.initialTaxLiability)}</span></div>
+                    <div class="breakdown-line-deduct"><span>Less: Total Tax Credits</span><span class="font-semibold text-[var(--success-color)]">${formatCurrency(results.totalCredits)}</span></div>
+                    <div class="breakdown-total-line"><span>Income Tax Liability</span><span class="font-bold">${formatCurrency(results.finalTaxLiability)}</span></div>
+                    <div class="breakdown-line-add mt-4"><span>Add: Business Levy Liability</span><span class="font-semibold">${formatCurrency(results.businessLevy)}</span></div>
+                    <div class="breakdown-total-line"><span>Total Tax & Levy Liability</span><span class="font-bold">${formatCurrency(results.totalLiability)}</span></div>
+                    <div class="breakdown-line-deduct mt-4"><span>Less: PAYE Deducted (per TD4)</span><span class="font-semibold">${formatCurrency(results.payePaid)}</span></div>
+                    <div class="breakdown-total-line final-balance"><span class="font-bold">${isRefund ? 'Refund Due' : 'Balance Payable'}</span><span class="font-extrabold">${formatCurrency(Math.abs(results.finalBalance))}</span></div>
+                </div>
+            `;
+            container.innerHTML = breakdownHTML;
+        };
+
+        // --- MAIN CALCULATION TRIGGER ---
+        const handleCalculate = () => {
+            const originalButtonText = isCalculated ? "Update My Tax Return" : "Calculate My Tax Return";
+            calculateBtn.textContent = "Calculating...";
+            calculateBtn.disabled = true;
+
+            setTimeout(() => {
+                try {
+                    const initialInputs = Object.fromEntries(Object.entries(inputs).map(([key, el]) => {
+                        const val = getNumericValue(el);
+                        if (val < 0) {
+                            el.value = 0;
+                            throw new Error(`Invalid input: ${el.labels[0].textContent.trim()} cannot be negative.`);
+                        }
+                        return [key, val];
+                    }));
+                    const selectedYear = taxYearSelect.value;
+                
+                    if (initialInputs.emolumentIncome <= 0 && initialInputs.businessIncome <=0) {
+                        alert("Please enter a valid Emolument or Business Income to calculate.");
+                        calculateBtn.textContent = originalButtonText;
+                        calculateBtn.disabled = false;
+                        return;
+                    }
+
+                    const initialResults = performCalculation(initialInputs, selectedYear);
+                    
+                    resultsSection.classList.remove('hidden');
+                    
+                    const resultLabelEl = document.getElementById('resultLabel');
+                    const resultAmountEl = document.getElementById('resultAmount');
+                    const resultDescEl = document.getElementById('resultDescription');
+                    const finalResultCardEl = document.getElementById('finalResultCardContainer');
+                    
+                    if (initialResults.finalBalance >= 0) {
+                        resultLabelEl.textContent = "Estimated Tax Refund";
+                        resultAmountEl.textContent = formatCurrency(initialResults.finalBalance);
+                        resultDescEl.textContent = "This is the amount you may get back from BIR.";
+                        finalResultCardEl.className = 'final-result-card refund';
+                        dynamicActionBtn.textContent = "Click to get even more!";
+                    } else {
+                        resultLabelEl.textContent = "Estimated Tax Payable";
+                        resultAmountEl.textContent = formatCurrency(Math.abs(initialResults.finalBalance));
+                        resultDescEl.textContent = "This is the amount you may owe to BIR.";
+                        finalResultCardEl.className = 'final-result-card payable';
+                        dynamicActionBtn.textContent = "Click to reduce what you owe!";
+                    }
+                    populateBreakdown(document.getElementById('initialBreakdownContent'), initialResults);
+
+                    const annuityContribution = initialInputs.emolumentIncome * 0.15;
+                    const scenarioInputs = { ...initialInputs, personalAnnuity: initialInputs.personalAnnuity + annuityContribution };
+                    const scenarioResults = performCalculation(scenarioInputs, selectedYear);
+
+                    document.getElementById('potentialResultLabel').textContent = `Potential Refund with ${formatCurrency(annuityContribution/12)}/mth Annuity`;
+                    document.getElementById('potentialResultAmount').textContent = formatCurrency(scenarioResults.finalBalance);
+                    document.getElementById('potentialResultDescription').textContent = `Initial refund was ${formatCurrency(initialResults.finalBalance)}`;
+                    populateBreakdown(document.getElementById('newBreakdownContent'), scenarioResults);
+                    const opportunityWhatsappLink = document.getElementById('opportunityQuoteBtn');
+                    const opportunityMessage = `Hello Kyron, I'm interested in an annuity with a monthly contribution of ${formatCurrency(annuityContribution/12)}. My estimated refund would be ${formatCurrency(scenarioResults.finalBalance)}. Can we discuss this?`;
+                    opportunityWhatsappLink.href = `https://wa.me/18683278273?text=${encodeURIComponent(opportunityMessage)}`;
+                    
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+
+                    isCalculated = true;
+                    calculateBtn.textContent = "Update My Tax Return";
+                    calculateBtn.disabled = false;
+
+                    handleScrollNudgeVisibility();
+
+                } catch (error) {
+                    alert(error.message);
+                    calculateBtn.textContent = originalButtonText;
+                    calculateBtn.disabled = false;
+                }
+
+            }, 100);
+        };
+
+        const handleScrollNudgeVisibility = () => {
+            if (!scrollNudgeEl || !mainCta) return;
+
+            clearTimeout(scrollTimeout);
+            scrollNudgeEl.classList.add('opacity-0', 'pointer-events-none');
+
+            scrollTimeout = setTimeout(() => {
+                if (!isCalculated) return;
+
+                const ctaRect = mainCta.getBoundingClientRect();
+                const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
+                
+                const shouldBeHidden = ctaRect.top < window.innerHeight || isAtBottom;
+
+                if (!shouldBeHidden) {
+                    scrollNudgeEl.classList.remove('opacity-0', 'pointer-events-none');
+                }
+
+            }, 250);
+        }
+        
+        const resetCalculator = () => {
+            calculatorForm.reset();
+            Object.values(inputs).forEach(input => {
+                if (input.type === 'number' || input.tagName === 'SELECT') {
+                    input.value = '';
+                }
+            });
+            taxYearSelect.value = '2024';
+            resultsSection.classList.add('hidden');
+            scrollNudgeEl.classList.add('opacity-0', 'pointer-events-none');
+            isCalculated = false;
+            calculateBtn.textContent = "Calculate My Tax Return";
+            calculateBtn.disabled = false;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateAllVisuals();
+        };
+        
+        resetBtn.addEventListener('click', resetCalculator);
+        calculateBtn.addEventListener('click', handleCalculate);
+
+        dynamicActionBtn.addEventListener('click', () => {
+            taxSavingsOpportunitySection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        scrollToCustomPlanBtn.addEventListener('click', () => {
+            customAnnuitySection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // --- EVENT LISTENERS for UI changes ---
+        userTypeRadios.forEach(radio => radio.addEventListener('change', (event) => {
+            const selectedType = event.target.value;
+            document.getElementById('emolumentIncomeContainer').classList.toggle('hidden', selectedType === 'self-employed');
+            document.getElementById('payePaidContainer').classList.toggle('hidden', selectedType === 'self-employed');
+            document.getElementById('businessIncomeContainer').classList.toggle('hidden', selectedType === 'employed');
+        }));
+        
+        foreignIncomeRadios.forEach(radio => radio.addEventListener('change', (event) => {
+             const foreignContainer = document.getElementById('foreignIncomeContainer');
+             const doubleTaxContainer = document.getElementById('doubleTaxReliefContainer');
+             const hasForeign = event.target.value === 'yes';
+
+             foreignContainer.classList.toggle('hidden', !hasForeign);
+             if (doubleTaxContainer) {
+                doubleTaxContainer.classList.toggle('hidden', !hasForeign);
+             }
+             
+             if(!hasForeign) {
+                 inputs.foreignIncome.value = '';
+                 inputs.doubleTax.value = '';
+             }
+        }));
+
+        document.querySelectorAll('.collapsible-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const targetSelector = trigger.dataset.target;
+                if (!targetSelector) {
+                    console.error('Collapsible trigger is missing data-target attribute:', trigger);
+                    return;
+                }
+                const content = document.querySelector(targetSelector);
+                if (content) {
+                    trigger.classList.toggle('open');
+                    content.classList.toggle('hidden');
+                } else {
+                    console.error(`Collapsible content not found for selector: ${targetSelector}`);
+                }
+            });
+        });
+
+        const handleCustomAnnuityChange = () => {
+             if (!isCalculated) return;
+            const selectedYear = taxYearSelect.value;
+            let customAmount = getNumericValue(inputs.customAnnuity);
+            if (inputs.customAnnuityFreq.value === 'monthly') {
+                customAmount *= 12;
+            }
+
+            const initialInputs = Object.fromEntries(Object.entries(inputs).map(([key, el]) => {
+                if (el.id === 'customAnnuityAmount' || el.id === 'customAnnuityFrequency') return [key, 0];
+                return [key, getNumericValue(el)];
+            }));
+            const scenarioInputs = { ...initialInputs, personalAnnuity: initialInputs.personalAnnuity + customAmount };
+            const scenarioResults = performCalculation(scenarioInputs, selectedYear);
+
+            document.getElementById('customResultAmount').textContent = formatCurrency(scenarioResults.finalBalance);
+            const whatsappLink = document.getElementById('customQuoteBtn');
+            const message = `Hello Kyron, I'm interested in an annuity with a contribution of ${formatCurrency(customAmount / (inputs.customAnnuityFreq.value === 'monthly' ? 12 : 1))} per ${inputs.customAnnuityFreq.value}. My estimated refund would be ${formatCurrency(scenarioResults.finalBalance)}. Can we discuss this?`;
+            whatsappLink.href = `https://wa.me/18683278273?text=${encodeURIComponent(message)}`;
+        };
+        
+        inputs.customAnnuity.addEventListener('input', handleCustomAnnuityChange);
+        inputs.customAnnuityFreq.addEventListener('change', handleCustomAnnuityChange);
+
+        taxYearSelect.addEventListener('change', () => {
+            updateAllVisuals();
+            if (isCalculated) {
+                handleCalculate();
+            }
+        });
+
+        // --- INITIALIZATION ---
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        initializeTheme();
+        updateAllVisuals();
+        
+        document.querySelector('input[name="userType"]:checked').dispatchEvent(new Event('change'));
+        document.querySelector('input[name="foreignIncome"]:checked').dispatchEvent(new Event('change'));
+
+        // Scroll listener to hide the nudge
+        window.addEventListener('scroll', handleScrollNudgeVisibility, { passive: true });
+
+    });
+    </script>
+</body>
+</html>

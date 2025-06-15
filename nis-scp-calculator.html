@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en-TT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- SEO and Meta Tags -->
+    <title>NIS & Senior Citizens' Pension Calculator | Trinidad & Tobago</title>
+    <meta name="description" content="Estimate your future NIS retirement pension or grant and your Senior Citizens' Pension (SCP) with this detailed calculator for Trinidad & Tobago. Project your income, contributions, and see your total estimated retirement income.">
+    <meta name="keywords" content="Trinidad and Tobago NIS calculator, SCP calculator, senior citizens pension, old age grant, NIBTT pension, retirement calculator T&T, NIS contributions, retirement planning Trinidad, NIS grant, pension estimator">
+    <meta name="author" content="Kyron Marchan">
+    <link rel="canonical" href="https://kelsean868.github.io/paye-annuity-calculator-tt/nis-scp-calculator.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/nis-scp-calculator.html">
+    <meta property="og:title" content="NIS & Senior Citizens' Pension Calculator | Trinidad & Tobago">
+    <meta property="og:description" content="Estimate your future NIS retirement pension/grant and Senior Citizens' Pension (SCP) in Trinidad & Tobago. Project your income and contributions to plan for your financial future.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/nis-scp-calculator.html">
+    <meta property="twitter:title" content="NIS & Senior Citizens' Pension Calculator | Trinidad & Tobago">
+    <meta property="twitter:description" content="Estimate your future NIS retirement pension/grant and Senior Citizens' Pension (SCP) in Trinidad & Tobago. Project your income and contributions to plan for your financial future.">
+
+    <!-- Scripts and Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f4f6f9; --bg-bento-box: #ffffff; --bg-secondary: #f8f9fa; --bg-accent: #eef2f7; --text-primary: #1d2d35; --text-secondary: #4a5568; --text-muted: #718096; --border-color: #dce1e7; --primary-accent: #005f73; --primary-accent-darker: #003d4d; --secondary-accent: #ae8625; --secondary-accent-darker: #8c6c1d; --success-color: #2a9d8f; --warning-color: #fca5a5; --info-color: #3b82f6; --shadow-soft: 0 3px 6px rgba(0,0,0,0.04); --shadow-medium: 0 5px 15px rgba(0,0,0,0.06); --shadow-strong: 0 8px 25px rgba(0,0,0,0.08); --font-body: 'Montserrat', sans-serif; --font-heading: 'Source Serif Pro', serif;
+        }
+        .dark-mode {
+            --bg-main: #1f2937; --bg-bento-box: #2b3c4d; --bg-secondary: #374151; --bg-accent: #4B5563; --text-primary: #f0f4f8; --text-secondary: #d1d5db; --text-muted: #9ca3af; --border-color: #4b5f71; --primary-accent: #25a1af; --primary-accent-darker: #1e838f; --secondary-accent: #daa520; --secondary-accent-darker: #b8860b; --success-color: #38c172; --warning-color: #f87171; --info-color: #60a5fa;
+        }
+        body { font-family: var(--font-body); background-color: var(--bg-main); color: var(--text-primary); transition: background-color 0.3s ease, color 0.3s ease; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        .page-title { font-family: var(--font-heading); color: var(--primary-accent); font-weight: 700; }
+        .page-subtitle { font-family: var(--font-body); font-weight: 600; color: var(--text-secondary); }
+        .bento-section-title { font-family: var(--font-heading); font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; }
+        .bento-step-indicator { display: inline-flex; align-items: center; justify-content: center; background-color: var(--secondary-accent); color: var(--bg-bento-box); border-radius: 50%; width: 34px; height: 34px; font-family: var(--font-body); font-weight: 700; font-size: 1rem; margin-right: 12px; box-shadow: var(--shadow-soft); }
+        .dark-mode .bento-step-indicator { color: var(--text-primary); }
+        .bento-box { background-color: var(--bg-bento-box); border-radius: 0.75rem; padding: 1.75rem; box-shadow: var(--shadow-medium); transition: all 0.3s ease; border: 1px solid var(--border-color); }
+        input[type="number"], input[type="date"], select, textarea { border: 1px solid var(--border-color); padding: 0.85rem 1.15rem; border-radius: 0.375rem; transition: all 0.2s ease; font-size: 16px; background-color: var(--bg-secondary); color: var(--text-primary); font-weight: 500; }
+        input[type="number"]:focus, input[type="date"]:focus, select:focus, textarea:focus { border-color: var(--primary-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-accent) 25%, transparent); outline: none; background-color: var(--bg-bento-box); }
+        .button-base { font-weight: 600; padding: 0.85rem 1.25rem; border-radius: 0.375rem; transition: all 0.2s ease; box-shadow: var(--shadow-soft); text-transform: uppercase; letter-spacing: 0.025em; font-family: var(--font-body); touch-action: manipulation; }
+        .button-base:hover:not(:disabled) { transform: translateY(-2px); box-shadow: var(--shadow-medium); }
+        .button-base:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: var(--shadow-soft); }
+        .main-calc-button { background-color: var(--primary-accent); color: white; }
+        .main-calc-button:hover:not(:disabled) { background-color: var(--primary-accent-darker); }
+        .secondary-action-button { background-color: var(--secondary-accent); color: white; }
+        .dark-mode .secondary-action-button { color: var(--text-primary); }
+        .secondary-action-button:hover:not(:disabled) { background-color: var(--secondary-accent-darker); }
+        .info-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; background-color: var(--primary-accent); color: var(--bg-bento-box); border-radius: 50%; font-size: 11px; font-weight: 600; cursor: pointer; margin-left: 6px; transition: all 0.2s ease; }
+        .info-icon:hover { transform: scale(1.15); }
+        .tooltip { position: relative; display: inline-block; }
+        .tooltip .tooltiptext { visibility: hidden; width: 260px; background-color: var(--text-primary); color: var(--bg-bento-box); text-align: center; border-radius: 0.375rem; padding: 10px; position: absolute; z-index: 20; bottom: 135%; left: 50%; margin-left: -130px; opacity: 0; transition: opacity 0.3s ease; box-shadow: var(--shadow-medium); font-size: 0.8rem; font-weight: 500; }
+        .tooltip .tooltiptext::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border-width: 6px; border-style: solid; border-color: var(--text-primary) transparent transparent transparent; }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+        .result-card { border-radius: 0.75rem; padding: 2rem; text-align: center; transition: all 0.5s ease-in-out; color: white; }
+        .result-card.pension { background: linear-gradient(135deg, var(--success-color), color-mix(in srgb, var(--success-color) 70%, #000)); }
+        .result-card.grant { background: linear-gradient(135deg, var(--info-color), color-mix(in srgb, var(--info-color) 70%, #000)); }
+        .result-card.not-applicable { background: linear-gradient(135deg, var(--text-muted), color-mix(in srgb, var(--text-muted) 70%, #000)); }
+        .result-card.scp { background: linear-gradient(135deg, var(--secondary-accent), color-mix(in srgb, var(--secondary-accent) 70%, #000)); }
+        .theme-switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-accent); }
+        input:checked + .slider:before { transform: translateX(20px); }
+        .breakdown-line { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); }
+        .breakdown-total-line { border-top: 2px solid var(--text-primary); border-bottom: none; margin-top: 0.5rem; padding-top: 0.75rem; font-weight: bold; }
+        .collapsible-trigger { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .collapsible-trigger svg { transition: transform 0.3s ease; }
+        .collapsible-trigger.open svg { transform: rotate(180deg); }
+        .radio-group label {
+            background-color: var(--bg-accent);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .radio-group input:checked + label {
+            background-color: var(--primary-accent);
+            color: white;
+            border-color: var(--primary-accent-darker);
+        }
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        #scrollNudge {
+            animation: bounce 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-accent-darker) 40%, transparent); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 121, 63, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 121, 63, 0); }
+        }
+        .pulse-animation {
+            animation: pulse 2.5s infinite;
+        }
+    </style>
+</head>
+\1
+    <!-- Navigation back to hub -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="./index.html" class="flex items-center px-4 py-2 bg-[var(--primary-accent)] text-white rounded-lg shadow-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            Back to Hub
+        </a>
+    </div>
+    
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/18683278273?text=Hello%20Kyron,%20I'd%20like%20to%20discuss%20my%20retirement%20plan%20after%20using%20the%20NIS/SCP%20calculator." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" fill="white"><path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.044-.53-.044-.33 0-.545.015-.765.015h-.214c-.015 0-.33.044-.66.33-.372.33-.945.99-1.146 1.963-.128.58-.27 1.16-.27 1.842 0 1.288.36 2.403.945 3.488.58 1.085 2.512 3.34 4.814 4.314 2.05 1.04 3.51 1.25 4.314 1.25.143 0 .832-.214 1.146-.66.27-.372.99-.945.99-1.962s-.27-.817-.545-1.146c-.27-.33-.545-.33-.817-.33h-.53z M16 4.437c6.39 0 11.562 5.17 11.562 11.563 0 6.39-5.17 11.562-11.563 11.562-2.062 0-3.99-.545-5.63-1.518l-5.973 1.518 1.518-5.972c-1.04-1.63-1.63-3.6-1.63-5.59 0-6.39 5.17-11.563 11.563-11.563z M16 .002C7.163.002 0 7.165 0 16.002c0 3.016.817 5.86 2.336 8.2l-2.336 9.172 9.172-2.336c2.34 1.518 5.186 2.336 8.13 2.336 8.84 0 16-7.164 16-16S24.842.002 16 .002z"></path></svg>
+    </a>
+
+    <!-- Scroll Nudge -->
+    <div id="scrollNudge" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+      <div class="w-10 h-10 bg-[var(--primary-accent)] rounded-full flex items-center justify-center shadow-lg opacity-50">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+      </div>
+    </div>
+
+    <div class="w-full max-w-4xl mx-auto my-8 space-y-8">
+        <header class="text-center relative">
+            <h1 class="page-title text-4xl sm:text-5xl md:text-6xl mb-3">NIS & Senior Citizens' Pension Calculator</h1>
+            <h2 class="page-subtitle text-xl sm:text-2xl">Estimate Your T&T Retirement Benefits</h2>
+            <p class="text-[var(--text-secondary)] mt-5 text-md md:text-lg max-w-3xl mx-auto">
+                Plan your retirement with confidence. This calculator helps you estimate your potential income from both the National Insurance System (NIS) and the Senior Citizens' Pension (SCP).
+            </p>
+            <div class="absolute top-[-1.5rem] right-0">
+                <label class="theme-switch" for="themeToggleCheckbox" aria-label="Toggle dark mode">
+                    <input type="checkbox" id="themeToggleCheckbox" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        
+        <div class="p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 rounded-lg text-sm">
+            <p><strong>Please Note:</strong> This calculator is not affiliated with the NIBTT. All calculations are based on averages and the accuracy of the information you provide. This tool is for estimation purposes only. **For an official and precise statement of your benefits, it is recommended to contact the NIBTT directly.**</p>
+        </div>
+
+        <div id="calculatorForm" class="space-y-8">
+            <section class="bento-box">
+                <h2 class="bento-section-title text-xl md:text-2xl"><span class="bento-step-indicator">1</span>Your Personal & Work Details</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">Have you ever contributed to NIS before?</label>
+                        <div class="flex flex-wrap gap-4 radio-group">
+                            <input type="radio" id="everContributedYes" name="everContributed" value="yes" class="hidden" checked>
+                            <label for="everContributedYes">Yes</label>
+                            
+                            <input type="radio" id="everContributedNo" name="everContributed" value="no" class="hidden">
+                            <label for="everContributedNo">No</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">Do you intend to contribute in the future?</label>
+                        <div class="flex flex-wrap gap-4 radio-group">
+                            <input type="radio" id="willContributeFutureYes" name="willContributeFuture" value="yes" class="hidden" checked>
+                            <label for="willContributeFutureYes">Yes</label>
+                            
+                            <input type="radio" id="willContributeFutureNo" name="willContributeFuture" value="no" class="hidden">
+                            <label for="willContributeFutureNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="formBody" class="mt-6 pt-6 border-t border-[var(--border-color)]">
+                    <div id="nisContributionHistoryContainer" class="mb-6">
+                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">Calculation Mode</label>
+                        <div class="flex flex-wrap gap-4 radio-group">
+                            <input type="radio" id="modeEstimate" name="calculationMode" value="estimate" class="hidden" checked>
+                            <label for="modeEstimate">Estimate My Income</label>
+                            
+                            <input type="radio" id="modeManual" name="calculationMode" value="manual" class="hidden">
+                            <label for="modeManual">Enter My Income Manually</label>
+                        </div>
+                    </div>
+
+                    <div id="mainInputsContainer">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="dob" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Your Date of Birth</label>
+                                <input type="date" id="dob" class="w-full">
+                            </div>
+                            <div>
+                                <label for="startAge" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5" id="startAgeLabel">
+                                    Age when you started paying NIS?
+                                </label>
+                                <input type="number" id="startAge" placeholder="e.g., 18" class="w-full">
+                            </div>
+                        </div>
+
+                        <div id="estimationModeContainer" class="mt-6 space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="startIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5" id="startIncomeLabel">
+                                        Starting Monthly Income (then)
+                                    </label>
+                                    <input type="number" id="startIncome" placeholder="e.g., 2000" class="w-full">
+                                </div>
+                                <div id="currentIncomeContainer">
+                                    <label for="currentIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                                        Current Monthly Income
+                                    </label>
+                                    <input type="number" id="currentIncome" placeholder="e.g., 15000" class="w-full">
+                                </div>
+                                <div>
+                                    <label for="retirementAge-estimate" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Desired Retirement Age</label>
+                                    <select id="retirementAge-estimate" class="w-full">
+                                        <option value="60">60</option>
+                                        <option value="61">61</option>
+                                        <option value="62">62</option>
+                                        <option value="63">63</option>
+                                        <option value="64">64</option>
+                                        <option value="65" selected>65</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="contributionGapToggleContainer" class="mt-6 border-t border-[var(--border-color)] pt-6">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" id="hasContributionGap" class="rounded text-[var(--primary-accent)] focus:ring-[var(--primary-accent)]">
+                                    <span id="contributionGapLabel" class="text-sm font-medium text-[var(--text-secondary)]">Did you have a period of non-contribution?</span>
+                                </label>
+                            </div>
+                            <div id="contributionGapPeriodContainer" class="hidden col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 bg-[var(--bg-accent)] p-4 rounded-lg mt-4">
+                                <div>
+                                    <label for="gapStartDate" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Gap Start Date</label>
+                                    <input type="date" id="gapStartDate" class="w-full">
+                                </div>
+                                <div>
+                                    <label for="gapEndDate" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Gap End Date</label>
+                                    <input type="date" id="gapEndDate" class="w-full">
+                                </div>
+                            </div>
+                            <div class="space-y-2 mt-6 pt-6 border-t border-[var(--border-color)]">
+                                <div id="calculatedFutureIncomeDisplay" class="p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800 hidden text-center"></div>
+                                <div id="calculatedContributionsDisplay" class="mt-2 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-800 hidden text-center"></div>
+                            </div>
+                             <!-- Moved Optional Overrides here -->
+                             <div class="mt-6 border-t border-[var(--border-color)] pt-6">
+                                 <div id="overrideTrigger" data-target="#overrideContent" class="collapsible-trigger bg-[var(--bg-accent)] p-2 rounded-md">
+                                     <h3 class="text-sm font-semibold text-[var(--text-secondary)] mb-0">Optional Overrides (Advanced)</h3>
+                                     <svg class="w-5 h-5 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                                <div id="overrideContent" class="hidden mt-4 space-y-4">
+                                    <div>
+                                         <label for="overrideContributions" class="block text-sm font-medium text-[var(--text-secondary)] mb-2">
+                                             Override Total Contributions? (in weeks)
+                                         </label>
+                                         <input type="number" id="overrideContributions" placeholder="Enter total contribution weeks" class="w-full">
+                                    </div>
+                                    <div>
+                                         <label for="overrideAverageIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-2">
+                                             Override Average Lifetime Income?
+                                         </label>
+                                         <input type="number" id="overrideAverageIncome" placeholder="e.g., 8000" class="w-full">
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div id="manualModeContainer" class="hidden space-y-4 mt-6">
+                            <div class="text-center p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                                <p class="text-sm text-blue-800">Enter your income for each past year. Click the arrow to enter specific monthly incomes. Blank years are treated as non-contributory.</p>
+                            </div>
+                            <div id="manualIncomeEntryContainer" class="space-y-3 max-h-96 overflow-y-auto pr-2">
+                                <!-- Yearly income fields will be generated here -->
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-[var(--border-color)]">
+                                <div id="futureIncomeManualContainer" class="mb-4">
+                                    <label for="futureIncomeManual" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                                        Current Monthly Income (for future projections)
+                                    </label>
+                                    <input type="number" id="futureIncomeManual" placeholder="e.g., 15000" class="w-full">
+                                </div>
+                                <div>
+                                    <label for="retirementAge-manual" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Desired Retirement Age</label>
+                                    <select id="retirementAge-manual" class="w-full">
+                                        <option value="60">60</option>
+                                        <option value="61">61</option>
+                                        <option value="62">62</option>
+                                        <option value="63">63</option>
+                                        <option value="64">64</option>
+                                        <option value="65" selected>65</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="mt-6 border-t border-[var(--border-color)] pt-6">
+                    <h2 class="bento-section-title text-xl md:text-2xl mt-4"><span class="bento-step-indicator">2</span>Retirement Monthly Income Expected</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
+                            <label for="workPension" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Work Pension</label>
+                            <input type="number" id="workPension" placeholder="e.g., 2000" class="w-full">
+                          </div>
+                          <div>
+                             <label for="personalAnnuities" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Personal Annuities</label>
+                             <input type="number" id="personalAnnuities" placeholder="e.g., 500" class="w-full">
+                          </div>
+                          <div>
+                            <label for="rentalIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Rental Income</label>
+                            <input type="number" id="rentalIncome" placeholder="e.g., 3000" class="w-full">
+                          </div>
+                          <div>
+                            <label for="businessIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Business Income</label>
+                            <input type="number" id="businessIncome" placeholder="e.g., 0" class="w-full">
+                          </div>
+                           <div>
+                            <label for="investmentIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Investments/Dividends</label>
+                            <input type="number" id="investmentIncome" placeholder="e.g., 250" class="w-full">
+                          </div>
+                          <div>
+                            <label for="otherIncome" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Other</label>
+                            <input type="number" id="otherIncome" placeholder="e.g., 0" class="w-full">
+                          </div>
+                    </div>
+                 </div>
+
+            </section>
+        </div>
+        
+        <div class="text-center" id="calculateBtnContainer">
+            <button id="calculateBtn" class="w-full md:w-1/2 main-calc-button button-base text-lg pulse-animation">Calculate My Retirement Benefits</button>
+        </div>
+
+        <div id="resultsSection" class="hidden space-y-8">
+            <h2 class="bento-section-title text-xl md:text-2xl text-center"><span class="bento-step-indicator">3</span>Your Estimated Retirement Income</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <div id="nisResultCard" class="result-card">
+                    <p id="nisResultLabel" class="text-xl font-bold opacity-80"></p>
+                    <p id="nisResultAmount" class="text-4xl md:text-5xl font-extrabold my-2"></p>
+                    <p id="nisResultDescription" class="font-semibold text-sm"></p>
+                </div>
+                 <div id="scpResultCard" class="result-card scp">
+                    <p id="scpResultLabel" class="text-xl font-bold opacity-80"></p>
+                    <p id="scpResultAmount" class="text-4xl md:text-5xl font-extrabold my-2"></p>
+                    <p id="scpResultDescription" class="font-semibold text-sm"></p>
+                </div>
+                 <div id="totalResultCard" class="result-card pension col-span-1 md:col-span-2 lg:col-span-1">
+                    <p id="totalResultLabel" class="text-xl font-bold opacity-80"></p>
+                    <p id="totalResultAmount" class="text-4xl md:text-5xl font-extrabold my-2"></p>
+                    <p id="totalResultDescription" class="font-semibold text-sm"></p>
+                    <p id="inflationAdjustedAmount" class="text-base opacity-90 mt-4 font-semibold"></p>
+                    <button id="planPortfolioBtn" class="hidden mt-4 button-base secondary-action-button text-sm pulse-animation">Let's plan a proper retirement portfolio</button>
+                </div>
+            </div>
+
+            <div class="bento-box">
+                <div id="breakdownTrigger" data-target="#breakdownContent" class="collapsible-trigger">
+                    <h3 class="bento-section-title text-xl md:text-2xl mb-0">Calculation Breakdown</h3>
+                    <svg class="w-6 h-6 text-[var(--primary-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="breakdownContent" class="hidden mt-4 space-y-4 text-sm">
+                    <div id="calculationAssumptions" class="p-4 bg-[var(--bg-accent)] rounded-lg text-xs text-[var(--text-muted)] space-y-1"></div>
+                    <div id="nisBreakdown" class="mt-4 pt-4 border-t border-[var(--border-color)]"></div>
+                    <div id="scpBreakdown" class="mt-4 pt-4 border-t border-[var(--border-color)]"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="persistent-sections" class="space-y-8">
+             <section id="main-cta" class="bento-box" style="background: linear-gradient(135deg, var(--primary-accent) 0%, var(--primary-accent-darker) 100%); color: white;">
+                 <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                    <img src="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/contact%20photo.jpeg" class="w-24 h-24 rounded-full mb-4 md:mb-0 md:mr-6 flex-shrink-0 object-cover" alt="Kyron Marchan" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/3d4d58?text=KM';">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Ready to Plan Further?</h3>
+                        <p class="text-sm mb-4 max-w-xl">
+                            This calculator is a great first step. For a personalized retirement plan that includes annuities, investments, and maximizing your benefits, let's talk.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                             <a href="mailto:kyron.marchan@tatil.co.tt?subject=Retirement Plan Inquiry from NIS/SCP Calculator" class="button-base secondary-action-button text-center no-underline">Email For Advice</a>
+                             <a href="https://wa.me/18683278273?text=Hello%20Kyron,%20I'd%20like%20to%20discuss%20my%20retirement%20plan%20after%20using%20the%20NIS/SCP%20calculator." target="_blank" class="button-base bg-green-500 hover:bg-green-600 text-center no-underline" style="background-color: #25D366; border-color: #25D366;">
+                                Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bento-box">
+                 <div id="legalTrigger" data-target="#legalContent" class="collapsible-trigger">
+                     <h3 class="bento-section-title text-xl md:text-2xl mb-0">Important Disclaimer</h3>
+                     <svg class="w-6 h-6 text-[var(--primary-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="legalContent" class="hidden mt-4 text-sm text-[var(--text-muted)] space-y-4">
+                     <p><strong>For Estimation Purposes Only:</strong> This calculator is not affiliated with the NIBTT. It provides an estimate based on the information you enter and publicly available rules for NIS and SCP. The projections for income growth and NIS class are based on simplified assumptions. **For an official and precise statement of your benefits, it is recommended to contact the NIBTT directly.**</p>
+                 </div>
+            </section>
+        </div>
+    </div>
+    
+    <div id="alertModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+             <p id="alertModalMessage" class="text-lg text-[var(--text-primary)] dark:text-gray-200"></p>
+             <button id="alertModalClose" class="mt-4 w-full main-calc-button button-base">OK</button>
+        </div>
+    </div>
+    
+    <!-- New Confirmation Modal -->
+    <div id="noContributionModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl max-w-md w-full text-center">
+             <p id="noContributionMessage" class="text-lg text-[var(--text-primary)] dark:text-gray-200 mb-6">No past or future NIS contributions have been indicated. This will result in a zero NIS benefit. Do you wish to proceed?</p>
+             <div class="flex justify-center gap-4">
+                <button id="noContributionReturn" class="button-base secondary-action-button w-1/2">Return to Form</button>
+                <button id="noContributionOk" class="button-base main-calc-button w-1/2">OK, Continue</button>
+             </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- DOM ELEMENT CACHE ---
+    const dom = {
+        themeToggle: document.getElementById('themeToggleCheckbox'),
+        calculateBtn: document.getElementById('calculateBtn'),
+        resultsSection: document.getElementById('resultsSection'),
+        dobInput: document.getElementById('dob'),
+        startAgeInput: document.getElementById('startAge'),
+        overrideContributionsInput: document.getElementById('overrideContributions'),
+        overrideAverageIncomeInput: document.getElementById('overrideAverageIncome'),
+        retirementAgeEstimateSelect: document.getElementById('retirementAge-estimate'),
+        startIncomeInput: document.getElementById('startIncome'),
+        currentIncomeInput: document.getElementById('currentIncome'),
+        hasContributionGapCheckbox: document.getElementById('hasContributionGap'),
+        contributionGapPeriodContainer: document.getElementById('contributionGapPeriodContainer'),
+        gapStartDateInput: document.getElementById('gapStartDate'),
+        gapEndDateInput: document.getElementById('gapEndDate'),
+        retirementAgeManualSelect: document.getElementById('retirementAge-manual'),
+        futureIncomeManualContainer: document.getElementById('futureIncomeManualContainer'),
+        futureIncomeManual: document.getElementById('futureIncomeManual'),
+        incomeInputs: [
+            document.getElementById('workPension'), document.getElementById('personalAnnuities'),
+            document.getElementById('rentalIncome'), document.getElementById('businessIncome'),
+            document.getElementById('investmentIncome'), document.getElementById('otherIncome')
+        ],
+        calculatorForm: document.getElementById('calculatorForm'),
+        formBody: document.getElementById('formBody'),
+        nisContributionHistoryContainer: document.getElementById('nisContributionHistoryContainer'),
+        estimationModeContainer: document.getElementById('estimationModeContainer'),
+        manualModeContainer: document.getElementById('manualModeContainer'),
+        manualIncomeEntryContainer: document.getElementById('manualIncomeEntryContainer'),
+        alertModal: document.getElementById('alertModal'),
+        alertModalMessage: document.getElementById('alertModalMessage'),
+        alertModalClose: document.getElementById('alertModalClose'),
+        noContributionModal: document.getElementById('noContributionModal'),
+        noContributionOk: document.getElementById('noContributionOk'),
+        noContributionReturn: document.getElementById('noContributionReturn'),
+        scrollNudgeEl: document.getElementById('scrollNudge'),
+        planPortfolioBtn: document.getElementById('planPortfolioBtn'),
+        startAgeLabel: document.getElementById('startAgeLabel'),
+        startIncomeLabel: document.getElementById('startIncomeLabel'),
+        currentIncomeContainer: document.getElementById('currentIncomeContainer'),
+        contributionGapLabel: document.getElementById('contributionGapLabel'),
+        calculatedFutureIncomeDisplay: document.getElementById('calculatedFutureIncomeDisplay'),
+        calculatedContributionsDisplay: document.getElementById('calculatedContributionsDisplay'),
+    };
+
+    // --- STATE ---
+    let isCalculated = false;
+
+    // --- CONSTANTS ---
+    const WEEKS_IN_YEAR = 52;
+    const PENSION_CONTRIB_THRESHOLD = 750;
+    const MIN_NIS_PENSION = 3000;
+    const MIN_NIS_GRANT = 3000;
+    const DEFAULT_PAST_GROWTH_RATE = 0.03;
+
+    const PENSION_RATES = [
+        { classId: 1, basicMonthly: 335.83, incrementMonthly: 4.90 }, { classId: 2, basicMonthly: 436.58, incrementMonthly: 6.85 }, { classId: 3, basicMonthly: 517.18, incrementMonthly: 8.67 }, { classId: 4, basicMonthly: 597.78, incrementMonthly: 10.49 }, { classId: 5, basicMonthly: 671.67, incrementMonthly: 12.35 }, { classId: 6, basicMonthly: 795.95, incrementMonthly: 14.99 }, { classId: 7, basicMonthly: 937.00, incrementMonthly: 17.55 }, { classId: 8, basicMonthly: 1078.05, incrementMonthly: 20.28 }, { classId: 9, basicMonthly: 1229.15, incrementMonthly: 23.05 }, { classId: 10, basicMonthly: 1390.35, incrementMonthly: 26.22 }, { classId: 11, basicMonthly: 1551.55, incrementMonthly: 29.16 }, { classId: 12, basicMonthly: 1632.15, incrementMonthly: 32.46 }, { classId: 13, basicMonthly: 1906.87, incrementMonthly: 36.01 }, { classId: 14, basicMonthly: 2113.72, incrementMonthly: 39.91 }, { classId: 15, basicMonthly: 2349.65, incrementMonthly: 44.37 }, { classId: 16, basicMonthly: 2475.70, incrementMonthly: 46.76 },
+    ];
+    
+    const HISTORICAL_EARNINGS_TABLES = [
+        { date: new Date('2016-09-05'), table: [ { classId: 1, minMonthly: 867.00, maxMonthly: 1472.99, totalWeeklyContrib: 35.70 }, { classId: 2, minMonthly: 1473.00, maxMonthly: 1949.99, totalWeeklyContrib: 52.20 }, { classId: 3, minMonthly: 1950.00, maxMonthly: 2642.99, totalWeeklyContrib: 69.90 }, { classId: 4, minMonthly: 2643.00, maxMonthly: 3292.99, totalWeeklyContrib: 90.30 }, { classId: 5, minMonthly: 3293.00, maxMonthly: 4029.99, totalWeeklyContrib: 111.60 }, { classId: 6, minMonthly: 4030.00, maxMonthly: 4852.99, totalWeeklyContrib: 135.30 }, { classId: 7, minMonthly: 4853.00, maxMonthly: 5632.99, totalWeeklyContrib: 159.60 }, { classId: 8, minMonthly: 5633.00, maxMonthly: 6456.99, totalWeeklyContrib: 184.20 }, { classId: 9, minMonthly: 6457.00, maxMonthly: 7409.99, totalWeeklyContrib: 211.20 }, { classId: 10, minMonthly: 7410.00, maxMonthly: 8276.99, totalWeeklyContrib: 238.80 }, { classId: 11, minMonthly: 8277.00, maxMonthly: 9272.99, totalWeeklyContrib: 267.30 }, { classId: 12, minMonthly: 9273.00, maxMonthly: 10312.99, totalWeeklyContrib: 298.20 }, { classId: 13, minMonthly: 10313.00, maxMonthly: 11396.99, totalWeeklyContrib: 330.60 }, { classId: 14, minMonthly: 11397.00, maxMonthly: 12652.99, totalWeeklyContrib: 366.30 }, { classId: 15, minMonthly: 12653.00, maxMonthly: 13599.99, totalWeeklyContrib: 399.90 }, { classId: 16, minMonthly: 13600.00, maxMonthly: Infinity, totalWeeklyContrib: 414.30 } ] },
+        { date: new Date('2014-03-03'), table: [ { classId: 1, minMonthly: 780.00, maxMonthly: 1299.99, totalWeeklyContrib: 28.80 }, { classId: 2, minMonthly: 1300.00, maxMonthly: 1732.99, totalWeeklyContrib: 42.00 }, { classId: 3, minMonthly: 1733.00, maxMonthly: 2339.99, totalWeeklyContrib: 56.40 }, { classId: 4, minMonthly: 2340.00, maxMonthly: 2902.99, totalWeeklyContrib: 72.60 }, { classId: 5, minMonthly: 2903.00, maxMonthly: 3552.99, totalWeeklyContrib: 89.40 }, { classId: 6, minMonthly: 3553.00, maxMonthly: 4289.99, totalWeeklyContrib: 108.60 }, { classId: 7, minMonthly: 4290.00, maxMonthly: 4982.99, totalWeeklyContrib: 128.40 }, { classId: 8, minMonthly: 4983.00, maxMonthly: 5719.99, totalWeeklyContrib: 148.20 }, { classId: 9, minMonthly: 5720.00, maxMonthly: 6542.99, totalWeeklyContrib: 169.80 }, { classId: 10, minMonthly: 6543.00, maxMonthly: 7322.99, totalWeeklyContrib: 192.00 }, { classId: 11, minMonthly: 7323.00, maxMonthly: 8189.99, totalWeeklyContrib: 214.80 }, { classId: 12, minMonthly: 8190.00, maxMonthly: 9099.99, totalWeeklyContrib: 239.40 }, { classId: 13, minMonthly: 9100.00, maxMonthly: 10052.99, totalWeeklyContrib: 265.20 }, { classId: 14, minMonthly: 10053.00, maxMonthly: 11179.99, totalWeeklyContrib: 294.00 }, { classId: 15, minMonthly: 11180.00, maxMonthly: 11999.99, totalWeeklyContrib: 321.00 }, { classId: 16, minMonthly: 12000.00, maxMonthly: Infinity, totalWeeklyContrib: 332.40 } ] },
+        { date: new Date('2013-03-04'), table: [ { classId: 1, minMonthly: 650.00, maxMonthly: 1082.99, totalWeeklyContrib: 23.40 }, { classId: 2, minMonthly: 1083.00, maxMonthly: 1429.99, totalWeeklyContrib: 33.93 }, { classId: 3, minMonthly: 1430.00, maxMonthly: 1949.99, totalWeeklyContrib: 45.63 }, { classId: 4, minMonthly: 1950.00, maxMonthly: 2426.99, totalWeeklyContrib: 59.10 }, { classId: 5, minMonthly: 2427.00, maxMonthly: 2946.99, totalWeeklyContrib: 72.54 }, { classId: 6, minMonthly: 2947.00, maxMonthly: 3552.99, totalWeeklyContrib: 87.75 }, { classId: 7, minMonthly: 3553.00, maxMonthly: 4159.99, totalWeeklyContrib: 104.13 }, { classId: 8, minMonthly: 4160.00, maxMonthly: 4766.99, totalWeeklyContrib: 120.51 }, { classId: 9, minMonthly: 4767.00, maxMonthly: 5459.99, totalWeeklyContrib: 138.06 }, { classId: 10, minMonthly: 5460.00, maxMonthly: 6109.99, totalWeeklyContrib: 156.21 }, { classId: 11, minMonthly: 6110.00, maxMonthly: 6802.99, totalWeeklyContrib: 174.33 }, { classId: 12, minMonthly: 6803.00, maxMonthly: 7582.99, totalWeeklyContrib: 194.22 }, { classId: 13, minMonthly: 7583.00, maxMonthly: 8362.99, totalWeeklyContrib: 215.28 }, { classId: 14, minMonthly: 8363.00, maxMonthly: 9316.99, totalWeeklyContrib: 238.68 }, { classId: 15, minMonthly: 9317.00, maxMonthly: 9999.99, totalWeeklyContrib: 260.79 }, { classId: 16, minMonthly: 10000.00, maxMonthly: Infinity, totalWeeklyContrib: 270.03 } ] },
+        { date: new Date('2012-01-02'), table: [ { classId: 1, minMonthly: 520.00, maxMonthly: 866.99, totalWeeklyContrib: 18.24 }, { classId: 2, minMonthly: 867.00, maxMonthly: 1169.99, totalWeeklyContrib: 26.79 }, { classId: 3, minMonthly: 1170.00, maxMonthly: 1559.99, totalWeeklyContrib: 35.91 }, { classId: 4, minMonthly: 1560.00, maxMonthly: 1949.99, totalWeeklyContrib: 46.17 }, { classId: 5, minMonthly: 1950.00, maxMonthly: 2382.99, totalWeeklyContrib: 57.00 }, { classId: 6, minMonthly: 2383.00, maxMonthly: 2859.99, totalWeeklyContrib: 68.97 }, { classId: 7, minMonthly: 2860.00, maxMonthly: 3336.99, totalWeeklyContrib: 81.51 }, { classId: 8, minMonthly: 3337.00, maxMonthly: 3812.99, totalWeeklyContrib: 94.05 }, { classId: 9, minMonthly: 3813.00, maxMonthly: 4376.99, totalWeeklyContrib: 107.73 }, { classId: 10, minMonthly: 4377.00, maxMonthly: 4896.99, totalWeeklyContrib: 121.98 }, { classId: 11, minMonthly: 4897.00, maxMonthly: 5459.99, totalWeeklyContrib: 136.23 }, { classId: 12, minMonthly: 5460.00, maxMonthly: 6066.99, totalWeeklyContrib: 151.62 }, { classId: 13, minMonthly: 6067.00, maxMonthly: 6716.99, totalWeeklyContrib: 168.15 }, { classId: 14, minMonthly: 6717.00, maxMonthly: 7452.99, totalWeeklyContrib: 186.39 }, { classId: 15, minMonthly: 7453.00, maxMonthly: 8299.99, totalWeeklyContrib: 207.20 }, { classId: 16, minMonthly: 8300.00, maxMonthly: Infinity, totalWeeklyContrib: 218.31 } ] },
+        { date: new Date('2010-01-04'), table: [ { classId: 1, minMonthly: 520.00, maxMonthly: 866.99, totalWeeklyContrib: 17.28 }, { classId: 2, minMonthly: 867.00, maxMonthly: 1169.99, totalWeeklyContrib: 25.38 }, { classId: 3, minMonthly: 1170.00, maxMonthly: 1559.99, totalWeeklyContrib: 34.02 }, { classId: 4, minMonthly: 1560.00, maxMonthly: 1949.99, totalWeeklyContrib: 43.74 }, { classId: 5, minMonthly: 1950.00, maxMonthly: 2382.99, totalWeeklyContrib: 54.00 }, { classId: 6, minMonthly: 2383.00, maxMonthly: 2859.99, totalWeeklyContrib: 65.34 }, { classId: 7, minMonthly: 2860.00, maxMonthly: 3336.99, totalWeeklyContrib: 77.22 }, { classId: 8, minMonthly: 3337.00, maxMonthly: 3812.99, totalWeeklyContrib: 89.10 }, { classId: 9, minMonthly: 3813.00, maxMonthly: 4376.99, totalWeeklyContrib: 102.06 }, { classId: 10, minMonthly: 4377.00, maxMonthly: 4896.99, totalWeeklyContrib: 115.56 }, { classId: 11, minMonthly: 4897.00, maxMonthly: 5459.99, totalWeeklyContrib: 129.06 }, { classId: 12, minMonthly: 5460.00, maxMonthly: 6066.99, totalWeeklyContrib: 143.64 }, { classId: 13, minMonthly: 6067.00, maxMonthly: 6716.99, totalWeeklyContrib: 159.30 }, { classId: 14, minMonthly: 6717.00, maxMonthly: 7452.99, totalWeeklyContrib: 176.58 }, { classId: 15, minMonthly: 7453.00, maxMonthly: 8299.99, totalWeeklyContrib: 196.29 }, { classId: 16, minMonthly: 8300.00, maxMonthly: Infinity, totalWeeklyContrib: 206.82 } ] },
+        { date: new Date('2008-01-07'), table: [ { classId: 1, minMonthly: 520.00, maxMonthly: 866.99, totalWeeklyContrib: 16.80 }, { classId: 2, minMonthly: 867.00, maxMonthly: 1169.99, totalWeeklyContrib: 24.68 }, { classId: 3, minMonthly: 1170.00, maxMonthly: 1559.99, totalWeeklyContrib: 33.08 }, { classId: 4, minMonthly: 1560.00, maxMonthly: 1949.99, totalWeeklyContrib: 42.53 }, { classId: 5, minMonthly: 1950.00, maxMonthly: 2382.99, totalWeeklyContrib: 52.50 }, { classId: 6, minMonthly: 2383.00, maxMonthly: 2859.99, totalWeeklyContrib: 63.53 }, { classId: 7, minMonthly: 2860.00, maxMonthly: 3336.99, totalWeeklyContrib: 75.08 }, { classId: 8, minMonthly: 3337.00, maxMonthly: 3812.99, totalWeeklyContrib: 86.63 }, { classId: 9, minMonthly: 3813.00, maxMonthly: 4376.99, totalWeeklyContrib: 102.06 }, { classId: 10, minMonthly: 4377.00, maxMonthly: 4896.99, totalWeeklyContrib: 112.35 }, { classId: 11, minMonthly: 4897.00, maxMonthly: 5459.99, totalWeeklyContrib: 125.48 }, { classId: 12, minMonthly: 5460.00, maxMonthly: 6066.99, totalWeeklyContrib: 139.65 }, { classId: 13, minMonthly: 6067.00, maxMonthly: 6716.99, totalWeeklyContrib: 154.88 }, { classId: 14, minMonthly: 6717.00, maxMonthly: 7452.99, totalWeeklyContrib: 171.68 }, { classId: 15, minMonthly: 7453.00, maxMonthly: 8299.99, totalWeeklyContrib: 190.84 }, { classId: 16, minMonthly: 8300.00, maxMonthly: Infinity, totalWeeklyContrib: 201.08 } ] },
+        { date: new Date('2006-01-02'), table: [ { classId: 1, minMonthly: 433.00, maxMonthly: 692.99, totalWeeklyContrib: 12.87 }, { classId: 2, minMonthly: 693.00, maxMonthly: 952.99, totalWeeklyContrib: 18.81 }, { classId: 3, minMonthly: 953.00, maxMonthly: 1256.99, totalWeeklyContrib: 25.26 }, { classId: 4, minMonthly: 1257.00, maxMonthly: 1559.99, totalWeeklyContrib: 32.19 }, { classId: 5, minMonthly: 1560.00, maxMonthly: 1906.99, totalWeeklyContrib: 39.60 }, { classId: 6, minMonthly: 1907.00, maxMonthly: 2296.99, totalWeeklyContrib: 48.03 }, { classId: 7, minMonthly: 2297.00, maxMonthly: 2686.99, totalWeeklyContrib: 56.94 }, { classId: 8, minMonthly: 2687.00, maxMonthly: 3076.99, totalWeeklyContrib: 65.85 }, { classId: 9, minMonthly: 3077.00, maxMonthly: 3509.99, totalWeeklyContrib: 75.24 }, { classId: 10, minMonthly: 3510.00, maxMonthly: 3942.99, totalWeeklyContrib: 85.14 }, { classId: 11, minMonthly: 3943.00, maxMonthly: 4376.99, totalWeeklyContrib: 95.04 }, { classId: 12, minMonthly: 4377.00, maxMonthly: Infinity, totalWeeklyContrib: 99.99 } ] },
+        { date: new Date('2005-01-03'), table: [ { classId: 1, minMonthly: 433.00, maxMonthly: 692.99, totalWeeklyContrib: 12.09 }, { classId: 2, minMonthly: 693.00, maxMonthly: 952.99, totalWeeklyContrib: 17.67 }, { classId: 3, minMonthly: 953.00, maxMonthly: 1256.99, totalWeeklyContrib: 23.73 }, { classId: 4, minMonthly: 1257.00, maxMonthly: 1559.99, totalWeeklyContrib: 30.24 }, { classId: 5, minMonthly: 1560.00, maxMonthly: 1906.99, totalWeeklyContrib: 37.20 }, { classId: 6, minMonthly: 1907.00, maxMonthly: 2296.99, totalWeeklyContrib: 45.12 }, { classId: 7, minMonthly: 2297.00, maxMonthly: 2686.99, totalWeeklyContrib: 53.49 }, { classId: 8, minMonthly: 2687.00, maxMonthly: 3076.99, totalWeeklyContrib: 61.86 }, { classId: 9, minMonthly: 3077.00, maxMonthly: 3509.99, totalWeeklyContrib: 70.68 }, { classId: 10, minMonthly: 3510.00, maxMonthly: 3942.99, totalWeeklyContrib: 79.98 }, { classId: 11, minMonthly: 3943.00, maxMonthly: 4376.99, totalWeeklyContrib: 89.28 }, { classId: 12, minMonthly: 4377.00, maxMonthly: Infinity, totalWeeklyContrib: 93.93 } ] },
+        { date: new Date('2004-03-01'), table: [ { classId: 1, minMonthly: 433.00, maxMonthly: 692.99, totalWeeklyContrib: 11.31 }, { classId: 2, minMonthly: 693.00, maxMonthly: 952.99, totalWeeklyContrib: 16.53 }, { classId: 3, minMonthly: 953.00, maxMonthly: 1256.99, totalWeeklyContrib: 22.20 }, { classId: 4, minMonthly: 1257.00, maxMonthly: 1559.99, totalWeeklyContrib: 28.29 }, { classId: 5, minMonthly: 1560.00, maxMonthly: 1906.99, totalWeeklyContrib: 34.80 }, { classId: 6, minMonthly: 1907.00, maxMonthly: 2296.99, totalWeeklyContrib: 42.21 }, { classId: 7, minMonthly: 2297.00, maxMonthly: 2686.99, totalWeeklyContrib: 50.04 }, { classId: 8, minMonthly: 2687.00, maxMonthly: 3076.99, totalWeeklyContrib: 57.87 }, { classId: 9, minMonthly: 3077.00, maxMonthly: 3509.99, totalWeeklyContrib: 66.12 }, { classId: 10, minMonthly: 3510.00, maxMonthly: 3942.99, totalWeeklyContrib: 74.82 }, { classId: 11, minMonthly: 3943.00, maxMonthly: 4376.99, totalWeeklyContrib: 83.52 }, { classId: 12, minMonthly: 4377.00, maxMonthly: Infinity, totalWeeklyContrib: 87.87 } ] },
+        { date: new Date('1999-05-03'), table: [ { classId: 1, minMonthly: 347.00, maxMonthly: 562.99, totalWeeklyContrib: 8.79 }, { classId: 2, minMonthly: 563.00, maxMonthly: 779.99, totalWeeklyContrib: 12.99 }, { classId: 3, minMonthly: 780.00, maxMonthly: 996.99, totalWeeklyContrib: 17.25 }, { classId: 4, minMonthly: 997.00, maxMonthly: 1256.99, totalWeeklyContrib: 21.84 }, { classId: 5, minMonthly: 1257.00, maxMonthly: 1559.99, totalWeeklyContrib: 27.30 }, { classId: 6, minMonthly: 1560.00, maxMonthly: 1862.99, totalWeeklyContrib: 33.12 }, { classId: 7, minMonthly: 1863.00, maxMonthly: 2166.99, totalWeeklyContrib: 39.06 }, { classId: 8, minMonthly: 2167.00, maxMonthly: 2469.99, totalWeeklyContrib: 44.94 }, { classId: 9, minMonthly: 2470.00, maxMonthly: 2816.99, totalWeeklyContrib: 51.24 }, { classId: 10, minMonthly: 2817.00, maxMonthly: 3162.99, totalWeeklyContrib: 57.96 }, { classId: 11, minMonthly: 3163.00, maxMonthly: 3509.99, totalWeeklyContrib: 64.71 }, { classId: 12, minMonthly: 3510.00, maxMonthly: Infinity, totalWeeklyContrib: 68.04 } ] },
+        { date: new Date('1980-08-11'), table: [ { classId: 1, minMonthly: 0, maxMonthly: 219.99, totalWeeklyContrib: 3.30 }, { classId: 2, minMonthly: 220.00, maxMonthly: 279.99, totalWeeklyContrib: 4.80 }, { classId: 3, minMonthly: 280.00, maxMonthly: 369.99, totalWeeklyContrib: 6.30 }, { classId: 4, minMonthly: 370.00, maxMonthly: 469.99, totalWeeklyContrib: 8.25 }, { classId: 5, minMonthly: 470.00, maxMonthly: 609.99, totalWeeklyContrib: 10.50 }, { classId: 6, minMonthly: 610.00, maxMonthly: 799.99, totalWeeklyContrib: 13.50 }, { classId: 7, minMonthly: 800.00, maxMonthly: 999.99, totalWeeklyContrib: 17.25 }, { classId: 8, minMonthly: 1000.00, maxMonthly: Infinity, totalWeeklyContrib: 19.35 } ] },
+        { date: new Date('1972-04-10'), table: [ { classId: 1, minMonthly: 0, maxMonthly: 68.99, totalWeeklyContrib: 0.90 }, { classId: 2, minMonthly: 69.00, maxMonthly: 90.99, totalWeeklyContrib: 1.50 }, { classId: 3, minMonthly: 91.00, maxMonthly: 120.99, totalWeeklyContrib: 1.95 }, { classId: 4, minMonthly: 121.00, maxMonthly: 159.99, totalWeeklyContrib: 2.55 }, { classId: 5, minMonthly: 160.00, maxMonthly: 207.99, totalWeeklyContrib: 3.45 }, { classId: 6, minMonthly: 208.00, maxMonthly: 268.99, totalWeeklyContrib: 4.35 }, { classId: 7, minMonthly: 269.00, maxMonthly: 346.99, totalWeeklyContrib: 5.55 }, { classId: 8, minMonthly: 347.00, maxMonthly: Infinity, totalWeeklyContrib: 7.35 } ] }
+    ];
+
+    // --- HELPER FUNCTIONS ---
+    const getNumericValue = (element) => parseFloat(element.value) || 0;
+    const formatCurrency = (value, decimals = 2) => `TTD ${value.toLocaleString('en-TT', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}`;
+    const showAlert = (message) => {
+        dom.alertModalMessage.textContent = message;
+        dom.alertModal.classList.remove('hidden');
+        dom.alertModal.classList.add('flex');
+        dom.calculateBtn.textContent = 'Re-calculate Benefits';
+        dom.calculateBtn.classList.remove('pulse-animation');
+        dom.calculateBtn.disabled = false;
+    };
+    const getTableForDate = (date) => HISTORICAL_EARNINGS_TABLES.find(entry => date >= entry.date)?.table || HISTORICAL_EARNINGS_TABLES[HISTORICAL_EARNINGS_TABLES.length - 1].table;
+    const getEarningsClass = (monthlyIncome, date) => {
+        const table = getTableForDate(date);
+        return table.find(ec => monthlyIncome >= ec.minMonthly && monthlyIncome <= ec.maxMonthly) || table[table.length -1];
+    };
+    const getAge = (dob) => {
+        const today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+        const m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+        return age;
+    };
+    
+    // --- UI UPDATE FUNCTIONS ---
+    const initializeTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const useDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        document.documentElement.classList.toggle('dark-mode', useDark);
+        dom.themeToggle.checked = useDark;
+    };
+
+    const hideResultsAndResetButton = () => {
+        if (isCalculated) {
+            dom.resultsSection.classList.add('hidden');
+            dom.calculateBtn.textContent = "Re-Calculate Benefits";
+            dom.calculateBtn.classList.remove('pulse-animation');
+            isCalculated = false;
+        }
+    };
+    
+    const updateFormVisibility = () => {
+        hideResultsAndResetButton();
+        const everContributed = document.querySelector('input[name="everContributed"]:checked').value === 'yes';
+        const willContributeFuture = document.querySelector('input[name="willContributeFuture"]:checked').value === 'yes';
+
+        if (!everContributed && !willContributeFuture) {
+            dom.formBody.style.display = 'none';
+            dom.noContributionModal.classList.remove('hidden');
+            dom.noContributionModal.classList.add('flex');
+            return;
+        }
+        dom.formBody.style.display = 'block';
+        dom.noContributionModal.classList.add('hidden');
+
+        dom.nisContributionHistoryContainer.style.display = everContributed ? 'block' : 'none';
+
+        if (!everContributed) {
+            document.querySelector('input[name="calculationMode"][value="estimate"]').checked = true;
+        }
+
+        const mode = document.querySelector('input[name="calculationMode"]:checked').value;
+        
+        const dob = new Date(dom.dobInput.value);
+        let currentAgeText = "";
+        let baseLabel = everContributed ? 'Age when you started paying NIS?' : 'Age you will start paying NIS?';
+        
+        if(!isNaN(dob.getTime())){
+             const currentAge = getAge(dob);
+             if (everContributed) {
+                currentAgeText = `<span class='text-xs text-[var(--text-muted)]'>(must be < ${currentAge})</span>`;
+             } else {
+                currentAgeText = `<span class='text-xs text-[var(--text-muted)]'>(must be > ${currentAge})</span>`;
+             }
+        }
+        dom.startAgeLabel.innerHTML = `${baseLabel} ${currentAgeText}`;
+        dom.startIncomeLabel.textContent = everContributed ? 'Starting Monthly Income (then)' : 'Expected Starting Monthly Income';
+        dom.contributionGapLabel.textContent = everContributed ? 'Did you have a period of non-contribution?' : 'Do you expect a period of non-contribution?';
+        
+        dom.estimationModeContainer.style.display = mode === 'estimate' ? 'block' : 'none';
+        dom.manualModeContainer.style.display = mode === 'manual' ? 'block' : 'none';
+
+        if (mode === 'estimate') {
+            dom.currentIncomeContainer.style.display = everContributed ? 'block' : 'none';
+        }
+        
+        if (mode === 'manual') {
+            generateManualIncomeFields();
+            dom.futureIncomeManualContainer.style.display = willContributeFuture ? 'block' : 'none';
+        }
+        updateLiveDisplays();
+    };
+
+    const generateManualIncomeFields = () => {
+        const dob = new Date(dom.dobInput.value);
+        const startAgeVal = getNumericValue(dom.startAgeInput);
+        dom.manualIncomeEntryContainer.innerHTML = '';
+
+        if (isNaN(dob.getTime()) || startAgeVal <= 0) {
+            dom.manualIncomeEntryContainer.innerHTML = '<p class="text-sm text-center text-[var(--text-muted)]">Please enter your Date of Birth and Starting Age above.</p>';
+            return;
+        }
+
+        const startYear = dob.getFullYear() + startAgeVal;
+        const currentYear = new Date().getFullYear();
+        
+        for (let year = startYear; year < currentYear; year++) {
+            const yearWrapper = document.createElement('div');
+            yearWrapper.className = 'p-2 rounded-lg border border-[var(--border-color)]';
+            yearWrapper.innerHTML = `
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <label class="font-semibold text-sm">${year}</label>
+                    <div class="flex-1 min-w-[150px]">
+                        <input type="number" data-year="${year}" class="yearly-income-input w-full" placeholder="Av. Monthly Income">
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <label class="flex items-center space-x-2 text-xs cursor-pointer">
+                            <input type="checkbox" data-year="${year}" class="yearly-gap-checkbox rounded text-[var(--primary-accent)] focus:ring-[var(--primary-accent)]">
+                            <span>No Contrib.</span>
+                        </label>
+                        <button class="expand-year-btn p-1">
+                             <svg class="w-5 h-5 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="monthly-fields-container hidden mt-4 pt-4 border-t border-[var(--border-color)] grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2">
+                    ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => `
+                        <div class="grid grid-cols-2 items-center gap-2">
+                           <label class="text-xs font-medium">${month}</label>
+                           <input type="number" data-year="${year}" data-month="${index}" class="monthly-income-input text-xs p-1" placeholder="Inc.">
+                        </div>
+                    `).join('')}
+                    <div class="col-span-full mt-2 flex justify-end"><button class="done-btn text-xs button-base py-1 px-3 bg-[var(--primary-accent)] text-white">Done</button></div>
+                </div>`;
+            dom.manualIncomeEntryContainer.appendChild(yearWrapper);
+        }
+    };
+
+    const updateLiveDisplays = () => {
+        const mode = document.querySelector('input[name="calculationMode"]:checked').value;
+        const willContributeFuture = document.querySelector('input[name="willContributeFuture"]:checked').value === 'yes';
+
+        if (mode !== 'estimate') {
+            dom.calculatedFutureIncomeDisplay.classList.add('hidden');
+            dom.calculatedContributionsDisplay.classList.add('hidden');
+            return;
+        }
+        
+        const dob = new Date(dom.dobInput.value);
+        if (isNaN(dob.getTime())) return;
+        const currentAge = getAge(dob);
+        const retirementAge = getNumericValue(dom.retirementAgeEstimateSelect);
+        const startAge = getNumericValue(dom.startAgeInput);
+        const currentIncome = getNumericValue(dom.currentIncomeInput);
+        
+        // Live Future Income Display
+        const yearsToRetirement = retirementAge - currentAge;
+        if (willContributeFuture && yearsToRetirement > 0 && currentIncome > 0) {
+            let income = currentIncome;
+            let totalFutureIncome = 0;
+            for(let i = 0; i < yearsToRetirement; i++){
+                if (i > 0 && i % 3 === 0) income *= 1.06;
+                totalFutureIncome += income;
+            }
+            const avgFutureIncome = totalFutureIncome > 0 ? totalFutureIncome / yearsToRetirement : 0;
+            dom.calculatedFutureIncomeDisplay.innerHTML = `Your average future monthly income is projected to be around <b>${formatCurrency(avgFutureIncome, 0)}</b>.`;
+            dom.calculatedFutureIncomeDisplay.classList.remove('hidden');
+        } else {
+             dom.calculatedFutureIncomeDisplay.classList.add('hidden');
+        }
+
+        // Live Contributions Display
+        if(startAge > 0 && retirementAge > startAge) {
+             const hasGap = dom.hasContributionGapCheckbox.checked;
+             const gapStart = new Date(dom.gapStartDateInput.value);
+             const gapEnd = new Date(dom.gapEndDateInput.value);
+             
+             let contributionGapYears = 0;
+             if(hasGap && !isNaN(gapStart.getTime()) && !isNaN(gapEnd.getTime()) && gapEnd > gapStart) {
+                 contributionGapYears = (gapEnd.getTime() - gapStart.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
+             }
+
+             const totalPotentialContributionYears = retirementAge - startAge;
+             let netContributionYears = Math.max(0, totalPotentialContributionYears - contributionGapYears);
+             const totalContributions = Math.round(netContributionYears * WEEKS_IN_YEAR);
+             dom.calculatedContributionsDisplay.innerHTML = `Based on your inputs, your estimated total contributions will be around <b>${totalContributions.toLocaleString()} weeks</b>.`;
+             dom.calculatedContributionsDisplay.classList.remove('hidden');
+
+        } else {
+            dom.calculatedContributionsDisplay.classList.add('hidden');
+        }
+    };
+    
+    // --- MAIN CALCULATION LOGIC ---
+    const handleCalculate = (forceZero = false) => {
+        dom.calculateBtn.textContent = "Calculating...";
+        dom.calculateBtn.disabled = true;
+
+        setTimeout(() => {
+            try {
+                const inputs = gatherInputs(forceZero);
+                if (!inputs) return; 
+
+                const results = calculateBenefits(inputs);
+                displayResults(results, inputs);
+
+            } finally {
+                if (!isCalculated && !document.querySelector('#alertModal.flex')) {
+                   dom.calculateBtn.textContent = 'Calculate My Retirement Benefits';
+                   dom.calculateBtn.disabled = false; 
+                }
+            }
+        }, 100);
+    };
+
+    const gatherInputs = (forceZero) => {
+        const everContributed = document.querySelector('input[name="everContributed"]:checked').value === 'yes';
+        const willContributeFuture = document.querySelector('input[name="willContributeFuture"]:checked').value === 'yes';
+        
+        if (forceZero) {
+            return {
+                dob: new Date(), currentAge: 0, startAge: 0, everContributed, willContributeFuture, 
+                calculationMode: 'estimate', retirementAge: 65, startIncome: 0, currentIncome: 0, 
+                hasGap: false, gapStartDate: null, gapEndDate: null, 
+                otherRetirementIncome: dom.incomeInputs.reduce((sum, el) => sum + getNumericValue(el), 0),
+                overrideContributions: 0, overrideAverageIncome: 0, futureIncomeManual: 0,
+            };
+        }
+
+        if (!everContributed && !willContributeFuture) {
+             updateFormVisibility();
+             return null;
+        }
+
+        const dob = new Date(dom.dobInput.value);
+        if (isNaN(dob.getTime())) {
+            showAlert("Please enter a valid Date of Birth.");
+            return null;
+        }
+
+        const currentAge = getAge(dob);
+        if (currentAge < 16 || currentAge > 100) {
+            showAlert("Please enter a valid Date of Birth (Age must be between 16 and 100).");
+            return null;
+        }
+
+        const startAge = getNumericValue(dom.startAgeInput);
+        if (startAge <= 0) {
+            showAlert("Please enter the age you started (or will start) paying NIS.");
+            return null;
+        }
+
+        if (everContributed && startAge >= currentAge) {
+            showAlert(`Starting age must be less than your current age of ${currentAge}.`);
+            return null;
+        }
+        if (!everContributed && startAge <= currentAge) {
+            showAlert(`For a new contributor, the start age must be in the future. Please enter an age greater than your current age of ${currentAge}.`);
+            return null;
+        }
+
+        const calculationMode = everContributed ? document.querySelector('input[name="calculationMode"]:checked').value : 'estimate';
+        
+        const retirementAge = getNumericValue(calculationMode === 'manual' ? dom.retirementAgeManualSelect : dom.retirementAgeEstimateSelect);
+
+        const inputs = {
+            dob, currentAge, startAge, everContributed, willContributeFuture, calculationMode, retirementAge,
+            startIncome: getNumericValue(dom.startIncomeInput),
+            currentIncome: getNumericValue(dom.currentIncomeInput),
+            hasGap: dom.hasContributionGapCheckbox.checked,
+            gapStartDate: new Date(dom.gapStartDateInput.value),
+            gapEndDate: new Date(dom.gapEndDateInput.value),
+            otherRetirementIncome: dom.incomeInputs.reduce((sum, el) => sum + getNumericValue(el), 0),
+            overrideContributions: getNumericValue(dom.overrideContributionsInput),
+            overrideAverageIncome: getNumericValue(dom.overrideAverageIncomeInput),
+            futureIncomeManual: getNumericValue(dom.futureIncomeManual),
+        };
+
+        if (calculationMode === 'estimate') {
+            if(inputs.startIncome <= 0) { showAlert("Please enter a valid starting monthly income for estimation mode."); return null; }
+            if(everContributed && inputs.currentIncome <= 0) { showAlert("Please enter a valid current income for estimation mode."); return null; }
+        }
+        if (calculationMode === 'manual' && willContributeFuture && inputs.futureIncomeManual <= 0) {
+            showAlert("Please enter your current income for future projections in Manual Mode.");
+            return null;
+        }
+        if (inputs.hasGap) {
+            if (isNaN(inputs.gapStartDate.getTime()) || isNaN(inputs.gapEndDate.getTime())) { showAlert("Please provide valid dates for the contribution gap."); return null; }
+            if (inputs.gapStartDate >= inputs.gapEndDate) { showAlert("Gap start date must be before the end date."); return null; }
+        }
+        
+        return inputs;
+    };
+
+    const calculateBenefits = (inputs) => {
+        if (!inputs.everContributed && !inputs.willContributeFuture) {
+            const scpResult = {
+                amount: inputs.otherRetirementIncome <= 2500 ? 3500 : 0, 
+                assessedMonthlyIncome: inputs.otherRetirementIncome
+            };
+            return { nisResult: { type: 'N/A', amount: 0, details: { contribs: 0 } }, scpResult };
+        }
+
+        let yearlyBreakdownData = [];
+        let totalContribMonths = 0;
+        let totalLifetimeIncomeSum = 0;
+        let totalMonetaryValue = 0;
+        let pastGrowthRate = DEFAULT_PAST_GROWTH_RATE;
+
+        const nisStartDate = new Date(inputs.dob.getFullYear() + inputs.startAge, inputs.dob.getMonth(), inputs.dob.getDate());
+        const retirementDate = new Date(inputs.dob.getFullYear() + inputs.retirementAge, inputs.dob.getMonth(), inputs.dob.getDate());
+        const now = new Date();
+        const endCalcDate = inputs.willContributeFuture ? retirementDate : now;
+        
+        if (inputs.calculationMode === 'estimate' && inputs.everContributed && inputs.startIncome > 0 && inputs.currentIncome > inputs.startIncome) {
+            const yearsOfWork = inputs.currentAge - inputs.startAge;
+            if (yearsOfWork > 0) {
+                pastGrowthRate = Math.pow((inputs.currentIncome / inputs.startIncome), (1 / yearsOfWork)) - 1;
+                pastGrowthRate = Math.max(0, Math.min(pastGrowthRate, 0.15));
+            }
+        }
+
+        let currentDate = new Date(nisStartDate);
+        let projectedFutureIncome = inputs.calculationMode === 'manual' 
+            ? inputs.futureIncomeManual 
+            : (inputs.everContributed ? inputs.currentIncome : inputs.startIncome);
+        
+        while (currentDate < endCalcDate) {
+            const year = currentDate.getFullYear();
+            const isGapYear = inputs.hasGap && currentDate >= inputs.gapStartDate && currentDate < inputs.gapEndDate;
+            if (isGapYear) {
+                yearlyBreakdownData.push({ year, income: 0, classId: 'N/A (Gap)', annualContribution: 0 });
+                currentDate.setFullYear(year + 1);
+                continue;
+            }
+
+            let incomeForYear = 0;
+            if (inputs.calculationMode === 'manual' && year < now.getFullYear()) {
+                 const yearInput = document.querySelector(`.yearly-income-input[data-year="${year}"]`);
+                 const gapCheckbox = document.querySelector(`.yearly-gap-checkbox[data-year="${year}"]`);
+                 if (yearInput && !gapCheckbox.checked) {
+                    incomeForYear = getNumericValue(yearInput);
+                 }
+            } else {
+                if (year < now.getFullYear()) {
+                    incomeForYear = inputs.startIncome * Math.pow(1 + pastGrowthRate, year - nisStartDate.getFullYear());
+                } else {
+                    const futureYearIndex = year - now.getFullYear();
+                    // **FIXED**: Correctly apply cumulative future income increase
+                    if (futureYearIndex > 0 && futureYearIndex % 3 === 0) {
+                        projectedFutureIncome *= 1.06;
+                    }
+                    incomeForYear = projectedFutureIncome;
+                }
+            }
+
+            if (incomeForYear > 0) {
+                const earningsClass = getEarningsClass(incomeForYear, currentDate);
+                const annualContribValue = earningsClass.totalWeeklyContrib * WEEKS_IN_YEAR;
+                totalMonetaryValue += annualContribValue;
+                totalContribMonths += 12;
+                totalLifetimeIncomeSum += incomeForYear * 12;
+                yearlyBreakdownData.push({ year, income: incomeForYear, classId: earningsClass.classId, annualContribution: annualContribValue });
+            } else {
+                 yearlyBreakdownData.push({ year, income: 0, classId: 'N/A', annualContribution: 0 });
+            }
+            currentDate.setFullYear(year + 1);
+        }
+        
+        let totalContributions = Math.round(totalContribMonths / 12 * WEEKS_IN_YEAR);
+        if (inputs.overrideContributions > 0) totalContributions = inputs.overrideContributions;
+        
+        let averageLifetimeMonthlyEarnings = totalContribMonths > 0 ? totalLifetimeIncomeSum / totalContribMonths : 0;
+        if (inputs.overrideAverageIncome > 0) averageLifetimeMonthlyEarnings = inputs.overrideAverageIncome;
+
+        let nisResult = { type: 'N/A', amount: 0, details: {} };
+        if (totalContributions >= PENSION_CONTRIB_THRESHOLD) {
+            const averageClass = getEarningsClass(averageLifetimeMonthlyEarnings, new Date());
+            const benefitClass = PENSION_RATES.find(p => p.classId === averageClass.classId) || PENSION_RATES[0];
+            const excessContributions = Math.max(0, totalContributions - PENSION_CONTRIB_THRESHOLD);
+            const increments = Math.floor(excessContributions / 25);
+            const incrementValue = increments * benefitClass.incrementMonthly;
+            const calculatedPension = benefitClass.basicMonthly + incrementValue;
+            nisResult = { type: 'Pension', amount: Math.max(calculatedPension, MIN_NIS_PENSION), details: { ...benefitClass, contribs: totalContributions, averageLifetimeMonthlyEarnings, yearlyBreakdownData, totalMonetaryValue, calculatedPension, pastGrowthRate } };
+        } else if (totalContributions > 0) {
+             const calculatedGrant = totalMonetaryValue * 3;
+             nisResult = { type: 'Grant', amount: Math.max(calculatedGrant, MIN_NIS_GRANT), details: { contribs: totalContributions, value: totalMonetaryValue, averageLifetimeMonthlyEarnings, yearlyBreakdownData, calculatedGrant } };
+        }
+        
+        let assessedMonthlyIncome = inputs.otherRetirementIncome + (nisResult.type === 'Pension' ? nisResult.amount : 0);
+        let scpAmount = 0;
+        if (inputs.retirementAge >= 65) {
+            if (assessedMonthlyIncome <= 2500) scpAmount = 3500;
+            else if (assessedMonthlyIncome <= 3500) scpAmount = 2500;
+            else if (assessedMonthlyIncome <= 4500) scpAmount = 1500;
+            else if (assessedMonthlyIncome <= 5500) scpAmount = 500;
+        }
+        
+        return { nisResult, scpResult: { amount: scpAmount, assessedMonthlyIncome } };
+    };
+
+    const displayResults = (results, inputs) => {
+        const { nisResult, scpResult } = results;
+        const { retirementAge, currentAge, overrideAverageIncome, calculationMode, willContributeFuture } = inputs;
+        
+        let contributionAssumption = willContributeFuture ? 'Contributions are assumed to continue until retirement.' : 'Benefit is calculated based on contributions ending today.';
+        if (!inputs.everContributed && !inputs.willContributeFuture) {
+             contributionAssumption = "No NIS contributions were made or planned.";
+        }
+        
+        let incomeGrowthAssumption;
+        if (calculationMode === 'estimate' && (inputs.everContributed || inputs.willContributeFuture)) {
+            incomeGrowthAssumption = `Your past income growth is calculated at <b>${(nisResult.details.pastGrowthRate * 100).toFixed(2)}% annually</b>. Future income is projected to increase by <b>6% every 3 years</b>.`;
+        } else if (calculationMode === 'manual' && (inputs.everContributed || inputs.willContributeFuture)) {
+            incomeGrowthAssumption = "Past income is based on your manual entries. Future income is projected to increase by <b>6% every 3 years</b>.";
+        }
+
+
+        const lifetimeIncomeText = (overrideAverageIncome > 0) ? `Your Average Lifetime Monthly Income was overridden to <b>${formatCurrency(nisResult.details.averageLifetimeMonthlyEarnings, 0)}</b>.` : (nisResult.details.averageLifetimeMonthlyEarnings > 0 ? `Your estimated average lifetime monthly income is <b>${formatCurrency(nisResult.details.averageLifetimeMonthlyEarnings, 0)}</b>.` : '');
+        
+        document.getElementById('calculationAssumptions').innerHTML = `<p class="font-bold mb-1">Key Assumptions:</p><ul><li>&bull; ${contributionAssumption}</li>${incomeGrowthAssumption ? `<li>&bull; ${incomeGrowthAssumption}</li>` : ''}${lifetimeIncomeText ? `<li>&bull; ${lifetimeIncomeText}</li>` : ''}<li>&bull; "Resulting Average Earnings Class" uses your lifetime average income against the most recent NIS table (2016).</li><li>&bull; All calculations use the latest available NIS and SCP rules and are subject to change.</li></ul>`;
+
+        const nisCard = document.getElementById('nisResultCard');
+        nisCard.className = 'result-card ' + (nisResult.type === 'Pension' ? 'pension' : (nisResult.type === 'Grant' ? 'grant' : 'not-applicable'));
+        document.getElementById('nisResultLabel').textContent = `NIS Retirement ${nisResult.type}`;
+        document.getElementById('nisResultAmount').textContent = formatCurrency(nisResult.amount);
+        document.getElementById('nisResultDescription').textContent = nisResult.type === 'Pension' ? 'per month' : (nisResult.type === 'Grant' ? 'one-time payment' : '');
+
+        const nisBreakdownEl = document.getElementById('nisBreakdown');
+        const breakdownTableHTML = `
+            <div class="mt-4">
+                <div class="collapsible-trigger bg-[var(--bg-accent)] p-2 rounded-md" data-target="#yearlyBreakdownContent">
+                    <h4 class="text-sm font-semibold text-[var(--text-secondary)] mb-0">Show Year-by-Year Breakdown</h4>
+                    <svg class="w-5 h-5 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div id="yearlyBreakdownContent" class="hidden mt-2 border border-[var(--border-color)] rounded-lg p-2">
+                    <div class="max-h-64 overflow-y-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="sticky top-0 bg-[var(--bg-bento-box)] dark:bg-[var(--bg-secondary)]">
+                                <tr>
+                                    <th class="p-2">Year</th>
+                                    <th class="p-2">Est. Monthly Income</th>
+                                    <th class="p-2 text-center">Class</th>
+                                    <th class="p-2 text-right">Annual Contrib. Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="yearlyBreakdownTableBody"></tbody>
+                            <tfoot id="yearlyBreakdownTableFooter" class="sticky bottom-0 bg-[var(--bg-bento-box)] dark:bg-[var(--bg-secondary)] font-bold"></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>`;
+
+        if (nisResult.type === 'Pension') {
+            const { details } = nisResult;
+            const excessContributions = Math.max(0, details.contribs - PENSION_CONTRIB_THRESHOLD);
+            const increments = Math.floor(excessContributions / 25);
+            const incrementValue = increments * details.incrementMonthly;
+            nisBreakdownEl.innerHTML = `<h4 class="font-bold text-lg text-[var(--primary-accent)] mb-2">NIS Pension Breakdown</h4><div class="breakdown-line"><span>Est. Total Contributions:</span> <span>${details.contribs.toLocaleString()} weeks</span></div><div class="breakdown-line"><span>Avg. Lifetime Monthly Earnings:</span> <b>${formatCurrency(details.averageLifetimeMonthlyEarnings, 0)}</b></div><div class="breakdown-line"><span>Resulting Avg. Earnings Class:</span> <span>Class ${details.classId}</span></div><div class="breakdown-line"><span>Basic Monthly Pension for Class:</span> <span>${formatCurrency(details.basicMonthly)}</span></div><div class="breakdown-line"><span>Increments (${increments} x ${formatCurrency(details.incrementMonthly, 2)}):</span> <span>+ ${formatCurrency(incrementValue)}</span></div><div class="breakdown-line"><span>Sub-Total Calculated Pension:</span> <span>${formatCurrency(details.calculatedPension)}</span></div><div class="breakdown-total-line"><span>Final Pension (Minimum Applied):</span> <span class="text-[var(--success-color)]">${formatCurrency(nisResult.amount)}</span></div>${breakdownTableHTML}`;
+        } else if (nisResult.type === 'Grant') {
+             const { details } = nisResult;
+            nisBreakdownEl.innerHTML = `<h4 class="font-bold text-lg text-[var(--primary-accent)] mb-2">NIS Grant Breakdown</h4><div class="breakdown-line"><span>Est. Total Contributions:</span> <span>${details.contribs.toLocaleString()} weeks (${(details.contribs / WEEKS_IN_YEAR).toFixed(1)} years)</span></div><div class="breakdown-line"><span>Total Monetary Value of Contribs (Est.):</span> <span>${formatCurrency(details.value)}</span></div><div class="breakdown-line"><span>Calculated Grant (Value x 3):</span> <span>${formatCurrency(details.calculatedGrant)}</span></div><div class="breakdown-total-line"><span>Final Grant (Minimum Applied):</span> <span class="text-[var(--info-color)]">${formatCurrency(nisResult.amount)}</span></div>${breakdownTableHTML}`;
+        } else {
+            nisBreakdownEl.innerHTML = '<h4 class="font-bold text-lg text-[var(--primary-accent)] mb-2">No NIS benefit calculated.</h4>';
+        }
+        
+        if (nisResult.details.yearlyBreakdownData) {
+            const tableBody = document.getElementById('yearlyBreakdownTableBody');
+            const tableFooter = document.getElementById('yearlyBreakdownTableFooter');
+            if (tableBody) {
+                tableBody.innerHTML = ''; 
+                nisResult.details.yearlyBreakdownData.forEach(data => {
+                    const row = document.createElement('tr');
+                    row.className = 'border-b border-[var(--border-color)] last:border-b-0';
+                    row.innerHTML = `<td class="p-2">${data.year}</td><td class="p-2">${data.income === 0 ? 'N/A' : formatCurrency(data.income, 2)}</td><td class="p-2 text-center">${data.classId}</td><td class="p-2 text-right">${data.annualContribution === 0 ? 'N/A' : formatCurrency(data.annualContribution)}</td>`;
+                    tableBody.appendChild(row);
+                });
+            }
+            if (tableFooter) {
+                tableFooter.innerHTML = '';
+                const totalValue = nisResult.details.totalMonetaryValue;
+                if(totalValue > 0) {
+                    const footerRow = document.createElement('tr');
+                    footerRow.innerHTML = `<td colspan="3" class="p-2 text-right">Total Assumed Contribution Value:</td><td class="p-2 text-right">${formatCurrency(totalValue)}</td>`;
+                    tableFooter.appendChild(footerRow);
+                }
+            }
+        }
+
+        document.getElementById('scpResultLabel').textContent = "Senior Citizens' Pension";
+        document.getElementById('scpResultAmount').textContent = formatCurrency(scpResult.amount);
+        document.getElementById('scpResultDescription').textContent = 'per month';
+
+        const scpBreakdownText = nisResult.type === 'Grant' ? "(Note: One-time NIS Grant does not count in SCP means test)" : (nisResult.type === 'Pension' ? `(NIS Pension + Other Income)` : `(Based on other retirement income only)`);
+        document.getElementById('scpBreakdown').innerHTML = `<h4 class="font-bold text-lg text-[var(--secondary-accent)] mb-2">Senior Citizens' Pension Breakdown</h4><div class="breakdown-line"><span>Retirement Age:</span> <span>${retirementAge}</span></div><div class="breakdown-line"><span>Assessed Monthly Income for SCP:</span> <span>${formatCurrency(scpResult.assessedMonthlyIncome)}</span></div><p class="text-xs text-[var(--text-muted)] text-right -mt-2 mb-2">${scpBreakdownText}</p><div class="breakdown-total-line"><span>Eligible SCP Amount:</span> <span class="text-[var(--secondary-accent-darker)]">${formatCurrency(scpResult.amount)}</span></div>${retirementAge < 65 ? '<p class="text-xs text-red-500 mt-2">Note: You must be 65 or older to qualify for the Senior Citizens\' Pension.</p>' : ''}`;
+
+        const totalMonthly = (nisResult.type === 'Pension' ? nisResult.amount : 0) + scpResult.amount;
+        document.getElementById('totalResultLabel').textContent = "Total Monthly Income";
+        document.getElementById('totalResultAmount').textContent = formatCurrency(totalMonthly);
+        document.getElementById('totalResultDescription').textContent = "from NIS Pension + SCP";
+        const yearsToRetirement = Math.max(0, retirementAge - currentAge);
+        const inflationAdjustedIncome = totalMonthly / Math.pow(1 + 0.025, yearsToRetirement);
+        document.getElementById('inflationAdjustedAmount').innerHTML = `This will feel like <b>${formatCurrency(inflationAdjustedIncome, 0)}</b> in today's money.`;
+        
+        dom.planPortfolioBtn.classList.toggle('hidden', totalMonthly <= 0);
+        isCalculated = true;
+        dom.resultsSection.classList.remove('hidden');
+        dom.calculateBtn.textContent = "Calculated!";
+        dom.calculateBtn.classList.add('pulse-animation');
+        dom.resultsSection.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // --- EVENT LISTENERS ---
+    dom.themeToggle.addEventListener('change', () => {
+        document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+    dom.calculateBtn.addEventListener('click', () => handleCalculate(false));
+    dom.alertModalClose.addEventListener('click', () => dom.alertModal.classList.add('hidden'));
+    dom.noContributionOk.addEventListener('click', () => {
+        dom.noContributionModal.classList.add('hidden');
+        handleCalculate(true);
+    });
+    dom.noContributionReturn.addEventListener('click', () => {
+        dom.noContributionModal.classList.add('hidden');
+        document.getElementById('everContributedYes').checked = true;
+        document.getElementById('willContributeFutureYes').checked = true;
+        updateFormVisibility();
+    });
+    
+    dom.calculatorForm.addEventListener('input', (event) => {
+        hideResultsAndResetButton();
+        if (event.target.name === 'everContributed' || event.target.name === 'willContributeFuture' || event.target.name === 'calculationMode' || event.target.id === 'dob') {
+            updateFormVisibility();
+        } else {
+            updateLiveDisplays(); 
+        }
+
+        const { id, dataset } = event.target;
+        const mode = document.querySelector('input[name="calculationMode"]:checked')?.value;
+        if (mode === 'manual' && (id === 'dob' || id === 'startAge')) {
+            generateManualIncomeFields();
+        }
+        if (event.target.matches('.yearly-income-input')) {
+            const year = dataset.year;
+            const avgValue = event.target.value;
+            document.querySelectorAll(`.monthly-income-input[data-year="${year}"]`).forEach(m => m.value = avgValue);
+        } else if (event.target.matches('.monthly-income-input')) {
+            const year = dataset.year;
+            const monthlyInputs = document.querySelectorAll(`.monthly-income-input[data-year="${year}"]`);
+            let sum = 0, count = 0;
+            monthlyInputs.forEach(input => {
+                const val = getNumericValue(input);
+                if (val > 0) { sum += val; count++; }
+            });
+            const average = count > 0 ? sum / count : 0;
+            document.querySelector(`.yearly-income-input[data-year="${year}"]`).value = average > 0 ? average.toFixed(2) : '';
+        }
+    });
+
+    dom.calculatorForm.addEventListener('change', (event) => {
+        const { name, id, checked } = event.target;
+        if (name === 'everContributed' || name === 'willContributeFuture' || name === 'calculationMode') {
+            updateFormVisibility();
+        }
+        if (id === 'hasContributionGap') {
+            dom.contributionGapPeriodContainer.classList.toggle('hidden', !checked);
+        }
+    });
+    
+    document.body.addEventListener('click', (event) => {
+        const target = event.target;
+        const collapsibleTrigger = target.closest('.collapsible-trigger');
+        if (collapsibleTrigger) {
+            const content = document.querySelector(collapsibleTrigger.dataset.target);
+            content?.classList.toggle('hidden');
+            collapsibleTrigger.classList.toggle('open');
+            return;
+        }
+
+        const expandYearBtn = target.closest('.expand-year-btn');
+        if (expandYearBtn) {
+            const container = expandYearBtn.closest('.p-2').querySelector('.monthly-fields-container');
+            container?.classList.toggle('hidden');
+            expandYearBtn.querySelector('svg')?.classList.toggle('rotate-180');
+            return;
+        }
+
+        const doneBtn = target.closest('.done-btn');
+        if (doneBtn) {
+            const container = doneBtn.closest('.monthly-fields-container');
+            container?.classList.add('hidden');
+            container?.closest('.p-2').querySelector('.expand-year-btn svg')?.classList.remove('rotate-180');
+        }
+    });
+
+    dom.planPortfolioBtn.addEventListener('click', () => {
+        document.getElementById('main-cta').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // --- INITIALIZATION ---
+    initializeTheme();
+    updateFormVisibility();
+});
+</script>
+</body>
+</html>

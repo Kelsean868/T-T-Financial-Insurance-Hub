@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en-TT" class="scroll-smooth"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-60Y93XVP2D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-60Y93XVP2D');
+    </script>
+    
+    <title>T&T Corporate Annuity (134-6) Calculator | Executive Tax Savings</title>
+    <meta name="description" content="Free Section 134(6) Corporate Annuity calculator for Trinidad & Tobago. Designed for business owners and executives to calculate maximum tax-deductible contributions and visualize retirement growth with expert Kyron Marchan.">
+    <meta name="keywords" content="Trinidad and Tobago corporate annuity, Section 134(6) calculator, executive pension plan T&T, business owner tax savings, BIR approved annuity, tax deductible contributions, retirement planning for executives, Kyron Marchan">
+    <meta name="author" content="Kyron Marchan">
+    <link rel="canonical" href="https://kelsean868.github.io/paye-annuity-calculator-tt/corporate.html"> 
+    <meta property="og:title" content="T&T Corporate Annuity (134-6) Calculator | Executive Tax Savings">
+    <meta property="og:description" content="Free Section 134(6) Corporate Annuity calculator for Trinidad & Tobago. Designed for business owners and executives to calculate maximum tax-deductible contributions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/corporate.html"> 
+    <meta property="og:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png"> 
+    <meta property="og:site_name" content="T&T Corporate Annuity Calculator">
+    <meta property="og:locale" content="en_TT">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="T&T Corporate Annuity (134-6) Calculator | Executive Tax Savings">
+    <meta name="twitter:description" content="Free Section 134(6) Corporate Annuity calculator for Trinidad & Tobago. Designed for business owners and executives to calculate maximum tax-deductible contributions.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png"> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "T&T Corporate Annuity (134-6) Calculator",
+      "description": "A financial calculator to determine the maximum tax-deductible contributions for a Section 134(6) Corporate Annuity in Trinidad and Tobago, designed for business owners and executives.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TTD"
+      },
+      "provider": {
+        "@type": "Person",
+        "name": "Kyron Marchan",
+        "jobTitle": "Licensed Insurance Agent",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Tatil Life & TATIL"
+        }
+      },
+      "url": "https://kelsean868.github.io/paye-annuity-calculator-tt/corporate.html"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #f4f6f9; 
+            --bg-bento-box: #ffffff;
+            --bg-secondary: #f8f9fa; 
+            --bg-accent: #eef2f7;    
+            --text-primary: #1d2d35; 
+            --text-secondary: #4a5568; 
+            --text-muted: #718096;    
+            --border-color: #dce1e7; 
+            --primary-accent: #005f73; 
+            --primary-accent-darker: #003d4d;
+            --secondary-accent: #ae8625; 
+            --secondary-accent-darker: #8c6c1d;
+            --success-color: #2a9d8f; 
+            --paye-emphasis-color: #6b46c1; 
+            --paye-emphasis-light-bg: #f4f0ff; 
+            --paye-emphasis-medium-bg: #e9d8fd; 
+
+            --shadow-soft: 0 3px 6px rgba(0,0,0,0.04);
+            --shadow-medium: 0 5px 15px rgba(0,0,0,0.06);
+            --shadow-strong: 0 8px 25px rgba(0,0,0,0.08);
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Source Serif Pro', serif; 
+            --base-font-size: 16px; 
+            --line-height-relaxed: 1.65; 
+        }
+
+        .dark-mode {
+            --bg-main: #1f2937; 
+            --bg-bento-box: #2b3c4d; 
+            --bg-secondary: #374151; 
+            --bg-accent: #4B5563;    
+            --text-primary: #f0f4f8; 
+            --text-secondary: #d1d5db; 
+            --text-muted: #9ca3af;    
+            --border-color: #4b5f71; 
+            --primary-accent: #25a1af; 
+            --primary-accent-darker: #1e838f;
+            --secondary-accent: #daa520; 
+            --secondary-accent-darker: #b8860b;
+            --success-color: #38c172; 
+            --paye-emphasis-color: #b794f4; 
+            --paye-emphasis-light-bg: #44337a; 
+            --paye-emphasis-medium-bg: #553c9a; 
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
+            font-size: var(--base-font-size);
+            line-height: var(--line-height-relaxed);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        .page-title { font-family: var(--font-heading); color: var(--primary-accent); font-weight: 700; }
+        .page-subtitle { font-family: var(--font-body); font-weight: 600; color: var(--text-secondary); }
+        
+        .bento-section-title { 
+            font-family: var(--font-heading); 
+            font-weight: 700; 
+            color: var(--text-primary);
+            margin-bottom: 1.25rem; 
+        }
+        .bento-step-indicator {
+            display: inline-flex; align-items: center; justify-content: center;
+            background-color: var(--secondary-accent); color: var(--bg-bento-box);
+            border-radius: 50%; width: 34px; height: 34px;
+            font-family: var(--font-body); font-weight: 700; font-size: 1rem;
+            margin-right: 12px; box-shadow: var(--shadow-soft);
+        }
+        .dark-mode .bento-step-indicator { color: var(--text-primary); }
+
+        .bento-box {
+            background-color: var(--bg-bento-box);
+            border-radius: 0.75rem; 
+            padding: 1.75rem; 
+            box-shadow: var(--shadow-medium);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+            border: 1px solid var(--border-color);
+        }
+        .bento-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+
+        .tooltip { position: relative; display: inline-block; }
+        .tooltip .tooltiptext {
+            visibility: hidden; width: 260px; background-color: var(--text-primary); color: var(--bg-bento-box); text-align: center; 
+            border-radius: 0.375rem; padding: 10px; position: absolute; z-index: 20; bottom: 135%;
+            left: 50%; margin-left: -130px; opacity: 0; transition: opacity 0.3s ease; box-shadow: var(--shadow-medium);
+            font-size: 0.8rem; font-weight: 500;
+        }
+        .tooltip .tooltiptext::after {
+            content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px;
+            border-width: 6px; border-style: solid; border-color: var(--text-primary) transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+        
+        input[type="number"], select {
+            border: 1px solid var(--border-color); padding: 0.85rem 1.15rem; border-radius: 0.375rem; 
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+            font-size: 16px;
+            background-color: var(--bg-secondary); color: var(--text-primary);
+            font-weight: 500;
+        }
+        input[type="number"]:focus, select:focus {
+            border-color: var(--primary-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-accent) 25%, transparent); 
+            outline: none; background-color: var(--bg-bento-box);
+        }
+        .button-base {
+            font-weight: 600; padding-top: 0.85rem; padding-bottom: 0.85rem; border-radius: 0.375rem;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            box-shadow: var(--shadow-soft); text-transform: uppercase; letter-spacing: 0.025em;
+            font-family: var(--font-body);
+            touch-action: manipulation; 
+        }
+        .button-base:hover { transform: translateY(-2px); box-shadow: var(--shadow-medium); }
+        .button-base:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .main-calc-button { background-color: var(--primary-accent); color: white; font-size: 1rem; }
+        .dark-mode .main-calc-button { color: var(--bg-bento-box); }
+        .main-calc-button:hover:not(:disabled) { background-color: var(--primary-accent-darker); }
+        
+        .final-cta-button { background-color: var(--secondary-accent); color: white; font-weight: 700; font-size: 1rem; padding: 0.9rem 1.5rem; }
+        .dark-mode .final-cta-button { color: var(--text-primary); }
+        .final-cta-button:hover { background-color: var(--secondary-accent-darker); }
+
+        .result-item {
+            background-color: var(--bg-accent); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            text-align: center; 
+        }
+        .result-item-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+        .result-item-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .highlight-value {
+            color: var(--success-color);
+        }
+        .dark-mode .highlight-value {
+            color: #5ae093;
+        }
+        .subset-container {
+            border-left: 3px solid var(--primary-accent);
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+        }
+         .whatsapp-fab {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 9999; /* Ensure it is on top */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        .whatsapp-fab svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        #scrollNudge {
+            animation: bounce 2s infinite;
+        }
+         .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+         @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--secondary-accent) 40%, transparent); }
+            70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(255, 121, 63, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 121, 63, 0); }
+        }
+        .chart-container { 
+            position: relative;
+            height: 320px; 
+            width: 100%; 
+            margin: 1.5rem auto 0; 
+            background-color: var(--bg-secondary);
+            border-radius: 0.625rem;
+            padding: 0.75rem; 
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            touch-action: pan-y; 
+            overflow: hidden; 
+        }
+        .modal {
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto; background-color: rgba(29, 45, 53, 0.7); padding-top: 5vh; 
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--bg-bento-box); margin: auto; padding: 2rem 2.25rem; border: 1px solid var(--border-color);
+            width: 90%; max-width: 560px; border-radius: 0.75rem; text-align: left; position: relative;
+            box-shadow: var(--shadow-strong); transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .modal-close {
+            color: var(--text-muted); position: absolute; top: 0.75rem; right: 1rem; font-size: 2.25rem; font-weight: 300;
+        }
+        .modal-close:hover, .modal-close:focus { color: var(--text-primary); text-decoration: none; cursor: pointer; }
+        .benefit-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .benefit-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        .theme-switch-wrapper { 
+            display: flex; 
+            align-items: center; 
+            background-color: var(--bg-bento-box); 
+            padding: 0.5rem 0.75rem; 
+            border-radius: 999px; 
+            box-shadow: var(--shadow-medium); 
+            border: 1px solid var(--border-color);
+        }
+        .theme-switch { position: relative; display: inline-block; width: 40px; height: 20px;  touch-action: manipulation; } 
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+        .dark-mode .slider { background-color: var(--primary-accent); }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider:before { transform: translateX(20px); } 
+        #themeToggleLabel { color: var(--text-secondary); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.025em;}
+
+        /* Mobile Optimization */
+        @media (max-width: 767px) {
+            body {
+                padding: 1rem; /* Reduce body padding */
+            }
+            .bento-box {
+                 padding: 1rem; /* Reduce bento box padding */
+            }
+            .page-title {
+                font-size: 2.5rem; /* Adjust title size */
+            }
+            .page-subtitle {
+                font-size: 1.25rem; /* Adjust subtitle size */
+            }
+        }
+    </style>
+</head>
+\1
+    <!-- Navigation back to hub -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="./index.html" class="flex items-center px-4 py-2 bg-[var(--primary-accent)] text-white rounded-lg shadow-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            Back to Hub
+        </a>
+    </div>
+    
+    <a href="https://wa.me/18683278273?text=Hello%20Kyron,%20I'd%20like%20to%20discuss%20a%20Section%20134(6)%20Corporate%20Annuity." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"><path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.044-.53-.044-.33 0-.545.015-.765.015h-.214c-.015 0-.33.044-.66.33-.372.33-.945.99-1.146 1.963-.128.58-.27 1.16-.27 1.842 0 1.288.36 2.403.945 3.488.58 1.085 2.512 3.34 4.814 4.314 2.05 1.04 3.51 1.25 4.314 1.25.143 0 .832-.214 1.146-.66.27-.372.99-.945.99-1.962s-.27-.817-.545-1.146c-.27-.33-.545-.33-.817-.33h-.53z M16 4.437c6.39 0 11.562 5.17 11.562 11.563 0 6.39-5.17 11.562-11.563 11.562-2.062 0-3.99-.545-5.63-1.518l-5.973 1.518 1.518-5.972c-1.04-1.63-1.63-3.6-1.63-5.59 0-6.39 5.17-11.563 11.563-11.563z M16 .002C7.163.002 0 7.165 0 16.002c0 3.016.817 5.86 2.336 8.2l-2.336 9.172 9.172-2.336c2.34 1.518 5.186 2.336 8.13 2.336 8.84 0 16-7.164 16-16S24.842.002 16 .002z"></path></svg>
+    </a>
+    <div id="scrollNudge" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+      <div class="w-10 h-10 bg-[var(--primary-accent)] rounded-full flex items-center justify-center shadow-lg opacity-50">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+      </div>
+    </div>
+    <div class="w-full max-w-4xl mx-auto my-8">
+        <header class="mb-10 md:mb-14 text-center">
+            <h1 class="page-title text-4xl sm:text-5xl md:text-6xl mb-3">
+                Corporate Annuity (134-6) Calculator
+            </h1>
+            <h2 class="page-subtitle text-xl sm:text-2xl md:text-3xl">
+                Maximize Tax Deductions for Your Business & Executives
+            </h2>
+            <p class="text-[var(--text-secondary)] mt-5 text-md md:text-lg max-w-3xl mx-auto">
+                This tool helps business owners and executives in Trinidad & Tobago calculate the maximum tax-deductible contribution for a Section 134(6) Corporate Annuity plan.
+            </p>
+        </header>
+
+        <!-- Centered Theme Toggle from index (1).html -->
+        <div class="w-full flex justify-center my-4 md:my-6">
+            <div class="theme-switch-wrapper">
+                <span class="mr-2 text-xs" id="themeToggleLabel">LIGHT</span>
+                <label class="theme-switch" for="themeToggleCheckbox">
+                    <input type="checkbox" id="themeToggleCheckbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+
+        <div class="space-y-8">
+            <section class="bento-box">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="bento-section-title text-xl text-[var(--primary-accent)]">Employer Benefits</h3>
+                        <ul class="benefit-list text-sm text-[var(--text-secondary)]">
+                            <li><strong>Full Tax Deduction:</strong> Contributions are 100% tax-deductible for the business, reducing corporate tax liability.</li>
+                            <li><strong>Executive Incentive:</strong> A powerful tool to attract, reward, and retain top talent and key employees.</li>
+                            <li><strong>Simple Administration:</strong> Less complex and has less administrative burden compared to traditional pension plans.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="bento-section-title text-xl text-[var(--success-color)]">Employee Benefits</h3>
+                         <ul class="benefit-list text-sm text-[var(--text-secondary)]">
+                            <li><strong>Tax-Free Contributions:</strong> Contributions are made with pre-tax dollars, lowering personal income tax for the year.</li>
+                            <li><strong>Tax-Deferred Growth:</strong> The investment grows tax-free until retirement, maximizing the power of compounding.</li>
+                            <li><strong>Secure Retirement Fund:</strong> Builds a substantial, dedicated retirement fund separate from regular savings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bento-box bento-box-financial-details space-y-6" id="financialDetailsSection">
+                <h2 class="bento-section-title text-center text-xl md:text-2xl"><span class="bento-step-indicator">1</span>Employee's Income Details</h2>
+                <div>
+                    <label for="age" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                        Employee's Current Age
+                    </label>
+                    <input type="number" id="age" placeholder="e.g., 45" class="mt-1 block w-full">
+                </div>
+                <div>
+                    <label for="incomeFrequency" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Employee's Pay Frequency</label>
+                    <select id="incomeFrequency" name="incomeFrequency" class="mt-1 block w-full">
+                        <option value="annual">Annually</option>
+                        <option value="monthly" selected>Monthly</option> 
+                    </select>
+                </div>
+                 <div>
+                    <label for="baseSalary" id="baseSalaryLabel" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                        Base Salary
+                    </label>
+                    <input type="number" id="baseSalary" placeholder="e.g., 30000" class="mt-1 block w-full">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     <div>
+                        <label for="bonus" id="bonusLabel" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Bonus
+                        </label>
+                        <input type="number" id="bonus" placeholder="e.g., 5000" class="mt-1 block w-full">
+                    </div>
+                     <div>
+                        <label for="bonusFrequency" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Bonus Frequency</label>
+                        <select id="bonusFrequency" name="bonusFrequency" class="mt-1 block w-full">
+                            <option value="monthly" >Monthly</option> 
+                            <option value="quarterly">Quarterly</option> 
+                            <option value="annually" selected>Annually</option>
+                        </select>
+                    </div>
+                </div>
+                 <div>
+                    <label for="allowances" id="allowancesLabel" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                        Other Allowances
+                        <span class="tooltip inline-block">
+                            <span class="info-icon">?</span>
+                            <span class="tooltiptext">e.g., travel, housing, etc.</span>
+                        </span>
+                    </label>
+                    <input type="number" id="allowances" placeholder="e.g., 2000" class="mt-1 block w-full">
+                </div>
+                 <div>
+                    <label for="hasExistingAnnuity" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Does the employee have other registered savings plans?</label>
+                    <select id="hasExistingAnnuity" name="hasExistingAnnuity" class="mt-1 block w-full">
+                        <option value="no" selected>No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+                <div id="existingAnnuityContainer" class="hidden subset-container space-y-4">
+                    <div id="personalAnnuitySection">
+                        <label for="personalAnnuity" id="personalAnnuityLabel" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Personal Annuity Contributions
+                        </label>
+                        <input type="number" id="personalAnnuity" name="personalAnnuity" placeholder="TTD per period" class="mt-1 block w-full">
+                    </div>
+                    <div id="companyPensionSection">
+                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                           Company Pension Contributions
+                        </label>
+                        <div class="mt-1 flex space-x-4 mb-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="companyPensionInputType" value="amount" checked>
+                                <span class="ml-2 text-xs text-[var(--text-secondary)]">Enter Dollar Amount</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="companyPensionInputType" value="percentage">
+                                <span class="ml-2 text-xs text-[var(--text-secondary)]">Enter as a Percentage (%)</span>
+                            </label>
+                        </div>
+                        <div id="companyPensionAmountContainer">
+                             <label for="companyPension" id="companyPensionAmountLabel" class="block text-xs font-medium text-[var(--text-secondary)] mb-1">Employee's Contribution Amount</label>
+                            <input type="number" id="companyPension" name="companyPension" placeholder="TTD per period" class="mt-1 block w-full">
+                        </div>
+                        <div id="companyPensionPercentageContainer" class="hidden">
+                            <label for="companyPensionPercentage" class="block text-xs font-medium text-[var(--text-secondary)] mb-1">Employee's Contribution Percentage</label>
+                            <input type="number" id="companyPensionPercentage" name="companyPensionPercentage" placeholder="% of Gross Pay (e.g., 5)" class="mt-1 block w-full text-sm">
+                        </div>
+                        <div class="mt-2">
+                             <label for="employerMatch" class="block text-xs font-medium text-[var(--text-secondary)] mb-1">Employer Match Percentage</label>
+                            <input type="number" id="employerMatch" name="employerMatch" placeholder="% of Gross Pay (e.g., 4)" class="mt-1 block w-full text-sm">
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <label for="hasOtherDeductions" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Does the employee have other tax deductions?</label>
+                    <select id="hasOtherDeductions" name="hasOtherDeductions" class="mt-1 block w-full">
+                        <option value="no" selected>No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+                <div id="otherDeductionsContainer" class="hidden subset-container space-y-4">
+                     <div>
+                        <label for="alimonyPayments" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Annual Alimony / Maintenance Payments
+                        </label>
+                        <input type="number" id="alimonyPayments" name="alimonyPayments" placeholder="Total Annual Amount" class="mt-1 block w-full">
+                    </div>
+                    <div>
+                        <label for="covenantedDonations" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Annual Covenanted Donations
+                            <span class="tooltip inline-block">
+                                <span class="info-icon">?</span>
+                                <span class="tooltiptext">Limited to 15% of total income.</span>
+                            </span>
+                        </label>
+                        <input type="number" id="covenantedDonations" name="covenantedDonations" placeholder="Total Annual Amount" class="mt-1 block w-full">
+                    </div>
+                     <div>
+                        <label for="tertiaryEducation" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                            Annual Tertiary Education Expenses
+                             <span class="tooltip inline-block">
+                                <span class="info-icon">?</span>
+                                <span class="tooltiptext">Limited to $72,000 per year.</span>
+                            </span>
+                        </label>
+                        <input type="number" id="tertiaryEducation" name="tertiaryEducation" placeholder="Total Annual Amount" class="mt-1 block w-full">
+                    </div>
+                     <div>
+                        <label for="firstTimeHomeOwner" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                           First-Time Home Owner's Allowance
+                            <span class="tooltip inline-block">
+                                <span class="info-icon">?</span>
+                                <span class="tooltiptext">Up to $25,000 annually for the first 5 years.</span>
+                            </span>
+                        </label>
+                        <input type="number" id="firstTimeHomeOwner" name="firstTimeHomeOwner" placeholder="Total Annual Amount" class="mt-1 block w-full">
+                    </div>
+                </div>
+                 <button id="calculateButton" class="w-full main-calc-button button-base text-white py-3 px-4 mt-4">
+                    Calculate Maximum Contribution
+                </button>
+            </section>
+            
+            <section id="results-wrapper" class="hidden">
+                 <div class="bento-box space-y-6">
+                    <h2 class="bento-section-title text-center text-xl md:text-2xl"><span class="bento-step-indicator">2</span>Maximum Tax-Deductible Contribution</h2>
+                    <p class="text-center text-[var(--text-muted)] -mt-4 mb-4">This is the maximum amount the company can contribute to this plan for the employee, which is fully tax-deductible for the business.</p>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="result-item">
+                            <p class="result-item-label">Based on 20% of Gross Emoluments</p>
+                            <p id="resultEmoluments" class="result-item-value"></p>
+                        </div>
+                         <div class="result-item">
+                            <p class="result-item-label">Based on 33.33% of Chargeable Income</p>
+                            <p id="resultChargeable" class="result-item-value"></p>
+                        </div>
+                    </div>
+                     <div class="text-center mt-6 p-5 bg-[var(--bg-accent)] rounded-lg">
+                        <p class="result-item-label uppercase tracking-wider">Maximum Allowable Contribution</p>
+                        <p id="finalResult" class="text-3xl md:text-4xl font-bold highlight-value"></p>
+                        <p class="text-sm text-[var(--text-muted)] mt-2">(This is the GREATER of the two calculations above)</p>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button class="w-full md:w-auto main-calc-button button-base text-sm py-2.5 px-6 pulse-animation js-scroll-to" data-target="#breakdown-wrapper">
+                            View Calculation Breakdown ↓
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="breakdown-wrapper" class="hidden">
+                <div class="bento-box space-y-4">
+                    <h2 class="bento-section-title text-center text-xl md:text-2xl">Calculation Breakdown</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between"><span>Annual Gross Emoluments:</span> <span id="breakdownGross" class="font-semibold"></span></div>
+                        <div class="flex justify-between"><span>Less: Personal Allowance:</span> <span id="breakdownAllowance" class="font-semibold"></span></div>
+                        <div class="flex justify-between"><span>Less: NIS (70% of total):</span> <span id="breakdownNis" class="font-semibold"></span></div>
+                        <div class="flex justify-between"><span>Less: Other Annuities/Pensions:</span> <span id="breakdownOtherAnnuity" class="font-semibold"></span></div>
+                        <div class="flex justify-between"><span>Less: Other Deductions:</span> <span id="breakdownOtherDeductions" class="font-semibold"></span></div>
+                        <hr class="border-[var(--border-color)]">
+                        <div class="flex justify-between font-bold text-base"><span>Chargeable Income (for 134(6) calc):</span> <span id="breakdownChargeable" class="text-[var(--primary-accent)]"></span></div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button class="w-full md:w-auto main-calc-button button-base text-sm py-2.5 px-6 pulse-animation js-scroll-to" data-target="#recommendation-wrapper">
+                            See Growth Projection ↓
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="recommendation-wrapper" class="hidden">
+                <div class="bento-box space-y-4">
+                     <h2 class="bento-section-title text-center text-xl md:text-2xl">Contribution Growth Projection</h2>
+                      <p class="text-center text-[var(--text-muted)] -mt-4 mb-2">Here's how the maximum annual contribution of <strong id="maxContribText" class="text-[var(--text-primary)]"></strong> could grow until retirement at age 65, assuming a 3% annual interest rate.</p>
+                     <div class="chart-container" style="height: 320px;">
+                        <canvas id="growthProjectionChart"></canvas>
+                    </div>
+                     <div class="text-center mt-6 p-5 bg-[var(--bg-accent)] rounded-lg">
+                        <p class="result-item-label uppercase tracking-wider">Projected Value at Retirement</p>
+                        <p id="projectedValue" class="text-3xl md:text-4xl font-bold highlight-value"></p>
+                    </div>
+                     <div class="mt-6 text-center">
+                        <button class="w-full md:w-auto main-calc-button button-base text-sm py-2.5 px-6 pulse-animation js-scroll-to" data-target="#payout-options-wrapper">
+                           See how this amount converts into your retirement income ↓
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+             <section id="payout-options-wrapper" class="hidden">
+                <div class="bento-box space-y-6">
+                     <h2 class="bento-section-title text-center text-xl md:text-2xl">Retirement Income Options</h2>
+                      <p class="text-center text-[var(--text-muted)] -mt-4 mb-2">Based on a Male, age 65, with a 10-year guaranteed payout. This is for illustrative purposes only.</p>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="result-item">
+                            <p class="result-item-label font-bold text-base">Option 1: Maximize Monthly Income</p>
+                             <p class="result-item-label mt-2">Gross Monthly Income (Before Tax):</p>
+                            <p id="grossMonthlyIncomeFull" class="text-2xl font-bold highlight-value"></p>
+                             <p class="result-item-label mt-2">Net Monthly Income (After Tax):</p>
+                            <p id="netMonthlyIncomeFull" class="text-2xl font-bold highlight-value"></p>
+                        </div>
+                         <div class="result-item">
+                            <p class="result-item-label font-bold text-base">Option 2: Lump Sum + Income</p>
+                             <p class="result-item-label mt-2">Tax-Free Lump Sum:</p>
+                            <p id="lumpSumPartial" class="text-2xl font-bold highlight-value"></p>
+                             <p class="result-item-label mt-2">Gross Monthly Income (Before Tax):</p>
+                            <p id="grossMonthlyIncomePartial" class="text-2xl font-bold highlight-value"></p>
+                             <p class="result-item-label mt-2">Net Monthly Income (After Tax):</p>
+                            <p id="netMonthlyIncomePartial" class="text-2xl font-bold highlight-value"></p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button class="w-full md:w-auto main-calc-button button-base text-sm py-2.5 px-6 pulse-animation js-scroll-to" data-target="#custom-quote-wrapper">
+                            Try a Different Amount ↓
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="custom-quote-wrapper" class="hidden">
+                <div class="bento-box space-y-4">
+                    <h2 class="bento-section-title text-center text-xl md:text-2xl">What If You Contribute a Different Amount?</h2>
+                    <p class="text-center text-[var(--text-muted)] -mt-4 mb-2">Enter a different annual contribution to see how it affects your retirement savings.</p>
+                    <div>
+                        <label for="customContributionAmount" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Custom Annual Contribution</label>
+                        <input type="number" id="customContributionAmount" placeholder="e.g., 50000" class="mt-1 block w-full">
+                    </div>
+                    <div id="custom-projection-container" class="hidden">
+                         <div class="chart-container" style="height: 320px;">
+                            <canvas id="customGrowthProjectionChart"></canvas>
+                        </div>
+                         <div class="text-center mt-6 p-5 bg-[var(--bg-accent)] rounded-lg">
+                            <p class="result-item-label uppercase tracking-wider">New Projected Value at Retirement</p>
+                            <p id="customProjectedValue" class="text-3xl md:text-4xl font-bold highlight-value"></p>
+                        </div>
+                        <div id="customContributionWarning" class="hidden mt-4 p-4 text-sm text-yellow-800 bg-yellow-100 border-l-4 border-yellow-500"></div>
+                        <div class="mt-6 text-center">
+                             <a id="customQuoteBtn" href="#" target="_blank" class="w-full md:w-auto main-calc-button button-base text-sm py-2.5 px-6 pulse-animation" style="text-decoration:none;">
+                               Request a Quote for This Amount
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <section class="bento-box bento-box-cta cta-bento-box" id="main-cta">
+                <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                    <img src="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/contact%20photo.jpeg" class="w-24 h-24 rounded-full mb-4 md:mb-0 md:mr-6 flex-shrink-0 object-cover" alt="Kyron Marchan" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/3d4d58?text=KM';">
+                    <div class="container mx-auto px-4 py-6">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2">Unlock Major Tax Savings for Your Business</h2>
+                        <p class="text-sm md:text-base mb-4 max-w-xl">
+                            A Section 134(6) Corporate Annuity is a powerful tool for executive compensation and business tax planning. Let's discuss how this strategy can be tailored to your specific needs.
+                        </p>
+                        <p class="text-xs italic mb-5 max-w-xl">
+                            Kyron Marchan: Licensed Insurance Agent (Tatil Life & TATIL) with 13 years in retirement planning.
+                        </p>
+                        <div class="space-y-3 md:space-y-0 md:flex md:items-center md:space-x-4">
+                            <a href="mailto:kyron.marchan@tatil.co.tt?subject=Inquiry about Section 134(6) Corporate Annuity" class="final-cta-button button-base py-2.5 px-6 text-base inline-block w-full md:w-auto">
+                                Email for a Consultation
+                            </a>
+                            <a href="https://wa.me/18683278273?text=Hello%20Kyron,%20I'd%20like%20to%20discuss%20a%20Section%20134(6)%20Corporate%20Annuity." target="_blank" class="final-cta-button button-base bg-green-500 hover:bg-green-600 py-2.5 px-6 text-base inline-block w-full md:w-auto" style="background-color: #25D366; border-color: #25D366;">
+                                Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer class="text-center mt-12 text-xs text-[var(--text-muted)]">
+            <p>&copy; <span id="currentYear"></span> Corporate Annuity (134-6) Calculator. Plan with Precision, Retire with Confidence.</p>
+        </footer>
+    </div>
+    <div id="alertModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
+             <p id="alertModalMessage" class="text-lg text-center text-[var(--text-primary)]"></p>
+             <button id="alertModalClose" class="mt-4 w-full main-calc-button button-base">OK</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DOM ELEMENTS ---
+            const calculateButton = document.getElementById('calculateButton');
+            const incomeFrequencySelect = document.getElementById('incomeFrequency');
+            const baseSalaryInput = document.getElementById('baseSalary');
+            const bonusInput = document.getElementById('bonus');
+            const bonusFrequencySelect = document.getElementById('bonusFrequency');
+            const allowancesInput = document.getElementById('allowances');
+            const hasExistingAnnuitySelect = document.getElementById('hasExistingAnnuity');
+            const existingAnnuityContainer = document.getElementById('existingAnnuityContainer');
+            const personalAnnuityInput = document.getElementById('personalAnnuity');
+            const companyPensionInput = document.getElementById('companyPension');
+            const companyPensionPercentageInput = document.getElementById('companyPensionPercentage');
+            const companyPensionInputTypeRadios = document.querySelectorAll('input[name="companyPensionInputType"]');
+            const companyPensionAmountContainer = document.getElementById('companyPensionAmountContainer');
+            const companyPensionPercentageContainer = document.getElementById('companyPensionPercentageContainer');
+            const employerMatchInput = document.getElementById('employerMatch');
+            const hasOtherDeductionsSelect = document.getElementById('hasOtherDeductions');
+            const otherDeductionsContainer = document.getElementById('otherDeductionsContainer');
+            const alimonyPaymentsInput = document.getElementById('alimonyPayments');
+            const covenantedDonationsInput = document.getElementById('covenantedDonations');
+            const tertiaryEducationInput = document.getElementById('tertiaryEducation');
+            const firstTimeHomeOwnerInput = document.getElementById('firstTimeHomeOwner');
+            const ageInput = document.getElementById('age');
+            const themeToggle = document.getElementById('themeToggleCheckbox');
+            const themeToggleLabel = document.getElementById('themeToggleLabel');
+            
+            const resultsWrapper = document.getElementById('results-wrapper');
+            const breakdownWrapper = document.getElementById('breakdown-wrapper');
+            const recommendationWrapper = document.getElementById('recommendation-wrapper');
+            const payoutOptionsWrapper = document.getElementById('payout-options-wrapper');
+            const customQuoteWrapper = document.getElementById('custom-quote-wrapper');
+            const customProjectionContainer = document.getElementById('custom-projection-container');
+
+            const resultEmolumentsEl = document.getElementById('resultEmoluments');
+            const resultChargeableEl = document.getElementById('resultChargeable');
+            const finalResultEl = document.getElementById('finalResult');
+            const scrollNudgeEl = document.getElementById('scrollNudge');
+            
+            const breakdownGrossEl = document.getElementById('breakdownGross');
+            const breakdownAllowanceEl = document.getElementById('breakdownAllowance');
+            const breakdownNisEl = document.getElementById('breakdownNis');
+            const breakdownOtherAnnuityEl = document.getElementById('breakdownOtherAnnuity');
+            const breakdownOtherDeductionsEl = document.getElementById('breakdownOtherDeductions');
+            const breakdownChargeableEl = document.getElementById('breakdownChargeable');
+            const maxContribTextEl = document.getElementById('maxContribText');
+            const projectedValueEl = document.getElementById('projectedValue');
+
+            const grossMonthlyIncomeFullEl = document.getElementById('grossMonthlyIncomeFull');
+            const netMonthlyIncomeFullEl = document.getElementById('netMonthlyIncomeFull');
+            const lumpSumPartialEl = document.getElementById('lumpSumPartial');
+            const grossMonthlyIncomePartialEl = document.getElementById('grossMonthlyIncomePartial');
+            const netMonthlyIncomePartialEl = document.getElementById('netMonthlyIncomePartial');
+            
+            const customContributionInput = document.getElementById('customContributionAmount');
+            const customProjectedValueEl = document.getElementById('customProjectedValue');
+            const customQuoteBtn = document.getElementById('customQuoteBtn');
+            const customContributionWarningEl = document.getElementById('customContributionWarning');
+            const alertModal = document.getElementById('alertModal');
+            const alertModalMessage = document.getElementById('alertModalMessage');
+            const alertModalClose = document.getElementById('alertModalClose');
+
+            // --- CONSTANTS & STATE ---
+            const PERSONAL_ALLOWANCE = 90000;
+            const MAX_STANDARD_DEDUCTION = 60000;
+            const MONTHS_IN_YEAR = 12;
+            const ASSUMED_INTEREST_RATE = 0.03;
+            const RETIREMENT_AGE = 65;
+            const ANNUITY_RATE_MALE_65_10Y = 6.45; // Rate per $1000
+            let scrollTimeout;
+            window.initialCalculationPerformed = false; 
+            let calculatedMaxContribution = 0;
+            let chartInstances = {}; // Central object to hold chart instances
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // --- THEME SWITCHING LOGIC ---
+            function getChartColors() {
+                const root = document.documentElement; 
+                const isDark = root.classList.contains('dark-mode'); 
+                const style = getComputedStyle(root); 
+                
+                const darkChartTickLabelColor = '#e5e7eb'; 
+                const darkChartTitleColor = '#f3f4f6';   
+                return {
+                    line: { 
+                        borderColor: style.getPropertyValue('--primary-accent').trim(), 
+                        backgroundColor: style.getPropertyValue('--primary-accent').trim() + '33', 
+                        borderColorAlt: style.getPropertyValue('--secondary-accent').trim(), 
+                        backgroundColorAlt: style.getPropertyValue('--secondary-accent').trim() + '33', 
+                        pointBackgroundColor: style.getPropertyValue('--primary-accent').trim(),
+                        pointBorderColor: style.getPropertyValue('--bg-bento-box').trim(), 
+                        gridColor: style.getPropertyValue('--border-color').trim() + '66', 
+                        ticksColor: isDark ? darkChartTickLabelColor : style.getPropertyValue('--text-muted').trim() 
+                    },
+                    fontFamily: style.getPropertyValue('--font-body').trim(),
+                    textPrimaryColor: isDark ? darkChartTitleColor : style.getPropertyValue('--text-primary').trim(), 
+                    textSecondaryColor: isDark ? darkChartTickLabelColor : style.getPropertyValue('--text-secondary').trim() 
+                };
+            }
+
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const root = document.documentElement; 
+
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                    root.classList.add('dark-mode');
+                    if (themeToggle) themeToggle.checked = true;
+                    if (themeToggleLabel) themeToggleLabel.textContent = 'DARK';
+                } else {
+                    root.classList.remove('dark-mode');
+                    if (themeToggle) themeToggle.checked = false;
+                    if (themeToggleLabel) themeToggleLabel.textContent = 'LIGHT';
+                }
+                updateExistingCharts(); 
+            }
+
+            function toggleTheme() {
+                const root = document.documentElement;
+                const isDarkMode = root.classList.contains('dark-mode');
+                
+                if (isDarkMode) {
+                    root.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                    if (themeToggleLabel) themeToggleLabel.textContent = 'LIGHT';
+                } else {
+                    root.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    if (themeToggleLabel) themeToggleLabel.textContent = 'DARK';
+                }
+                updateExistingCharts();
+            }
+            
+            function updateExistingCharts() {
+                Object.keys(chartInstances).forEach(chartId => {
+                    if (chartInstances[chartId] && typeof chartInstances[chartId].destroy === 'function') {
+                        // Re-render the chart with new colors
+                        const canvas = document.getElementById(chartId);
+                        if (canvas && canvas.dataset.chartData) {
+                            const chartData = JSON.parse(canvas.dataset.chartData);
+                            const isCustom = chartId.includes('custom');
+                            renderGrowthChart(chartId, chartData, isCustom);
+                        }
+                    }
+                });
+            }
+
+
+            // --- UI & EVENT HANDLERS ---
+            function updateInputLabels() {
+                const frequency = incomeFrequencySelect.value;
+                const perPeriodText = `(per ${frequency === 'annual' ? 'year' : 'month'})`;
+                
+                baseSalaryLabel.textContent = `Base Salary ${perPeriodText}`;
+                allowancesLabel.textContent = `Other Allowances ${perPeriodText}`;
+                personalAnnuityLabel.textContent = `Personal Annuity Contributions ${perPeriodText}`;
+                companyPensionAmountLabel.textContent = `Employee's Contribution Amount ${perPeriodText}`;
+                bonusLabel.textContent = `Bonus (per ${bonusFrequencySelect.value === 'annually' ? 'year' : bonusFrequencySelect.value.slice(0,-2)})`;
+            }
+
+            incomeFrequencySelect.addEventListener('change', updateInputLabels);
+            bonusFrequencySelect.addEventListener('change', updateInputLabels);
+            
+            hasExistingAnnuitySelect.addEventListener('change', function() {
+                existingAnnuityContainer.classList.toggle('hidden', this.value === 'no');
+                if (this.value === 'no') {
+                    personalAnnuityInput.value = '';
+                    companyPensionInput.value = '';
+                    companyPensionPercentageInput.value = '';
+                    employerMatchInput.value = '';
+                }
+            });
+            
+            hasOtherDeductionsSelect.addEventListener('change', function() {
+                 otherDeductionsContainer.classList.toggle('hidden', this.value === 'no');
+                 if(this.value === 'no') {
+                    alimonyPaymentsInput.value = '';
+                    covenantedDonationsInput.value = '';
+                    tertiaryEducationInput.value = '';
+                    firstTimeHomeOwnerInput.value = '';
+                 }
+            });
+
+            companyPensionInputTypeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isAmount = this.value === 'amount';
+                    companyPensionAmountContainer.classList.toggle('hidden', !isAmount);
+                    companyPensionPercentageContainer.classList.toggle('hidden', isAmount);
+                    if(isAmount) companyPensionPercentageInput.value = '';
+                    else companyPensionInput.value = '';
+                });
+            });
+            
+            if(alertModalClose) {
+                alertModalClose.addEventListener('click', () => {
+                    alertModal.classList.add('hidden');
+                });
+            }
+
+            // --- HELPER & FORMATTING FUNCTIONS ---
+            function showAlert(message) {
+                if(alertModalMessage && alertModal) {
+                    alertModalMessage.textContent = message;
+                    alertModal.classList.remove('hidden');
+                    alertModal.classList.add('flex');
+                }
+            }
+
+            function formatCurrency(value, decimalPlaces = 2) {
+                 if (isNaN(value)) return "TTD 0.00";
+                 const roundedValue = Math.floor(value);
+                return "TTD " + Number(roundedValue).toLocaleString(undefined, { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces });
+            }
+            
+            // --- CALCULATION LOGIC ---
+            function getEmployeeNISWeeklyContribution(grossAnnualIncome) {
+                const grossMonthlyIncome = grossAnnualIncome / MONTHS_IN_YEAR;
+                for (const tier of [ { minMonthly: 0, maxMonthly: 866.99, weeklyEmpContrib: 0 }, { minMonthly: 867.00, maxMonthly: 1472.99, weeklyEmpContrib: 11.90 }, { minMonthly: 1473.00, maxMonthly: 1949.99, weeklyEmpContrib: 17.40 }, { minMonthly: 1950.00, maxMonthly: 2642.99, weeklyEmpContrib: 23.30 }, { minMonthly: 2643.00, maxMonthly: 3292.99, weeklyEmpContrib: 30.10 }, { minMonthly: 3293.00, maxMonthly: 4029.99, weeklyEmpContrib: 37.20 }, { minMonthly: 4030.00, maxMonthly: 4852.99, weeklyEmpContrib: 45.10 }, { minMonthly: 4853.00, maxMonthly: 5632.99, weeklyEmpContrib: 53.20 }, { minMonthly: 5633.00, maxMonthly: 6456.99, weeklyEmpContrib: 61.40 }, { minMonthly: 6457.00, maxMonthly: 7409.99, weeklyEmpContrib: 70.40 }, { minMonthly: 7410.00, maxMonthly: 8276.99, weeklyEmpContrib: 79.60 }, { minMonthly: 8277.00, maxMonthly: 9272.99, weeklyEmpContrib: 89.10 }, { minMonthly: 9273.00, maxMonthly: 10312.99, weeklyEmpContrib: 99.40 }, { minMonthly: 10313.00, maxMonthly: 11396.99, weeklyEmpContrib: 110.20 }, { minMonthly: 11397.00, maxMonthly: 12652.99, weeklyEmpContrib: 122.10 }, { minMonthly: 12653.00, maxMonthly: 13599.99, weeklyEmpContrib: 133.30 }, { minMonthly: 13600.00, maxMonthly: Infinity, weeklyEmpContrib: 138.10 } ]) { if (grossMonthlyIncome >= tier.minMonthly && grossMonthlyIncome <= tier.maxMonthly) return tier.weeklyEmpContrib; } return 0;
+            }
+
+            function calculateFutureValueAnnuity(principalAnnual, rate, years) {
+                if (years <= 0) return principalAnnual > 0 ? principalAnnual : 0; if (rate === 0) return principalAnnual * years;
+                let futureValue = 0; for (let i = 0; i < years; i++) { futureValue = (futureValue + principalAnnual) * (1 + rate); } return futureValue;
+            }
+            
+            function calculateIncomeTax(annualIncome) {
+                const personalAllowance = 90000;
+                const taxableIncome = Math.max(0, annualIncome - personalAllowance);
+                const taxBracket1Limit = 1000000;
+                const taxRate1 = 0.25;
+                const taxRate2 = 0.30;
+                
+                let tax = 0;
+                if (taxableIncome <= taxBracket1Limit) {
+                    tax = taxableIncome * taxRate1;
+                } else {
+                    tax = (taxBracket1Limit * taxRate1) + ((taxableIncome - taxBracket1Limit) * taxRate2);
+                }
+                return tax;
+            }
+
+            function generateGrowthData(principalAnnual, rate, years) {
+                const dataWithInterest = []; const dataWithoutInterest = [];
+                const labels = []; let currentValueWithInterest = 0; let currentValueWithoutInterest = 0;
+                
+                for (let i = 0; i <= years; i++) {
+                    labels.push(`Year ${i}`); 
+                    if (i === 0) {
+                        dataWithInterest.push(0);
+                        dataWithoutInterest.push(0);
+                    } else { 
+                        currentValueWithInterest = (currentValueWithInterest + principalAnnual) * (1 + rate); 
+                        currentValueWithoutInterest += principalAnnual;
+                        dataWithInterest.push(currentValueWithInterest); 
+                        dataWithoutInterest.push(currentValueWithoutInterest);
+                    }
+                } 
+                return { labels, dataWithInterest, dataWithoutInterest };
+            }
+
+            function renderGrowthChart(canvasId, data) {
+                 if (chartInstances[canvasId] && typeof chartInstances[canvasId].destroy === 'function') {
+                    chartInstances[canvasId].destroy();
+                }
+
+                const ctx = document.getElementById(canvasId).getContext('2d');
+                const colors = getChartColors();
+                
+                // Store data on canvas for theme updates
+                const canvasEl = document.getElementById(canvasId);
+                canvasEl.dataset.chartData = JSON.stringify(data);
+
+                const newChart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { 
+                                beginAtZero: true, 
+                                ticks: { 
+                                    callback: (value) => formatCurrency(value,0),
+                                    color: colors.line.ticksColor
+                                },
+                                grid: { color: colors.line.gridColor }
+                            },
+                             x: {
+                                ticks: { color: colors.line.ticksColor },
+                                grid: { display: false }
+                             }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${formatCurrency(context.raw)}`;
+                                    }
+                                }
+                            },
+                            legend: {
+                                labels: { color: colors.textSecondaryColor }
+                            }
+                        }
+                    }
+                });
+                chartInstances[canvasId] = newChart; // Store in central object
+            }
+            
+
+            function performCalculation() {
+                const age = parseInt(ageInput.value);
+                if(isNaN(age) || age <= 0 || age >= RETIREMENT_AGE) {
+                     showAlert(`Please enter a valid current age below ${RETIREMENT_AGE}.`);
+                     return;
+                }
+
+                const baseSalary = parseFloat(baseSalaryInput.value) || 0;
+                if (baseSalary <= 0) {
+                    showAlert("Please enter the employee's Base Salary.");
+                    return;
+                }
+
+                const bonus = parseFloat(bonusInput.value) || 0;
+                const allowances = parseFloat(allowancesInput.value) || 0;
+                const incomeFrequency = incomeFrequencySelect.value;
+                const bonusFrequency = bonusFrequencySelect.value;
+                const hasAnnuity = hasExistingAnnuitySelect.value === 'yes';
+                const hasOtherDeductions = hasOtherDeductionsSelect.value === 'yes';
+                
+                const personalAnnuityVal = parseFloat(personalAnnuityInput.value) || 0;
+                const companyPensionVal = parseFloat(companyPensionInput.value) || 0;
+                const companyPensionPercentageVal = parseFloat(companyPensionPercentageInput.value) || 0;
+                const employerMatchPercentage = parseFloat(employerMatchInput.value) || 0;
+                const alimony = parseFloat(alimonyPaymentsInput.value) || 0;
+                const donations = parseFloat(covenantedDonationsInput.value) || 0;
+                const tertiaryEducation = parseFloat(tertiaryEducationInput.value) || 0;
+                const firstTimeHomeOwner = parseFloat(firstTimeHomeOwnerInput.value) || 0;
+
+                if(hasAnnuity && personalAnnuityVal <= 0 && companyPensionVal <= 0 && companyPensionPercentageVal <= 0) {
+                     showAlert("Please enter the employee's existing pension/annuity contribution details, or select 'No' if they do not have any.");
+                     return;
+                }
+                 if (hasOtherDeductions && alimony <= 0 && donations <= 0 && tertiaryEducation <= 0 && firstTimeHomeOwner <= 0) {
+                    showAlert("Please enter the details for other annual deductions, or select 'No' if there are none.");
+                    return;
+                }
+
+                const multiplier = incomeFrequency === 'monthly' ? 12 : 1;
+                const annualBaseSalary = baseSalary * multiplier;
+                const annualAllowances = allowances * multiplier;
+                
+                let annualBonus = 0;
+                if (bonusFrequency === 'monthly') annualBonus = bonus * 12;
+                else if (bonusFrequency === 'quarterly') annualBonus = bonus * 4;
+                else annualBonus = bonus;
+
+                const annualGrossEmoluments = annualBaseSalary + annualBonus + annualAllowances;
+                
+                let totalExistingContributions = 0;
+                if (hasAnnuity) {
+                     let employeeCompanyContribution = 0;
+                     const selectedPensionInputType = document.querySelector('input[name="companyPensionInputType"]:checked').value;
+                     
+                     if (selectedPensionInputType === 'percentage') {
+                         employeeCompanyContribution = annualGrossEmoluments * (companyPensionPercentageVal / 100);
+                     } else {
+                         employeeCompanyContribution = companyPensionVal * multiplier;
+                     }
+                     
+                     const employerMatchContribution = annualGrossEmoluments * (employerMatchPercentage / 100);
+                     const annualPersonalAnnuity = personalAnnuityVal * multiplier;
+
+                     totalExistingContributions = annualPersonalAnnuity + employeeCompanyContribution + employerMatchContribution;
+                }
+
+                const employeeNISWeekly = getEmployeeNISWeeklyContribution(annualGrossEmoluments);
+                const totalEmployeeNISAnnual = employeeNISWeekly * 52;
+                const deductibleNISPortion = totalEmployeeNISAnnual * 0.70;
+
+                const actualDeductibleAnnuity = Math.min(totalExistingContributions, MAX_STANDARD_DEDUCTION - deductibleNISPortion);
+                
+                const covenantedDonationsLimit = annualGrossEmoluments * 0.15;
+                const actualDeductibleDonations = Math.min(donations, covenantedDonationsLimit);
+                const actualTertiaryEducation = Math.min(tertiaryEducation, 72000);
+                const actualFirstTimeHomeOwner = Math.min(firstTimeHomeOwner, 25000);
+
+
+                const totalOtherDeductions = alimony + actualDeductibleDonations + actualTertiaryEducation + actualFirstTimeHomeOwner;
+
+                const chargeableIncome = Math.max(0, annualGrossEmoluments - PERSONAL_ALLOWANCE - deductibleNISPortion - actualDeductibleAnnuity - totalOtherDeductions);
+
+                const emolumentsCalc = annualGrossEmoluments * 0.20;
+                const chargeableCalc = chargeableIncome * (1/3);
+
+                resultEmolumentsEl.textContent = formatCurrency(emolumentsCalc, 0);
+                resultChargeableEl.textContent = formatCurrency(chargeableCalc, 0);
+                
+                breakdownGrossEl.textContent = formatCurrency(annualGrossEmoluments);
+                breakdownAllowanceEl.textContent = `- ${formatCurrency(PERSONAL_ALLOWANCE)}`;
+                breakdownNisEl.textContent = `- ${formatCurrency(deductibleNISPortion)}`;
+                breakdownOtherAnnuityEl.textContent = `- ${formatCurrency(actualDeductibleAnnuity)}`;
+                breakdownOtherDeductionsEl.textContent = `- ${formatCurrency(totalOtherDeductions)}`;
+                breakdownChargeableEl.textContent = formatCurrency(chargeableIncome);
+
+                const maxContribution = Math.max(emolumentsCalc, chargeableCalc);
+                finalResultEl.textContent = formatCurrency(maxContribution, 0);
+                
+                calculatedMaxContribution = maxContribution;
+                
+                resultsWrapper.classList.remove('hidden');
+                breakdownWrapper.classList.remove('hidden');
+                recommendationWrapper.classList.remove('hidden');
+                payoutOptionsWrapper.classList.remove('hidden');
+                customQuoteWrapper.classList.remove('hidden');
+                
+                window.initialCalculationPerformed = true;
+
+                const yearsToRetirement = RETIREMENT_AGE - age;
+                const projectedAccumulation = calculateFutureValueAnnuity(maxContribution, ASSUMED_INTEREST_RATE, yearsToRetirement);
+
+                maxContribTextEl.textContent = formatCurrency(maxContribution, 0);
+                projectedValueEl.textContent = formatCurrency(projectedAccumulation, 0);
+                
+                // Payout calculations
+                const totalContributions = maxContribution * yearsToRetirement;
+
+                // Scenario 1: Full conversion
+                const grossMonthlyIncomeFull = (projectedAccumulation / 1000) * ANNUITY_RATE_MALE_65_10Y;
+                const annualTaxFull = calculateIncomeTax(grossMonthlyIncomeFull * 12);
+                const netMonthlyIncomeFull = (grossMonthlyIncomeFull * 12 - annualTaxFull) / 12;
+                grossMonthlyIncomeFullEl.textContent = formatCurrency(grossMonthlyIncomeFull, 0);
+                netMonthlyIncomeFullEl.textContent = formatCurrency(netMonthlyIncomeFull, 0);
+                
+                // Scenario 2: Lump sum + income
+                const lumpSumPartial = projectedAccumulation * 0.25;
+                const remainingForAnnuity = projectedAccumulation - lumpSumPartial;
+                const grossMonthlyIncomePartial = (remainingForAnnuity / 1000) * ANNUITY_RATE_MALE_65_10Y;
+                const annualTaxPartial = calculateIncomeTax(grossMonthlyIncomePartial * 12);
+                const netMonthlyIncomePartial = (grossMonthlyIncomePartial * 12 - annualTaxPartial) / 12;
+                lumpSumPartialEl.textContent = formatCurrency(lumpSumPartial, 0);
+                grossMonthlyIncomePartialEl.textContent = formatCurrency(grossMonthlyIncomePartial, 0);
+                netMonthlyIncomePartialEl.textContent = formatCurrency(netMonthlyIncomePartial, 0);
+
+                const growthData = generateGrowthData(maxContribution, ASSUMED_INTEREST_RATE, yearsToRetirement);
+                const chartData = {
+                    labels: growthData.labels,
+                    datasets: [
+                        {
+                            label: 'Total Contributions',
+                            data: growthData.dataWithoutInterest,
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Value with 3% Growth',
+                            data: growthData.dataWithInterest,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                };
+
+                const growthChartCanvas = document.getElementById('growthProjectionChart');
+                renderGrowthChart('growthProjectionChart', chartData);
+
+                resultsWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            function updateCustomProjection(){
+                 const customAmount = parseFloat(customContributionInput.value) || 0;
+                 if (customAmount <= 0) {
+                    customProjectionContainer.classList.add('hidden');
+                    customContributionWarningEl.classList.add('hidden');
+                    return;
+                 }
+                 
+                const age = parseInt(ageInput.value);
+                if(isNaN(age) || age <= 0 || age >= RETIREMENT_AGE) return;
+
+                if (customAmount > calculatedMaxContribution) {
+                    const excess = customAmount - calculatedMaxContribution;
+                    const taxDue = excess * 0.25;
+                    customContributionWarningEl.innerHTML = `<strong>Note:</strong> This contribution exceeds the maximum of ${formatCurrency(calculatedMaxContribution, 0)}. The excess of ${formatCurrency(excess, 0)} would be subject to a 25% tax, resulting in approximately ${formatCurrency(taxDue, 0)} due.`;
+                    customContributionWarningEl.classList.remove('hidden');
+                } else {
+                    customContributionWarningEl.classList.add('hidden');
+                }
+
+                const yearsToRetirement = RETIREMENT_AGE - age;
+                const projectedAccumulation = calculateFutureValueAnnuity(customAmount, ASSUMED_INTEREST_RATE, yearsToRetirement);
+                customProjectedValueEl.textContent = formatCurrency(projectedAccumulation, 0);
+
+                const growthData = generateGrowthData(customAmount, ASSUMED_INTEREST_RATE, yearsToRetirement);
+                const chartData = {
+                    labels: growthData.labels,
+                    datasets: [
+                        {
+                            label: 'Total Contributions',
+                            data: growthData.dataWithoutInterest,
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Value with 3% Growth',
+                            data: growthData.dataWithInterest,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            fill: true,
+                            tension: 0.4
+                        }
+                    ]
+                };
+                renderGrowthChart('customGrowthProjectionChart', chartData);
+                customProjectionContainer.classList.remove('hidden');
+
+                const whatsappMessage = `Hello Kyron, I'm interested in a corporate annuity with an annual contribution of ${formatCurrency(customAmount,0)}. Can we discuss this?`;
+                customQuoteBtn.href = `https://wa.me/18683278273?text=${encodeURIComponent(whatsappMessage)}`;
+            }
+
+            // --- EVENT LISTENERS & INITIALIZATION ---
+            calculateButton.addEventListener('click', performCalculation);
+            customContributionInput.addEventListener('input', updateCustomProjection);
+            
+            document.addEventListener('click', function (event) {
+                if (event.target.matches('.js-scroll-to')) {
+                    const targetId = event.target.dataset.target;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+            
+            function handleScrollNudgeVisibility() {
+                if (!scrollNudgeEl || !document.getElementById('main-cta')) return;
+
+                clearTimeout(scrollTimeout);
+                scrollNudgeEl.classList.add('opacity-0');
+
+                scrollTimeout = setTimeout(() => {
+                    if (!window.initialCalculationPerformed) return;
+
+                    const ctaRect = document.getElementById('main-cta').getBoundingClientRect();
+                    const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
+
+                    const shouldBeHidden = ctaRect.top < window.innerHeight || isAtBottom;
+
+                    if (!shouldBeHidden) {
+                        scrollNudgeEl.classList.remove('opacity-0');
+                    }
+
+                }, 2500); 
+            }
+
+            window.addEventListener('scroll', handleScrollNudgeVisibility, { passive: true });
+            
+            // Initial call to set labels and theme
+            updateInputLabels();
+            initializeTheme();
+            if(themeToggle) {
+                themeToggle.addEventListener('change', toggleTheme);
+            }
+        });
+    </script>
+</body>
+</html>

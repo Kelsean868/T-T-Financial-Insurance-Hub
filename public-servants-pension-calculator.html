@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- SEO and Meta Tags -->
+    <title>Trinidad & Tobago Public Service Pension & Gratuity Calculator | Free T&T Retirement Estimator</title>
+    <meta name="description" content="The most accurate and detailed pension calculator for monthly-paid Public Servants in Trinidad & Tobago. Calculate your estimated pension and gratuity based on the Pensions Act. Includes options for full pension or reduced pension with lump-sum gratuity, and accounts for ill-health retirement, no-pay leave, and prior benefits.">
+    <meta name="keywords" content="Trinidad and Tobago pension calculator, public service pension T&T, gratuity calculator, retirement calculator T&T, Pensions Act Trinidad, compulsory retirement, voluntary retirement, ill-health pension, reduced pension, pensionable emoluments, Kyron Marchan">
+    <meta name="author" content="Kyron Marchan">
+    <link rel="canonical" href="https://kelsean868.github.io/paye-annuity-calculator-tt/pension-calculator.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/pension-calculator.html">
+    <meta property="og:title" content="Trinidad & Tobago Public Service Pension & Gratuity Calculator | Free T&T Retirement Estimator">
+    <meta property="og:description" content="Calculate your T&T Public Service pension and gratuity with our detailed, user-friendly estimator. Plan your retirement with confidence.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png">
+    <meta property="og:site_name" content="T&T Public Service Pension Calculator">
+    <meta property="og:locale" content="en_TT">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kelsean868.github.io/paye-annuity-calculator-tt/pension-calculator.html">
+    <meta property="twitter:title" content="Trinidad & Tobago Public Service Pension & Gratuity Calculator | Free T&T Retirement Estimator">
+    <meta property="twitter:description" content="Calculate your T&T Public Service pension and gratuity with our detailed, user-friendly estimator. Plan your retirement with confidence.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/tt-calculator-icon%202.png">
+    
+    <!-- Scripts and Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "T&T Public Service Pension Calculator",
+      "description": "A free financial calculator to estimate the pension and gratuity for public servants in Trinidad and Tobago, based on the Pensions Act. It handles different retirement scenarios, service history, and provides options for full or reduced pension.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TTD"
+      },
+      "provider": {
+        "@type": "Person",
+        "name": "Kyron Marchan"
+      },
+      "keywords": "Trinidad and Tobago pension calculator, public service pension T&T, gratuity calculator, retirement calculator T&T, Pensions Act Trinidad, compulsory retirement, voluntary retirement",
+      "url": "https://kelsean868.github.io/paye-annuity-calculator-tt/pension-calculator.html"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #f4f6f9; 
+            --bg-bento-box: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-accent: #eef2f7;
+            --text-primary: #1d2d35; 
+            --text-secondary: #4a5568; 
+            --text-muted: #718096;    
+            --border-color: #dce1e7; 
+            --primary-accent: #005f73; 
+            --primary-accent-darker: #003d4d;
+            --secondary-accent: #ae8625; 
+            --secondary-accent-darker: #8c6c1d;
+            --success-color: #2a9d8f;
+            --success-color-light: #f0fdfa;
+            --danger-color: #e63946;
+            --danger-color-light: #fff5f5;
+            --skip-button-color: #64748b;
+            --skip-button-hover-color: #475569;
+            --shadow-soft: 0 3px 6px rgba(0,0,0,0.04);
+            --shadow-medium: 0 5px 15px rgba(0,0,0,0.06);
+            --shadow-strong: 0 8px 25px rgba(0,0,0,0.08);
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Source Serif Pro', serif; 
+            --base-font-size: 16px; 
+            --line-height-relaxed: 1.65; 
+        }
+
+        .dark-mode {
+            --bg-main: #1f2937; 
+            --bg-bento-box: #2b3c4d; 
+            --bg-secondary: #243241;
+            --bg-accent: #374151;
+            --text-primary: #f0f4f8; 
+            --text-secondary: #d1d5db; 
+            --text-muted: #9ca3af;    
+            --border-color: #4b5f71; 
+            --primary-accent: #25a1af; 
+            --primary-accent-darker: #1e838f;
+            --secondary-accent: #daa520; 
+            --secondary-accent-darker: #b8860b;
+            --success-color: #38c172; 
+            --success-color-light: #1a3c36;
+            --danger-color: #fca5a5;
+            --danger-color-light: #4c2023;
+            --skip-button-color: #475569;
+            --skip-button-hover-color: #334155;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 400;
+            font-size: var(--base-font-size);
+            line-height: var(--line-height-relaxed);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        
+        .page-title { font-family: var(--font-heading); color: var(--primary-accent); font-weight: 700; }
+        .page-subtitle { font-family: var(--font-body); font-weight: 600; color: var(--text-secondary); }
+        
+        .bento-section-title { 
+            font-family: var(--font-heading); 
+            font-weight: 700; 
+            color: var(--text-primary);
+            margin-bottom: 1.25rem; 
+        }
+        .bento-step-indicator {
+            display: inline-flex; align-items: center; justify-content: center;
+            background-color: var(--secondary-accent); color: var(--bg-bento-box);
+            border-radius: 50%; width: 34px; height: 34px;
+            font-family: var(--font-body); font-weight: 700; font-size: 1rem;
+            margin-right: 12px; box-shadow: var(--shadow-soft);
+        }
+        .dark-mode .bento-step-indicator { color: var(--text-primary); }
+
+        .bento-grid-container { display: grid; gap: 1.75rem; }
+
+        .bento-box {
+            background-color: var(--bg-bento-box);
+            border-radius: 0.75rem; 
+            padding: 1rem; 
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        @media (min-width: 640px) {
+            .bento-box { padding: 1.75rem; }
+        }
+        .bento-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .cta-bento-box {
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--primary-accent-darker) 100%);
+            color: white; 
+        }
+        .dark-mode .cta-bento-box {
+             background: linear-gradient(135deg, var(--primary-accent-darker) 0%, var(--primary-accent) 100%);
+        }
+        .cta-bento-box p, .cta-bento-box h2, .cta-bento-box a { color: #fff; }
+        .dark-mode .cta-bento-box p, .dark-mode .cta-bento-box h2, .dark-mode .cta-bento-box a { color: #fff; }
+        
+        /* Tooltip & Info Icon */
+        .tooltip { position: relative; display: inline-block; }
+        .info-icon {
+            display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px;
+            background-color: var(--primary-accent); color: var(--bg-bento-box); border-radius: 50%;
+            font-size: 11px; font-weight: 600; cursor: pointer; margin-left: 6px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .info-icon:hover { background-color: var(--primary-accent-darker); transform: scale(1.15); }
+        .tooltip .tooltiptext {
+            visibility: hidden; width: 260px; background-color: var(--text-primary); color: var(--bg-bento-box); text-align: center;
+            border-radius: 0.375rem; padding: 10px; position: absolute; z-index: 20; bottom: 135%;
+            left: 50%; margin-left: -130px; opacity: 0; transition: opacity 0.3s ease; box-shadow: var(--shadow-medium);
+            font-size: 0.8rem; font-weight: 500;
+        }
+        .tooltip .tooltiptext::after {
+            content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px;
+            border-width: 6px; border-style: solid; border-color: var(--text-primary) transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+
+        /* Modal */
+        .modal {
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto; background-color: rgba(29, 45, 53, 0.7); padding-top: 5vh; 
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--bg-bento-box); margin: auto; padding: 2rem 2.25rem; border: 1px solid var(--border-color);
+            width: 90%; max-width: 560px; border-radius: 0.75rem; text-align: left; position: relative;
+            box-shadow: var(--shadow-strong);
+        }
+        .modal-close {
+            color: var(--text-muted); position: absolute; top: 0.75rem; right: 1rem; font-size: 2.25rem; font-weight: 300;
+        }
+        .modal-close:hover, .modal-close:focus { color: var(--text-primary); text-decoration: none; cursor: pointer; }
+
+        /* Input and Button Styling */
+        input[type="number"], input[type="text"], input[type="date"], input[type="tel"], select, input[type="checkbox"] {
+            border: 1px solid var(--border-color); padding: 0.85rem 1.15rem; border-radius: 0.375rem; 
+            transition: all 0.2s ease;
+            font-size: 0.95rem; 
+            background-color: var(--bg-secondary); color: var(--text-primary);
+            font-weight: 500;
+        }
+        input[type="checkbox"] {
+            height: 1.25rem; width: 1.25rem; padding: 0;
+        }
+        input:focus, select:focus, input[type="checkbox"]:focus {
+            border-color: var(--primary-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-accent) 25%, transparent); 
+            outline: none; background-color: var(--bg-bento-box);
+        }
+        .button-base {
+            font-weight: 600; padding-top: 0.85rem; padding-bottom: 0.85rem; border-radius: 0.375rem;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-soft); text-transform: uppercase; letter-spacing: 0.025em;
+            font-family: var(--font-body);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .button-base:hover { transform: translateY(-2px); box-shadow: var(--shadow-medium); }
+        .button-base:disabled { opacity: 0.7; cursor: not-allowed; }
+        .button-base:active:not(:disabled) { transform: translateY(0px) scale(0.98); box-shadow: var(--shadow-soft); }
+        
+        .main-calc-button { 
+            background-color: var(--primary-accent); 
+            color: white; 
+            font-size: 1rem; 
+            animation: pulse-shadow 2.5s infinite;
+        }
+        .dark-mode .main-calc-button { color: var(--bg-bento-box); }
+        .main-calc-button:hover:not(:disabled) { background-color: var(--primary-accent-darker); animation: none; }
+        
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-accent) 40%, transparent); }
+            70% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--primary-accent) 0%, transparent); }
+            100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-accent) 0%, transparent); }
+        }
+
+        .secondary-action-button { background-color: var(--secondary-accent); color: white; }
+        .dark-mode .secondary-action-button { color: var(--text-primary); }
+        .secondary-action-button:hover:not(:disabled) { background-color: var(--secondary-accent-darker); }
+        
+        .tertiary-action-button { background-color: var(--skip-button-color); color: white; }
+        .tertiary-action-button:hover:not(:disabled) { background-color: var(--skip-button-hover-color); }
+
+        .danger-action-button { background-color: var(--danger-color); color: white; }
+        .danger-action-button:hover:not(:disabled) { background-color: color-mix(in srgb, var(--danger-color) 80%, black); }
+        
+        .final-cta-button { 
+             background-color: var(--secondary-accent); color: white; 
+             font-weight: 700; font-size: 1rem; padding: 0.9rem 1.5rem;
+        }
+        .dark-mode .final-cta-button { color: var(--text-primary); }
+        .final-cta-button:hover { background-color: var(--secondary-accent-darker); }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+        }
+        .whatsapp-button:hover {
+             background-color: #128C7E;
+        }
+        
+        .floating-whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 90;
+        }
+        
+        /* Spinner for Button */
+        .spinner {
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Nudge Arrow */
+        .nudge-arrow {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -3.5rem; /* Adjust based on header size */
+            animation: bounce 2s infinite;
+            transition: opacity 0.5s ease;
+        }
+        .nudge-arrow.hidden {
+            opacity: 0;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+
+        /* Pension Calculator Specific Styles */
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile first: single column */
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            background-color: var(--bg-secondary);
+        }
+        /* Tablet layout */
+        @media (min-width: 768px) {
+            .service-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* Desktop layout */
+        @media (min-width: 1024px) {
+            .service-row {
+                grid-template-columns: repeat(4, 1fr) auto;
+                align-items: end;
+            }
+        }
+
+        .remove-service-btn {
+            background-color: var(--danger-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            height: 38px;
+            width: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: auto; /* Aligns button to the right in single column layout */
+        }
+        @media (min-width: 1024px) {
+             .remove-service-btn { margin-left: 0; }
+        }
+
+        .pension-results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .pension-results-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        /* New Result Card Style */
+        .pension-result-card {
+            border-radius: 0.75rem;
+            padding: 1rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 250px; /* Ensure cards have same height */
+        }
+         @media (min-width: 640px) {
+            .pension-result-card { padding: 1.5rem; }
+        }
+
+        .pension-result-card.full-pension {
+            background-color: var(--success-color);
+        }
+        .pension-result-card.reduced-pension {
+            background-color: var(--secondary-accent);
+        }
+
+        .pension-result-card h3 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            opacity: 0.9;
+            text-align: center;
+        }
+        .pension-result-card .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .pension-result-card .amount {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+        }
+        .pension-result-card .label {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            opacity: 0.9;
+        }
+        .pension-result-card .feels-like {
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+        .pension-result-card .feels-like-amount {
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-style: normal;
+        }
+        
+        .projection-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+        .projection-card {
+            background-color: var(--bg-accent);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .pension-disclaimer {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--danger-color-light);
+            border: 1px solid var(--danger-color);
+            color: var(--danger-color);
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .dark-mode .pension-disclaimer { color: var(--danger-color); }
+
+
+        /* Theme Toggle Switch */
+        .theme-switch-wrapper { display: flex; align-items: center; position: fixed; top: 1rem; right: 1rem; z-index: 101; background-color: var(--bg-bento-box); padding: 0.5rem 0.75rem; border-radius: 999px; box-shadow: var(--shadow-medium); border: 1px solid var(--border-color); }
+        .theme-switch { position: relative; display: inline-block; width: 40px; height: 20px; } 
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+        .dark-mode .slider { background-color: var(--primary-accent); }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider:before { transform: translateX(20px); } 
+        #themeToggleLabel { color: var(--text-secondary); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.025em;}
+
+    </style>
+</head>
+\1
+    <!-- Navigation back to hub -->
+    <div class="fixed top-4 left-4 z-50">
+        <a href="./index.html" class="flex items-center px-4 py-2 bg-[var(--primary-accent)] text-white rounded-lg shadow-lg hover:bg-opacity-90 transition-all duration-200 text-sm font-medium">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            Back to Hub
+        </a>
+    </div>
+    
+
+    <!-- Theme Toggle -->
+    <div class="theme-switch-wrapper">
+        <span class="mr-2 text-xs" id="themeToggleLabel">LIGHT</span>
+        <label class="theme-switch" for="themeToggleCheckbox">
+            <input type="checkbox" id="themeToggleCheckbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+
+    <div class="w-full max-w-6xl mx-auto my-8">
+        <header class="mb-10 md:mb-14 text-center relative">
+            <h1 class="page-title text-4xl sm:text-5xl md:text-6xl mb-3">
+                T&T Public Service Pension Calculator
+            </h1>
+            <h2 class="page-subtitle text-xl sm:text-2xl md:text-3xl">
+                Estimate Your Gratuity and Pension with Confidence.
+            </h2>
+            <div id="nudgeArrow" class="nudge-arrow">
+                 <svg class="w-8 h-8 text-[var(--secondary-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+        </header>
+
+        <!-- Public Service Pension Calculator -->
+        <div id="pensionCalculatorForm">
+            <div class="bento-grid-container">
+                 <section class="bento-box md:col-span-2 lg:col-span-3">
+                     <h2 class="bento-section-title text-xl md:text-2xl"><span class="bento-step-indicator">1</span>Retirement Details</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         <div>
+                             <label for="pensionDob" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Date of Birth</label>
+                             <input type="date" id="pensionDob" name="pensionDob" class="mt-1 block w-full">
+                         </div>
+                         <div>
+                             <label for="pensionRetirementAge" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Planned Retirement Age</label>
+                             <input type="number" id="pensionRetirementAge" name="pensionRetirementAge" placeholder="e.g., 60" class="mt-1 block w-full">
+                         </div>
+                         <div class="md:col-span-2 flex items-center space-x-3 mt-2">
+                             <input type="checkbox" id="isIllHealth" name="isIllHealth" class="mt-0">
+                             <label for="isIllHealth" class="block text-sm font-medium text-[var(--text-secondary)]">
+                                Tick this box if retiring on grounds of ill health.
+                             </label>
+                         </div>
+                     </div>
+                     <div id="liveRetirementScenario" class="mt-4 text-center font-semibold text-lg min-h-[1.5em]"></div>
+                 </section>
+
+                 <section class="bento-box md:col-span-2 lg:col-span-3">
+                    <h2 class="bento-section-title text-xl md:text-2xl"><span class="bento-step-indicator">2</span>Service & Salary History</h2>
+                    <p class="text-sm text-[var(--text-secondary)] dark:text-slate-300 -mt-3 mb-4">Enter your service from first to latest. For promotions, add a new period. For your current position, leave the 'End Date' blank.</p>
+                    <div id="serviceHistoryContainer">
+                        <!-- Service rows will be dynamically inserted here -->
+                    </div>
+                    <div class="mt-4 flex flex-col sm:flex-row gap-4">
+                        <button id="addServiceRow" class="secondary-action-button button-base text-sm py-2 px-4 flex-grow">Add Service Period</button>
+                        <button id="showProjectionBtn" class="secondary-action-button button-base text-sm py-2 px-4 flex-grow bg-emerald-600 hover:bg-emerald-700">Estimate Future Income</button>
+                        <button id="skipToDeductionsMainBtn" class="tertiary-action-button button-base text-sm py-2 px-4 flex-grow">Skip to Deductions</button>
+                    </div>
+                 </section>
+
+                 <section id="projectionBentoBox" class="bento-box md:col-span-2 lg:col-span-3 hidden">
+                     <h2 class="bento-section-title text-xl md:text-2xl"><span class="bento-step-indicator">2A</span>Future Income Projection</h2>
+                     <div id="projectionInfoText" class="text-sm text-[var(--text-secondary)] dark:text-slate-300 mb-4"></div>
+                     <div class="flex items-center space-x-3 mb-4">
+                        <input type="checkbox" id="enableProjection" name="enableProjection" class="mt-0">
+                        <label for="enableProjection" class="block text-sm font-medium text-[var(--text-secondary)]">
+                            Enable salary projection until retirement.
+                        </label>
+                     </div>
+                     <div id="projectionDetails" class="hidden">
+                         <h3 class="font-semibold text-lg text-[var(--text-primary)] mb-3">Projected Yearly Salary</h3>
+                        <div id="projectionBreakdownContainer" class="projection-breakdown-grid mb-6">
+                            <!-- Projection cards will be injected here -->
+                        </div>
+                        <div class="p-4 bg-[var(--success-color-light)] rounded-lg text-center">
+                            <p class="text-sm font-medium text-[var(--text-secondary)]">Final Projected Monthly Salary at Retirement</p>
+                            <p id="finalProjectedSalary" class="text-2xl font-bold text-[var(--success-color)] mt-1"></p>
+                        </div>
+                        <div class="mt-4 flex justify-end">
+                            <button id="skipToDeductionsBtn" class="tertiary-action-button button-base text-sm py-2 px-4">Next: Go to Deductions</button>
+                        </div>
+                     </div>
+                 </section>
+
+                 <section id="deductionsSection" class="bento-box md:col-span-2 lg:col-span-3">
+                    <div class="flex justify-between items-center mb-4">
+                       <h2 class="bento-section-title text-xl md:text-2xl mb-0"><span class="bento-step-indicator">3</span>Deductions</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                             <label for="noPayLeave" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                                Total No-Pay Leave (in days)
+                                <div class="tooltip inline-block">
+                                    <span class="info-icon">?</span>
+                                    <span class="tooltiptext">Enter the total number of days taken as no-pay leave across your entire service. This is not counted as pensionable service.</span>
+                                </div>
+                             </label>
+                             <input type="number" id="noPayLeave" name="noPayLeave" placeholder="e.g., 30" class="mt-1 block w-full">
+                         </div>
+                         <div>
+                             <label for="priorGratuity" class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                                Prior Gratuity Received
+                                 <div class="tooltip inline-block">
+                                    <span class="info-icon">?</span>
+                                    <span class="tooltiptext">If you resigned and were re-employed, enter any gratuity amount you received for the previous service period.</span>
+                                </div>
+                             </label>
+                             <input type="number" id="priorGratuity" name="priorGratuity" placeholder="TTD" class="mt-1 block w-full">
+                         </div>
+                    </div>
+                 </section>
+                
+                 <div class="md:col-span-2 lg:col-span-3">
+                    <button id="calculatePensionButton" class="w-full main-calc-button button-base text-white py-3 px-4 mt-4">
+                        <span id="buttonText">Estimate My Pension & Gratuity</span>
+                        <div id="buttonSpinner" class="spinner hidden"></div>
+                    </button>
+                 </div>
+                
+                 <section id="pensionResultsSection" class="bento-box md:col-span-2 lg:col-span-3 hidden">
+                     <h2 class="bento-section-title text-xl md:text-2xl"><span class="bento-step-indicator">4</span>Your Estimated Retirement Benefits</h2>
+                     <div id="pensionEligibilityResult" class="mb-6"></div>
+                     <div id="pensionCalculationResult" class="hidden">
+                        <div class="pension-results-grid">
+                            <!-- Full Pension Card -->
+                            <div class="pension-result-card full-pension">
+                                <h3>Option A: Full Pension</h3>
+                                <div class="card-content">
+                                    <p class="label">Monthly Pension</p>
+                                    <p class="amount" id="resFullPensionMonthly"></p>
+                                    <p class="feels-like" id="resFullPensionFeelsLike"></p>
+                                </div>
+                            </div>
+                            <!-- Reduced Pension & Gratuity Card -->
+                            <div class="pension-result-card reduced-pension">
+                                <h3>Option B: Reduced Pension & Gratuity</h3>
+                                 <div class="card-content">
+                                    <p class="label">Lump-Sum Gratuity</p>
+                                    <p class="amount" id="resReducedPensionGratuity"></p>
+                                    <p class="label mt-4">Monthly Pension</p>
+                                    <p class="amount" id="resReducedPensionMonthly"></p>
+                                    <p class="feels-like" id="resReducedPensionFeelsLike"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cta-button-container" class="mt-6 text-center"></div>
+                        <div class="pension-disclaimer">
+                            <p><strong>Important Disclaimer:</strong> This calculation is an unofficial estimate based on the data you provided and the rules outlined in the Pensions Act. Your final benefits will be determined by the Pensions Management Branch, Treasury Division, after verification of your official records. All pension income is subject to income tax.</p>
+                        </div>
+                    </div>
+                 </section>
+
+                 <section id="main-cta" class="bento-box md:col-span-2 lg:col-span-3 cta-bento-box">
+                    <div class="container mx-auto px-4 py-6 text-center md:flex md:items-center md:gap-8 md:text-left">
+                        <img src="https://raw.githubusercontent.com/Kelsean868/paye-annuity-calculator-tt/refs/heads/main/contact%20photo.jpeg" alt="Pension Expert" class="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto md:mx-0 border-4 border-white shadow-lg mb-4 md:mb-0" onerror="this.onerror=null;this.src='https://placehold.co/120x120/ffffff/ae8625?text=Expert';">
+                        <div class="flex-grow">
+                             <h2 class="text-xl md:text-2xl font-bold mb-2">Feeling like it won't be enough? Lets secure your Retirement</h2>
+                             <p class="text-sm md:text-base mb-6 max-w-md mx-auto md:mx-0">
+                                A planned future is a peaceful future. Our T&T pension specialists offer a <strong class="font-semibold">FREE consultation</strong> to tailor a strategy for your goals.
+                             </p>
+                             <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                                <button id="openQuoteModalBtn" class="final-cta-button button-base py-2.5 px-6 text-base">
+                                    Book Consultation
+                                </button>
+                                 <button id="openWhatsAppBtn" class="whatsapp-button button-base py-2.5 px-6 text-base">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                                    <span>Chat on WhatsApp</span>
+                                </button>
+                             </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <button id="floatingWhatsAppBtn" class="floating-whatsapp-btn whatsapp-button button-base p-4 rounded-full shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </button>
+
+    <!-- Modals -->
+    <div id="alertModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('alertModal')">&times;</span>
+        <p id="alertModalMessage" class="text-[var(--text-primary)] text-lg"></p>
+        <button onclick="closeModal('alertModal')" class="mt-6 button-base bg-[var(--primary-accent)] hover:bg-[var(--primary-accent-darker)] text-white font-semibold py-2.5 px-6">OK</button>
+      </div>
+    </div>
+    
+    <div id="confirmDeleteModal" class="modal">
+      <div class="modal-content">
+        <h3 class="text-xl font-semibold text-[var(--text-primary)] mb-4">Confirm Deletion</h3>
+        <p id="confirmDeleteMessage" class="text-[var(--text-secondary)] mb-6">Are you sure you want to remove this service period?</p>
+        <div class="flex justify-end gap-4">
+            <button id="cancelDeleteBtn" class="button-base secondary-action-button py-2 px-5">Cancel</button>
+            <button id="confirmDeleteBtn" class="button-base danger-action-button py-2 px-5">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="quoteRequestModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('quoteRequestModal')">&times;</span>
+        <h3 class="text-xl md:text-2xl font-semibold mb-4 text-[var(--primary-accent)]">Your Free Personalized Consultation</h3>
+        <p class="text-[var(--text-secondary)] text-sm mb-6">Provide your details, and a pension specialist will contact you via WhatsApp to answer your questions – no strings attached!</p>
+        <form id="quoteRequestForm" class="space-y-5">
+            <div>
+                <label for="userName" class="block text-xs font-medium text-[var(--text-secondary)] mb-1">Full Name</label>
+                <input type="text" id="userName" name="userName" required class="mt-1 block w-full">
+            </div>
+            <div>
+                <label for="whatsappNumber" class="block text-xs font-medium text-[var(--text-secondary)] mb-1">WhatsApp Number</label>
+                <input type="tel" id="whatsappNumber" name="whatsappNumber" required placeholder="e.g., 18681234567" class="mt-1 block w-full">
+            </div>
+            <div id="quoteFormError" class="text-[var(--danger-color)] text-xs text-left hidden min-h-[1em]"></div>
+            <button type="submit" class="w-full secondary-action-button button-base text-sm py-3 px-4">
+                Send My Request
+            </button>
+        </form>
+      </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- THEME TOGGLE LOGIC ---
+        const themeToggle = document.getElementById('themeToggleCheckbox');
+        const body = document.body;
+        const themeToggleLabel = document.getElementById('themeToggleLabel');
+        
+        function applyTheme(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                if(themeToggleLabel) themeToggleLabel.textContent = 'DARK';
+            } else {
+                body.classList.remove('dark-mode');
+                if(themeToggleLabel) themeToggleLabel.textContent = 'LIGHT';
+            }
+        }
+        
+        themeToggle.addEventListener('change', function() {
+            applyTheme(this.checked);
+            localStorage.setItem('theme', this.checked ? 'dark' : 'light');
+        });
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            const isDark = savedTheme === 'dark';
+            applyTheme(isDark);
+            themeToggle.checked = isDark;
+        } else {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(prefersDark);
+            themeToggle.checked = prefersDark;
+        }
+
+        // --- NUDGE ARROW LOGIC ---
+        const nudgeArrow = document.getElementById('nudgeArrow');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nudgeArrow.classList.add('hidden');
+            } else {
+                nudgeArrow.classList.remove('hidden');
+            }
+        }, { passive: true });
+
+        // --- MODAL & ALERT LOGIC ---
+        window.showAlert = function(message) {
+            const alertModal = document.getElementById('alertModal');
+            const alertModalMessage = document.getElementById('alertModalMessage');
+            if(alertModal && alertModalMessage) {
+                alertModalMessage.textContent = message;
+                alertModal.style.display = "flex"; 
+            }
+        }
+
+        window.closeModal = function(modalId) {
+            const modalToClose = document.getElementById(modalId);
+            if (modalToClose) modalToClose.style.display = "none";
+        }
+        
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        });
+
+        const confirmDeleteModal = document.getElementById('confirmDeleteModal');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+        let rowToDelete = null;
+
+        window.confirmDeleteServiceRow = function(rowId) {
+            rowToDelete = document.getElementById(rowId);
+            confirmDeleteModal.style.display = 'flex';
+        }
+
+        cancelDeleteBtn.addEventListener('click', () => {
+            closeModal('confirmDeleteModal');
+            rowToDelete = null;
+        });
+        
+        confirmDeleteBtn.addEventListener('click', () => {
+            if(rowToDelete) {
+                rowToDelete.remove();
+                handleInputChange();
+            }
+            closeModal('confirmDeleteModal');
+            rowToDelete = null;
+        });
+        
+        // --- CTA MODAL LOGIC ---
+        const openQuoteModalBtn = document.getElementById('openQuoteModalBtn');
+        const openWhatsAppBtn = document.getElementById('openWhatsAppBtn');
+        const floatingWhatsAppBtn = document.getElementById('floatingWhatsAppBtn');
+        const quoteRequestModal = document.getElementById('quoteRequestModal');
+        const quoteRequestForm = document.getElementById('quoteRequestForm');
+        
+        function handleWhatsAppClick(message) {
+            const phoneNumber = '18683278273';
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        openQuoteModalBtn.addEventListener('click', () => quoteRequestModal.style.display = 'flex');
+        openWhatsAppBtn.addEventListener('click', () => handleWhatsAppClick("Hello Kyron, I've used the Pension Calculator and would like to discuss my retirement plan."));
+        floatingWhatsAppBtn.addEventListener('click', () => handleWhatsAppClick("Hello Kyron, I'd like to discuss my financial plan."));
+
+
+        quoteRequestForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userNameInput = document.getElementById('userName');
+            const whatsappNumberInput = document.getElementById('whatsappNumber');
+            const errorEl = document.getElementById('quoteFormError');
+            
+            errorEl.classList.add('hidden');
+            if (!userNameInput.value.trim()) {
+                errorEl.textContent = 'Please enter your name.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            if (!/^\+?[0-9\s()-]{7,}$/.test(whatsappNumberInput.value)) {
+                errorEl.textContent = 'Please enter a valid WhatsApp number (e.g. 1868xxxxxxx).';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            
+            console.log('Quote request:', {name: userNameInput.value, whatsapp: whatsappNumberInput.value});
+            closeModal('quoteRequestModal');
+            showAlert(`Thank you, ${userNameInput.value}! A specialist will contact you on WhatsApp shortly.`);
+            quoteRequestForm.reset();
+        });
+
+        
+        // --- PENSION CALCULATOR LOGIC ---
+        const serviceHistoryContainer = document.getElementById('serviceHistoryContainer');
+        const addServiceRowBtn = document.getElementById('addServiceRow');
+        const formatCurrency = (val) => `TTD ${val.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        let serviceRowCount = 0;
+
+        function addServiceRow() {
+            serviceRowCount++;
+            const { latestEndDate } = getLatestServiceInfo();
+            const newStartDate = latestEndDate ? new Date(latestEndDate.getTime() + 86400000).toISOString().split('T')[0] : '';
+            
+            const row = document.createElement('div');
+            row.className = 'service-row';
+            row.id = `serviceRow_${serviceRowCount}`;
+            row.innerHTML = `
+                <div class="lg:col-span-1">
+                    <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1">Start Date</label>
+                    <input type="date" name="startDate" value="${newStartDate}" class="mt-1 block w-full text-sm">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1">
+                        End Date 
+                        <div class="tooltip inline-block">
+                           <span class="info-icon">?</span>
+                           <span class="tooltiptext">Leave blank if this is your current position.</span>
+                        </div>
+                    </label>
+                    <input type="date" name="endDate" class="mt-1 block w-full text-sm">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1">
+                        Final/Current Monthly Base Salary
+                    </label>
+                    <input type="number" name="salary" placeholder="TTD" class="mt-1 block w-full text-sm">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1">
+                        Pensionable Allowances
+                        <div class="tooltip inline-block">
+                            <span class="info-icon">?</span>
+                            <span class="tooltiptext">Includes: House Allowance, Personal Allowance (if pensionable), and Inducement Allowance.</span>
+                        </div>
+                    </label>
+                    <input type="number" name="allowances" placeholder="TTD" class="mt-1 block w-full text-sm">
+                </div>
+                <div class="lg:col-span-1">
+                    <button type="button" class="remove-service-btn" onclick="confirmDeleteServiceRow('serviceRow_${serviceRowCount}')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/></svg>
+                    </button>
+                </div>
+            `;
+            serviceHistoryContainer.appendChild(row);
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        addServiceRowBtn.addEventListener('click', addServiceRow);
+        addServiceRow(); // Add the first row initially
+
+        // --- LIVE SCENARIO FEEDBACK ---
+        const pensionDobInput = document.getElementById('pensionDob');
+        const pensionRetirementAgeInput = document.getElementById('pensionRetirementAge');
+        const liveScenarioDisplay = document.getElementById('liveRetirementScenario');
+        const isIllHealthCheckbox = document.getElementById('isIllHealth');
+
+        function updateLiveScenario() {
+            const dobValue = pensionDobInput.value;
+            const retirementAgeValue = parseFloat(pensionRetirementAgeInput.value);
+            
+            if(isIllHealthCheckbox.checked) {
+                liveScenarioDisplay.innerHTML = `<span style="color: var(--primary-accent);">Scenario: Retirement on Grounds of Ill Health</span>`;
+                return;
+            }
+
+            if (!dobValue || !retirementAgeValue) {
+                liveScenarioDisplay.innerHTML = '';
+                return;
+            }
+            
+            let scenarioText = "";
+            let textColor = "var(--text-primary)";
+
+            if (retirementAgeValue >= 60) {
+                scenarioText = `Scenario: Compulsory Retirement`;
+                textColor = "var(--primary-accent)";
+            } else if (retirementAgeValue >= 55) {
+                scenarioText = `Scenario: Voluntary Retirement`;
+                textColor = "var(--success-color)";
+            } else if (retirementAgeValue >= 50) {
+                scenarioText = `Scenario: Special Permission Required`;
+                textColor = "var(--secondary-accent)";
+            } else {
+                scenarioText = `Ineligible to retire at age ${retirementAgeValue}.`;
+                textColor = "var(--danger-color)";
+            }
+
+            liveScenarioDisplay.innerHTML = `<span style="color: ${textColor};">${scenarioText}</span>`;
+        }
+        
+        // --- PROJECTION LOGIC ---
+        const showProjectionBtn = document.getElementById('showProjectionBtn');
+        const projectionBentoBox = document.getElementById('projectionBentoBox');
+        const enableProjectionCheckbox = document.getElementById('enableProjection');
+        const projectionDetailsDiv = document.getElementById('projectionDetails');
+        const projectionInfoText = document.getElementById('projectionInfoText');
+        const skipToDeductionsBtn = document.getElementById('skipToDeductionsBtn');
+        const skipToDeductionsMainBtn = document.getElementById('skipToDeductionsMainBtn');
+
+        function scrollToDeductions() {
+            document.getElementById('deductionsSection').scrollIntoView({ behavior: 'smooth', block: 'center'});
+        }
+
+        if(skipToDeductionsBtn) skipToDeductionsBtn.addEventListener('click', scrollToDeductions);
+        if(skipToDeductionsMainBtn) skipToDeductionsMainBtn.addEventListener('click', scrollToDeductions);
+        
+        showProjectionBtn.addEventListener('click', () => {
+             projectionBentoBox.classList.remove('hidden');
+             runProjection();
+             projectionBentoBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        enableProjectionCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                projectionDetailsDiv.classList.remove('hidden');
+                runProjection();
+            } else {
+                projectionDetailsDiv.classList.add('hidden');
+            }
+        });
+
+        function runProjection() {
+            const breakdownContainer = document.getElementById('projectionBreakdownContainer');
+            const finalSalaryDisplay = document.getElementById('finalProjectedSalary');
+            breakdownContainer.innerHTML = ''; // Clear previous cards
+            
+            const { lastSalary, lastAllowances } = getLatestServiceInfo(true); // Get from current position
+            const dob = new Date(pensionDobInput.value);
+            const retirementAge = parseFloat(pensionRetirementAgeInput.value);
+            
+            let lastCurrentRow = null;
+             document.querySelectorAll('.service-row').forEach(row => {
+                if(!row.querySelector('[name=endDate]').value) lastCurrentRow = row;
+             });
+
+            if (!dob.valueOf() || !retirementAge || !lastCurrentRow || (lastSalary + lastAllowances) <= 0) {
+                 finalSalaryDisplay.textContent = 'N/A';
+                 projectionInfoText.innerHTML = "No current position found or salary entered. Please fill out your latest service period and leave the 'End Date' blank.";
+                 breakdownContainer.innerHTML = `<div class="col-span-full text-center p-4 text-[var(--text-muted)]">Please provide details for projection.</div>`;
+                 return;
+            }
+            
+            const currentSalary = lastSalary + lastAllowances;
+            projectionInfoText.innerHTML = `This projection starts with your current monthly salary of <strong>${formatCurrency(currentSalary)}</strong> and assumes a 3.5% cumulative increase each year. This is an estimate and may be incorrect.`;
+            
+            const retirementDate = new Date(dob.getFullYear() + retirementAge, dob.getMonth(), dob.getDate());
+            
+            let projectedSalary = currentSalary;
+            const projectionStartYear = new Date().getFullYear();
+            const retirementYear = retirementDate.getFullYear();
+
+            for (let year = projectionStartYear; year <= retirementYear; year++) {
+                if (year > projectionStartYear) {
+                    projectedSalary *= 1.035;
+                }
+                const card = document.createElement('div');
+                card.className = 'projection-card';
+                card.innerHTML = `<div class="font-bold">${year}</div><div class="text-sm">${formatCurrency(projectedSalary)}</div>`;
+                breakdownContainer.appendChild(card);
+            }
+            finalSalaryDisplay.textContent = formatCurrency(projectedSalary);
+        }
+
+        function getLatestServiceInfo(forProjection = false) {
+            const serviceRows = document.querySelectorAll('.service-row');
+            let latestEndDate = null;
+            let lastSalary = 0;
+            let lastAllowances = 0;
+
+            if (forProjection) {
+                let lastCurrentRow = null;
+                serviceRows.forEach(row => {
+                   if(!row.querySelector('[name=endDate]').value) lastCurrentRow = row;
+                });
+                if (lastCurrentRow) {
+                    lastSalary = parseFloat(lastCurrentRow.querySelector('[name=salary]').value) || 0;
+                    lastAllowances = parseFloat(lastCurrentRow.querySelector('[name=allowances]').value) || 0;
+                    latestEndDate = new Date();
+                }
+            } else {
+                serviceRows.forEach(row => {
+                    const endDateInput = row.querySelector('[name=endDate]');
+                    if (endDateInput && endDateInput.value) {
+                        const currentEndDate = new Date(endDateInput.value);
+                        if (!latestEndDate || currentEndDate > latestEndDate) {
+                            latestEndDate = currentEndDate;
+                        }
+                    }
+                });
+            }
+            return { latestEndDate, lastSalary, lastAllowances };
+        }
+        
+        // --- BUTTON AND INPUT CHANGE HANDLING ---
+        const calcButton = document.getElementById('calculatePensionButton');
+        const buttonText = document.getElementById('buttonText');
+        const buttonSpinner = document.getElementById('buttonSpinner');
+        const pensionResultsSection = document.getElementById('pensionResultsSection');
+        let isCalculated = false;
+
+        function handleInputChange() {
+            if (isCalculated) {
+                buttonText.textContent = 'Re-calculate';
+                pensionResultsSection.classList.add('hidden');
+                calcButton.classList.remove('bg-green-600');
+            }
+        }
+        
+        const form = document.getElementById('pensionCalculatorForm');
+        form.addEventListener('input', handleInputChange);
+        
+        // --- MAIN CALCULATION ON BUTTON CLICK ---
+        calcButton.addEventListener('click', function() {
+            // Show feedback
+            buttonText.textContent = 'Calculating...';
+            buttonSpinner.classList.remove('hidden');
+            calcButton.disabled = true;
+
+            // Use a short timeout to allow the UI to update before the main calculation logic runs
+            setTimeout(() => {
+                try {
+                    const isIllHealth = document.getElementById('isIllHealth').checked;
+                    const noPayLeaveDays = parseFloat(document.getElementById('noPayLeave').value) || 0;
+                    const priorGratuity = parseFloat(document.getElementById('priorGratuity').value) || 0;
+                    const serviceRows = document.querySelectorAll('.service-row');
+                    const projectionEnabled = enableProjectionCheckbox.checked;
+
+                    if (!pensionDobInput.value || !pensionRetirementAgeInput.value) {
+                        showAlert("Please enter valid Date of Birth and Retirement Age.");
+                        return;
+                    }
+                    const dob = new Date(pensionDobInput.value);
+                    const retirementAge = parseFloat(pensionRetirementAgeInput.value);
+                    const retirementDate = new Date(dob.getFullYear() + retirementAge, dob.getMonth(), dob.getDate());
+
+
+                    if(serviceRows.length === 0 || !serviceRows[0].querySelector('[name=startDate]').value) {
+                        showAlert("Please add at least one service period with valid dates.");
+                        return;
+                    }
+                    
+                    const eligibilityResultEl = document.getElementById('pensionEligibilityResult');
+                    const calculationResultEl = document.getElementById('pensionCalculationResult');
+                    
+                    pensionResultsSection.classList.remove('hidden');
+                    eligibilityResultEl.innerHTML = '';
+                    calculationResultEl.classList.add('hidden');
+                    
+                    // --- Calculate Service & Salary History ---
+                    let totalServiceMonths = 0;
+                    const salaryHistory = [];
+                    
+                    serviceRows.forEach(row => {
+                        const startInput = row.querySelector('[name=startDate]');
+                        const endInput = row.querySelector('[name=endDate]');
+                        const salary = parseFloat(row.querySelector('[name=salary]').value) || 0;
+                        const allowances = parseFloat(row.querySelector('[name=allowances]').value) || 0;
+                        
+                        let effectiveEndDate = endInput.value ? new Date(endInput.value) : retirementDate;
+
+                        if (startInput.value && salary > 0) {
+                            const start = new Date(startInput.value);
+                            if (effectiveEndDate > start) {
+                                let months = (effectiveEndDate.getFullYear() - start.getFullYear()) * 12;
+                                months -= start.getMonth();
+                                months += effectiveEndDate.getMonth();
+                                totalServiceMonths += months;
+                                
+                                for (let i = 0; i < months; i++) {
+                                     let currentMonthDate = new Date(start.getFullYear(), start.getMonth() + i, 1);
+                                     if (currentMonthDate < retirementDate) {
+                                        salaryHistory.push({ emoluments: (salary + allowances) * 12 });
+                                     }
+                                }
+                            }
+                        }
+                    });
+
+                    // Logic for projection is now handled by modifying the salaryHistory array
+                    if (projectionEnabled) {
+                        let lastCurrentRow = null;
+                        document.querySelectorAll('.service-row').forEach(row => {
+                            if (!row.querySelector('[name=endDate]').value) lastCurrentRow = row;
+                        });
+
+                        if (lastCurrentRow) {
+                            const currentSalary = parseFloat(lastCurrentRow.querySelector('[name=salary]').value) || 0;
+                            const currentAllowances = parseFloat(lastCurrentRow.querySelector('[name=allowances]').value) || 0;
+                            
+                            let projectedSalary = currentSalary + currentAllowances;
+                            let currentYear = new Date().getFullYear();
+
+                            for(let d = new Date(); d < retirementDate; d.setMonth(d.getMonth() + 1)) {
+                                if (d.getFullYear() > currentYear) {
+                                    projectedSalary *= 1.035;
+                                    currentYear = d.getFullYear();
+                                }
+                                salaryHistory.push({ emoluments: projectedSalary * 12});
+                            }
+                        }
+                    }
+
+
+                    totalServiceMonths -= Math.floor(noPayLeaveDays / 30);
+                    let serviceYears = totalServiceMonths / 12;
+
+                    // --- Eligibility Checks ---
+                    let isEligible = false;
+                    let eligibilityMessage = "";
+                    let determinedScenario = "";
+
+                    if (isIllHealth) {
+                        determinedScenario = 'illHealth';
+                    } else if (retirementAge >= 60) {
+                        determinedScenario = 'compulsory';
+                    } else if (retirementAge >= 55) {
+                        determinedScenario = 'voluntary';
+                    } else if (retirementAge >= 50) {
+                        determinedScenario = 'special';
+                    }
+
+                    if (serviceYears < 10) {
+                        eligibilityMessage = `<div class="pension-disclaimer">You are not eligible for a pension as you have less than 10 years of pensionable service (Estimated: ${serviceYears.toFixed(2)} years).</div>`;
+                    } else if (!determinedScenario) {
+                         eligibilityMessage = `<div class="pension-disclaimer">You are not eligible to retire at age ${retirementAge.toFixed(1)}. You must be at least 50 years old (unless retiring on grounds of ill health).</div>`;
+                    } else {
+                        isEligible = true;
+
+                        if (determinedScenario === 'illHealth' && serviceYears < 20) {
+                           const serviceCreditYears = Math.min(20, serviceYears + (60 - retirementAge)) - serviceYears;
+                           totalServiceMonths += serviceCreditYears * 12;
+                           serviceYears = totalServiceMonths / 12;
+                        }
+                        
+                        let scenarioText = "";
+                        switch(determinedScenario) {
+                            case 'compulsory': scenarioText = 'Compulsory Retirement (Age 60+)'; break;
+                            case 'voluntary': scenarioText = 'Voluntary Retirement (Age 55-59)'; break;
+                            case 'special': scenarioText = 'Retirement with Special Permission (Age 50-54)'; break;
+                            case 'illHealth': scenarioText = 'Retirement on Grounds of Ill Health'; break;
+                        }
+                        eligibilityMessage = `
+                            <p class="text-sm text-center text-[var(--text-secondary)] mb-2">Retirement Scenario Determined:</p>
+                            <p class="text-center font-bold text-lg text-[var(--primary-accent)] mb-4">${scenarioText}</p>
+                            <div class="p-4 bg-[var(--success-color-light)] border border-[var(--success-color)] text-[var(--success-color)] rounded-md font-semibold">
+                                You appear to be eligible based on the data provided. See your estimated benefits below.
+                            </div>`;
+                    }
+
+                    eligibilityResultEl.innerHTML = eligibilityMessage;
+                    if (!isEligible) return;
+                    
+                    calculationResultEl.classList.remove('hidden');
+                    isCalculated = true; // Mark that a calculation has been done
+
+                    // --- Calculate Pensionable Emoluments with Averaging ---
+                    let finalPensionableEmoluments = 0;
+                    const historyForAvg = salaryHistory.slice(-36);
+                    
+                    if(historyForAvg.length > 0) {
+                        const sumOfEmoluments = historyForAvg.reduce((acc, curr) => acc + curr.emoluments, 0);
+                        finalPensionableEmoluments = sumOfEmoluments / historyForAvg.length;
+                    } else {
+                         showAlert("Could not determine final salary. Please check your service history entries.");
+                         return;
+                    }
+                    
+                    const cappedServiceMonths = Math.min(totalServiceMonths, 400);
+
+                    // --- Core Pension Calculation ---
+                    let annualFullPension = (cappedServiceMonths / 600) * finalPensionableEmoluments;
+                    const maxPension = (2 / 3) * finalPensionableEmoluments;
+                    annualFullPension = Math.min(annualFullPension, maxPension);
+                    
+                    const MINIMUM_PENSION_ANNUAL = 3500 * 12;
+                    annualFullPension = Math.max(annualFullPension, MINIMUM_PENSION_ANNUAL);
+
+                    const gratuity = (1 / 4) * annualFullPension * 12.5;
+                    const annualReducedPension = (3 / 4) * annualFullPension;
+                    const fullMonthlyPension = annualFullPension / 12;
+                    const reducedMonthlyPension = annualReducedPension / 12;
+                    
+                    // --- Inflation Adjustment ---
+                    const yearsToRetirement = retirementDate.getFullYear() - new Date().getFullYear();
+                    const inflationFactor = Math.pow(1.025, yearsToRetirement > 0 ? yearsToRetirement : 0);
+                    const feelsLikeFull = fullMonthlyPension / inflationFactor;
+                    const feelsLikeReduced = reducedMonthlyPension / inflationFactor;
+
+
+                    // --- Display Results ---
+                    document.getElementById('resFullPensionMonthly').textContent = formatCurrency(fullMonthlyPension);
+                    document.getElementById('resFullPensionFeelsLike').innerHTML = `Feels like <span class="feels-like-amount">${formatCurrency(feelsLikeFull)}</span> in today's money at age ${Math.floor(retirementAge)}`;
+                    document.getElementById('resReducedPensionGratuity').textContent = formatCurrency(Math.max(0, gratuity - priorGratuity));
+                    document.getElementById('resReducedPensionMonthly').textContent = formatCurrency(reducedMonthlyPension);
+                    document.getElementById('resReducedPensionFeelsLike').innerHTML = `Feels like <span class="feels-like-amount">${formatCurrency(feelsLikeReduced)}</span> in today's money at age ${Math.floor(retirementAge)}`;
+
+                    // Build and add the new CTA button
+                    const buildIncomeBtn = document.createElement('button');
+                    buildIncomeBtn.id = 'buildIncomeBtn';
+                    buildIncomeBtn.className = 'whatsapp-button button-base py-3 px-6 text-base w-full md:w-auto inline-flex items-center justify-center';
+                    buildIncomeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="mr-3 flex-shrink-0"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                                <span class="text-left leading-tight">Figures feel like not enough?<br>Click to build your retirement income.</span>`;
+                    buildIncomeBtn.addEventListener('click', () => {
+                         const phoneNumber = '18683278273'; 
+                         const message = encodeURIComponent(`Hi! I've used the T&T Public Service Pension Calculator and my estimated results are:\n\nOption A (Full Pension): ${formatCurrency(fullMonthlyPension)}/month\nOption B (Reduced Pension): ${formatCurrency(reducedMonthlyPension)}/month with Gratuity of ${formatCurrency(Math.max(0, gratuity - priorGratuity))}\n\nI'd like to learn more about how I can build my retirement income. Please let me know the next steps.`);
+                         window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                    });
+                    const ctaContainer = document.getElementById('cta-button-container');
+                    ctaContainer.innerHTML = ''; // Clear previous button if any
+                    ctaContainer.appendChild(buildIncomeBtn);
+
+
+                    buttonText.textContent = 'Calculation Complete';
+                    calcButton.classList.add('bg-green-600');
+                    pensionResultsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                } finally {
+                    // This block runs whether there was an error or not
+                    setTimeout(() => {
+                        buttonText.textContent = isCalculated ? 'Re-calculate' : 'Estimate My Pension & Gratuity';
+                         if(!isCalculated) calcButton.classList.remove('bg-green-600');
+                        buttonSpinner.classList.add('hidden');
+                        calcButton.disabled = false;
+                    }, 1500);
+                }
+            }, 500); // 500ms delay
+        });
+        
+        // Add listeners to date inputs to check for projection box visibility
+        [pensionDobInput, pensionRetirementAgeInput, isIllHealthCheckbox].forEach(el => {
+            el.addEventListener('input', () => {
+                updateLiveScenario();
+            });
+        });
+
+    });
+    </script>
+</body>
+</html>
